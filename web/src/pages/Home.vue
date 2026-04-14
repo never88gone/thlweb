@@ -2,20 +2,22 @@
   <div class="home-page">
     <header class="hero-section">
       <div class="badge fade-in-up" style="animation-delay: 0.1s">官方应用门户</div>
-      <h1 class="hero-title fade-in-up" style="animation-delay: 0.2s">
-        体验全栈式的<br/><span class="text-glow">极致效率工具.</span>
-      </h1>
-      <p class="hero-subtitle fade-in-up" style="animation-delay: 0.3s">
-        欢迎探索我们精心打造的旗舰级应用系列。涵盖前行卓越的浏览器内核、跨屏无界投屏工具、
-        高端影视系统以及专业的 PDF 处理方案。
-      </p>
+      <div class="hero-text text-center">
+        <h1 class="display-title fade-in-up">
+          探索客厅中心的 <br/> <span class="gradient-text">无限可能.</span>
+        </h1>
+        <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s">
+          欢迎探索我们精心打造的旗舰级 TV 应用系列。涵盖卓越的浏览器网络交互、全无损跨界串流、
+          现代流媒体聚合以及跨端极简阅读方案。
+        </p>
+      </div>
     </header>
 
     <section class="products-grid">
       <!-- Browser App -->
-      <router-link to="/app/hsb-browser" class="glass-card product-card fade-in-up" style="animation-delay: 0.4s">
+      <router-link to="/app/thl-browser" class="glass-card product-card fade-in-up" style="animation-delay: 0.4s">
         <div class="card-image bg-gradient-blue">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hero-icon"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+          <img src="../assets/thlbrowser.png" alt="糖葫芦浏览器" class="hero-image" />
         </div>
         <div class="card-content">
           <h3 class="display-text">糖葫芦浏览器</h3>
@@ -25,9 +27,9 @@
       </router-link>
 
       <!-- Screen App -->
-      <router-link to="/app/hsb-screen" class="glass-card product-card fade-in-up" style="animation-delay: 0.5s">
+      <router-link to="/app/thl-screen" class="glass-card product-card fade-in-up" style="animation-delay: 0.5s">
         <div class="card-image bg-gradient-purple">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hero-icon"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <img src="../assets/thlairplay.png" alt="糖葫芦投屏" class="hero-image" />
         </div>
         <div class="card-content">
           <h3 class="display-text">糖葫芦投屏</h3>
@@ -37,9 +39,9 @@
       </router-link>
 
       <!-- TV App -->
-      <router-link to="/app/hsb-tv" class="glass-card product-card fade-in-up" style="animation-delay: 0.6s">
+      <router-link to="/app/thl-tv" class="glass-card product-card fade-in-up" style="animation-delay: 0.6s">
         <div class="card-image bg-gradient-orange">
-           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hero-icon"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+          <img src="../assets/thltv.jpg" alt="糖葫芦TV" class="hero-image" />
         </div>
         <div class="card-content">
           <h3 class="display-text">糖葫芦TV</h3>
@@ -49,9 +51,9 @@
       </router-link>
 
       <!-- PDF App -->
-      <router-link to="/app/hsb-pdf" class="glass-card product-card fade-in-up" style="animation-delay: 0.7s">
+      <router-link to="/app/thl-pdf" class="glass-card product-card fade-in-up" style="animation-delay: 0.7s">
         <div class="card-image bg-gradient-green">
-           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hero-icon"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          <img src="../assets/thlpdf.jpg" alt="糖葫芦PDF" class="hero-image" />
         </div>
         <div class="card-content">
           <h3 class="display-text">糖葫芦PDF</h3>
@@ -139,16 +141,19 @@
   background: linear-gradient(to bottom, transparent, var(--card-bg));
 }
 
-.hero-icon {
-  width: 80px;
-  height: 80px;
-  color: rgba(255, 255, 255, 0.9);
+.hero-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 26px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   z-index: 1;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
 }
 
-.product-card:hover .hero-icon {
-  transform: scale(1.1) rotate(5deg);
+.product-card:hover .hero-image {
+  transform: scale(1.1) translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .bg-gradient-blue { background: radial-gradient(circle at 50% 50%, #1e3a8a 0%, #0f172a 100%); }

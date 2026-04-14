@@ -42,6 +42,12 @@
         </div>
       </section>
       
+      <!-- 各个应用的帮助文档按需挂载 -->
+      <BrowserReadme v-if="$route.params.appid === 'thl-browser'" class="fade-in-up" style="animation-delay: 0.3s" />
+      <ScreenReadme v-if="$route.params.appid === 'thl-screen'" class="fade-in-up" style="animation-delay: 0.3s" />
+      <TvReadme v-if="$route.params.appid === 'thl-tv'" class="fade-in-up" style="animation-delay: 0.3s" />
+      <PdfReadme v-if="$route.params.appid === 'thl-pdf'" class="fade-in-up" style="animation-delay: 0.3s" />
+
     </div>
   </div>
 </template>
@@ -49,6 +55,10 @@
 <script setup>
 import { ref, onMounted, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import BrowserReadme from '../components/BrowserReadme.vue'
+import ScreenReadme from '../components/ScreenReadme.vue'
+import TvReadme from '../components/TvReadme.vue'
+import PdfReadme from '../components/PdfReadme.vue'
 
 const route = useRoute()
 
@@ -65,7 +75,7 @@ const ICON_DB = "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s
 
 // 包含具体特性的 App 级元数据配置
 const APP_META = {
-  'hsb-browser': {
+  'thl-browser': {
     name: '糖葫芦浏览器',
     desc: '极速、私密的下一代网络引擎。我们在保障最大化媒体兼容性的同时，提供了极其丰富的控制交互逻辑层。',
     github: 'https://github.com/never88gone/HSBTVBrowser',
@@ -76,7 +86,7 @@ const APP_META = {
       { title: '极简专注主屏', detail: '采用低干扰待机时钟界面保障资源；双击唤醒高能主页，足迹与收藏无缝串联。', iconPath: ICON_DB }
     ]
   },
-  'hsb-screen': {
+  'thl-screen': {
     name: '糖葫芦投屏',
     desc: '一款打破屏幕尺寸界限的强悍无线投屏工具。无论您身处何处，皆可通过极低延迟的数据传递技术，让手持设备的影像跃然于大屏之上。',
     github: 'https://github.com/never88gone/HSBTVGithubAppStore',
@@ -86,7 +96,7 @@ const APP_META = {
       { title: '无主态 HTTP 投屏', detail: '只需在相同网络环境下手机扫码，即可利用跨域引擎将任何网页媒体直投至大屏端。', iconPath: ICON_WIFI }
     ]
   },
-  'hsb-tv': {
+  'thl-tv': {
     name: '糖葫芦TV',
     desc: '旗舰级的高端流媒体 IPTV 播放架构，带给您极具奢华感的用户操作界面，聚合无穷无尽的频道和视频媒体网络。',
     github: 'https://github.com/never88gone/XHLIPTV',
@@ -97,7 +107,7 @@ const APP_META = {
       { title: '沉浸影音舱', detail: '一键进入极度专注的无边框播放模式，最高效编解码内核驱动。', iconPath: ICON_PLAY }
     ]
   },
-  'hsb-pdf': {
+  'thl-pdf': {
     name: '糖葫芦PDF',
     desc: '处理文档的决定性解决方案。支持本地及远端跨网协议读取，满足严苛的大屏阅读场景。',
     github: 'https://github.com/never88gone/XHLPDF',
