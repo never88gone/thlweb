@@ -47,6 +47,7 @@
       <ScreenReadme v-if="$route.params.appid === 'thl-screen'" class="fade-in-up" style="animation-delay: 0.3s" />
       <TvReadme v-if="$route.params.appid === 'thl-tv'" class="fade-in-up" style="animation-delay: 0.3s" />
       <PdfReadme v-if="$route.params.appid === 'thl-pdf'" class="fade-in-up" style="animation-delay: 0.3s" />
+      <WatchReadme v-if="$route.params.appid === 'thl-watch'" class="fade-in-up" style="animation-delay: 0.3s" />
 
     </div>
   </div>
@@ -59,6 +60,7 @@ import BrowserReadme from '../components/BrowserReadme.vue'
 import ScreenReadme from '../components/ScreenReadme.vue'
 import TvReadme from '../components/TvReadme.vue'
 import PdfReadme from '../components/PdfReadme.vue'
+import WatchReadme from '../components/WatchReadme.vue'
 
 const route = useRoute()
 
@@ -116,6 +118,17 @@ const APP_META = {
       { title: '手机端无线直推', detail: '开启扫码配对机制。无论是推送外部云端 URL，或直传 iCloud 与手机文档，全部实现隔空瞬间投送。', iconPath: ICON_WIFI },
       { title: '智能足迹漫游', detail: '自动记忆多端文稿阅读历史进度，轻松从上次离开的地方无缝衔接。', iconPath: ICON_UI },
       { title: '多维度设置面板', detail: '定制您的舒适阅读视界：精细调整字号、翻页过渡及暗场护眼模式。', iconPath: ICON_MODE }
+    ]
+  },
+  'thl-watch': {
+    name: '糖葫芦修仙',
+    desc: '将您的每一次步伐转化为修为。这不仅是一款 Apple Watch 应用，更是随身携带的数字洞府和心境道场。',
+    github: 'https://github.com/never88gone/ZEWatch',
+    features: [
+      { title: '现实修仙化', detail: '深度接入 HealthKit 数据，行走坐卧皆是修行，将卡路里直接转化为五行真气。', iconPath: ICON_DB },
+      { title: '腕间炼丹阵', detail: '使用数码表冠把控火候脉搏，采集天地灵气进行无上限道基突破。', iconPath: ICON_MODE },
+      { title: '玄幻视觉系', detail: '融合赛博迷幻与上古宗门的视觉设计，将枯燥的健康环转换为天劫阵法。', iconPath: ICON_UI },
+      { title: 'AI 墨老伴身', detail: '引入大模型残魂，随时倾听戒中老翁的点悟与毒舌，修炼之途永不孤单。', iconPath: ICON_PLAY }
     ]
   }
 }

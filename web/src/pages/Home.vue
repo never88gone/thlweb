@@ -61,6 +61,18 @@
           <span class="view-details">探索详情 &rarr;</span>
         </div>
       </router-link>
+
+      <!-- Watch App -->
+      <router-link to="/app/thl-watch" class="glass-card product-card fade-in-up" style="animation-delay: 0.8s">
+        <div class="card-image bg-gradient-cyan">
+          <img src="../assets/watch/xiuxian_logo.jpg" alt="糖葫芦修仙Logo" class="hero-image" style="border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.4);" />
+        </div>
+        <div class="card-content">
+          <h3 class="display-text">糖葫芦修仙</h3>
+          <p>前所未有的 HealthKit 交互，将每日运动转化为真实修炼，掌控腕间的数字道基。</p>
+          <span class="view-details">探索详情 &rarr;</span>
+        </div>
+      </router-link>
     </section>
   </div>
 </template>
@@ -160,6 +172,7 @@
 .bg-gradient-purple { background: radial-gradient(circle at 50% 50%, #4c1d95 0%, #0f172a 100%); }
 .bg-gradient-orange { background: radial-gradient(circle at 50% 50%, #9a3412 0%, #0f172a 100%); }
 .bg-gradient-green { background: radial-gradient(circle at 50% 50%, #065f46 0%, #0f172a 100%); }
+.bg-gradient-cyan { background: radial-gradient(circle at 50% 50%, #0891b2 0%, #0f172a 100%); }
 
 .card-content {
   padding: 2.5rem;
