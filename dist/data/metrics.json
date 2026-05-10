@@ -1,0 +1,77 @@
+{
+  "fetch_date": "2026-02-26",
+  "metrics": {
+    "hsb-browser": {
+      "app_name": "糖葫芦浏览器",
+      "apple_id": "1111111111",
+      "testflight_trends": [
+        {"date": "Day 1", "users": 150},
+        {"date": "Day 2", "users": 168},
+        {"date": "Day 3", "users": 204},
+        {"date": "Day 4", "users": 210},
+        {"date": "Day 5", "users": 245}
+      ],
+      "active_user_trends": [
+        {"date": "Day 1", "users": 5100},
+        {"date": "Day 2", "users": 5230},
+        {"date": "Day 3", "users": 5400},
+        {"date": "Day 4", "users": 5600},
+        {"date": "Day 5", "users": 5890}
+      ]
+    },
+    "hsb-screen": {
+      "app_name": "糖葫芦投屏",
+      "apple_id": "2222222222",
+      "testflight_trends": [
+        {"date": "Day 1", "users": 80},
+        {"date": "Day 2", "users": 85},
+        {"date": "Day 3", "users": 90},
+        {"date": "Day 4", "users": 110},
+        {"date": "Day 5", "users": 125}
+      ],
+      "active_user_trends": [
+        {"date": "Day 1", "users": 2400},
+        {"date": "Day 2", "users": 2550},
+        {"date": "Day 3", "users": 2680},
+        {"date": "Day 4", "users": 2900},
+        {"date": "Day 5", "users": 3100}
+      ]
+    },
+    "hsb-tv": {
+      "app_name": "糖葫芦TV",
+      "apple_id": "3333333333",
+      "testflight_trends": [
+        {"date": "Day 1", "users": 300},
+        {"date": "Day 2", "users": 320},
+        {"date": "Day 3", "users": 350},
+        {"date": "Day 4", "users": 400},
+        {"date": "Day 5", "users": 450}
+      ],
+      "active_user_trends": [
+        {"date": "Day 1", "users": 12000},
+        {"date": "Day 2", "users": 12500},
+        {"date": "Day 3", "users": 13200},
+        {"date": "Day 4", "users": 14000},
+        {"date": "Day 5", "users": 15500}
+      ]
+    },
+    "hsb-pdf": {
+      "app_name": "糖葫芦PDF",
+      "apple_id": "4444444444",
+      "testflight_trends": [
+        {"date": "Day 1", "users": 40},
+        {"date": "Day 2", "users": 45},
+        {"date": "Day 3", "users": 42},
+        {"date": "Day 4", "users": 50},
+        {"date": "Day 5", "users": 65}
+      ],
+      "active_user_trends": [
+        {"date": "Day 1", "users": 800},
+        {"date": "Day 2", "users": 850},
+        {"date": "Day 3", "users": 890},
+        {"date": "Day 4", "users": 950},
+        {"date": "Day 5", "users": 1100}
+      ]
+    }
+  }
+}
