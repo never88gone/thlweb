@@ -1,12 +1,17 @@
 <template>
   <div class="app-container">
-    <nav class="glass-nav">
-      <router-link to="/" class="nav-brand display-text">
-        糖葫芦
-      </router-link>
-      <div class="nav-links">
-        <router-link to="/">产品矩阵</router-link>
-        <a href="https://github.com/never88gone" target="_blank">官网 GitHub</a>
+    <nav class="glass-nav" :class="{ 'nav-scrolled': isScrolled }">
+      <div class="nav-content">
+        <router-link to="/" class="nav-brand display-text gradient-text">
+          糖葫芦
+        </router-link>
+        <div class="nav-links">
+          <router-link to="/">产品矩阵</router-link>
+          <a href="https://github.com/never88gone" target="_blank" class="github-link">
+            <span>GitHub</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+        </div>
       </div>
     </nav>
     <main class="main-content">
@@ -19,6 +24,24 @@
   </div>
 </template>
 
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 20;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+</script>
+
 <style scoped>
 .app-container {
   min-height: 100vh;
@@ -30,30 +53,42 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 80px;
+  height: var(--nav-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: var(--transition-base);
+  border-bottom: 1px solid transparent;
+}
+
+.nav-scrolled {
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  height: 70px;
+}
+
+.nav-content {
+  width: 100%;
+  max-width: var(--container-max-width);
+  padding: 0 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
-  background: rgba(5, 5, 5, 0.6);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  z-index: 1000;
-  transition: padding 0.3s ease;
 }
 
 .nav-brand {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 800;
   text-decoration: none;
-  color: var(--text-primary);
-  letter-spacing: 1px;
+  letter-spacing: -0.02em;
 }
 
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 3rem;
   align-items: center;
 }
 
@@ -62,8 +97,10 @@
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  transition: color 0.2s ease;
-  position: relative;
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nav-links a:hover,
@@ -71,25 +108,32 @@
   color: var(--text-primary);
 }
 
-.main-content {
-  flex: 1;
-  padding-top: 80px;
-  display: flex;
-  flex-direction: column;
+.github-link svg {
+  opacity: 0.6;
+  transition: var(--transition-base);
 }
 
-/* 高级官网过度动效 */
+.github-link:hover svg {
+  opacity: 1;
+  transform: rotate(10deg);
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* 页面转场动效 */
 .page-fade-enter-active,
 .page-fade-leave-active {
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .page-fade-enter-from {
   opacity: 0;
-  transform: translateY(20px) scale(0.98);
+  transform: translateY(10px);
 }
 .page-fade-leave-to {
   opacity: 0;
-  transform: translateY(-20px) scale(1.02);
+  transform: translateY(-10px);
 }
 </style>

@@ -1,60 +1,71 @@
 <template>
   <div class="app-detail-page">
+    <div class="bg-glow"></div>
+    
     <div v-if="loading" class="loader">
-        <div class="spinner"></div>
+      <div class="spinner"></div>
     </div>
     
-    <div v-else-if="error" class="error-panel glass-card">
+    <div v-else-if="error" class="error-panel glass-card reveal active">
       <h3>加载错误</h3>
       <p>{{ error }}</p>
       <router-link to="/" class="btn-primary mt-4">返回主页</router-link>
     </div>
 
-    <div v-else class="detail-content fade-in-up">
+    <div v-else class="detail-container">
       <!-- App Header Section -->
       <section class="app-hero">
-        <router-link to="/" class="back-link">&larr; 返回系列应用</router-link>
-        <div class="app-title-group">
-          <h1 class="display-text">{{ currentApp.app_name }}</h1>
-        </div>
-        <p class="app-description">{{ appDescription }}</p>
+        <router-link to="/" class="back-link reveal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          返回系列应用
+        </router-link>
         
-        <div class="action-row">
-           <a :href="currentGithubUrl" target="_blank" class="btn-primary">
-             <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-             探索 GitHub 仓库
-           </a>
+        <div class="hero-content">
+          <h1 class="display-text reveal" style="transition-delay: 0.1s">
+            <span class="gradient-text">{{ currentApp.app_name }}</span>
+          </h1>
+          <p class="app-description reveal" style="transition-delay: 0.2s">
+            {{ appDescription }}
+          </p>
+          
+          <div class="action-row reveal" style="transition-delay: 0.3s">
+            <a :href="currentGithubUrl" target="_blank" class="btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              在 GitHub 上查看
+            </a>
+          </div>
         </div>
       </section>
 
       <!-- App Highlights Showcase -->
-      <section class="info-section fade-in-up" style="animation-delay: 0.2s" v-if="currentFeatures.length > 0">
-        <h2 class="section-title">核心功能与架构特性</h2>
+      <section class="info-section" v-if="currentFeatures.length > 0">
+        <h2 class="section-title reveal">核心功能与架构特性</h2>
         
         <div class="features-grid">
-          <div v-for="(feat, index) in currentFeatures" :key="index" class="feature-card glass-card">
+          <div v-for="(feat, index) in currentFeatures" :key="index" class="feature-card glass-card reveal" :style="{ 'transition-delay': (0.1 * (index + 1)) + 's' }">
              <div class="feature-icon bg-gradient-accent">
                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="feat.iconPath"></path></svg>
              </div>
-             <h3>{{ feat.title }}</h3>
+             <h3 class="display-text">{{ feat.title }}</h3>
              <p>{{ feat.detail }}</p>
           </div>
         </div>
       </section>
       
-      <!-- 各个应用的帮助文档按需挂载 -->
-      <BrowserReadme v-if="$route.params.appid === 'thl-browser'" class="fade-in-up" style="animation-delay: 0.3s" />
-      <ScreenReadme v-if="$route.params.appid === 'thl-screen'" class="fade-in-up" style="animation-delay: 0.3s" />
-      <TvReadme v-if="$route.params.appid === 'thl-tv'" class="fade-in-up" style="animation-delay: 0.3s" />
-      <PdfReadme v-if="$route.params.appid === 'thl-pdf'" class="fade-in-up" style="animation-delay: 0.3s" />
-      <WatchReadme v-if="$route.params.appid === 'thl-watch'" class="fade-in-up" style="animation-delay: 0.3s" />
-
+      <!-- 各个应用的帮助文档 -->
+      <div class="readme-section reveal">
+        <BrowserReadme v-if="$route.params.appid === 'thl-browser'" />
+        <ScreenReadme v-if="$route.params.appid === 'thl-screen'" />
+        <TvReadme v-if="$route.params.appid === 'thl-tv'" />
+        <PdfReadme v-if="$route.params.appid === 'thl-pdf'" />
+        <WatchReadme v-if="$route.params.appid === 'thl-watch'" />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch, computed } from 'vue'
+import { ref, onMounted, watch, computed, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import BrowserReadme from '../components/BrowserReadme.vue'
 import ScreenReadme from '../components/ScreenReadme.vue'
@@ -79,7 +90,7 @@ const ICON_DB = "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s
 const APP_META = {
   'thl-browser': {
     name: '糖葫芦浏览器',
-    desc: '极速、私密的下一代网络引擎。我们在保障最大化媒体兼容性的同时，提供了极其丰富的控制交互逻辑层。',
+    desc: '极速、私密的下一代网络引擎。针对 TV 硬件深度优化，保障媒体最大化兼容性的同时，提供了极其丰富的控制交互逻辑层。',
     github: 'https://github.com/never88gone/HSBTVBrowser',
     features: [
       { title: '全能播放控制器', detail: '双击呼出高级菜单；长按全屏沉浸；左右防误触快进退设计，全局掌控所有网页媒体。', iconPath: ICON_PLAY },
@@ -90,7 +101,7 @@ const APP_META = {
   },
   'thl-screen': {
     name: '糖葫芦投屏',
-    desc: '一款打破屏幕尺寸界限的强悍无线投屏工具。无论您身处何处，皆可通过极低延迟的数据传递技术，让手持设备的影像跃然于大屏之上。',
+    desc: '打破屏幕尺寸界限的强悍无线投屏工具。无论您身处何处，皆可通过极低延迟的数据传递技术，让影像跃然于大屏之上。',
     github: 'https://github.com/never88gone/HSBTVGithubAppStore',
     features: [
       { title: '极简时钟主屏', detail: '以极致简约为主干。默认屏显时钟保障常驻待机性能，随需下拉呼出全功能操作面板。', iconPath: ICON_UI },
@@ -126,7 +137,7 @@ const APP_META = {
     github: 'https://github.com/never88gone/ZEWatch',
     features: [
       { title: '现实修仙化', detail: '深度接入 HealthKit 数据，行走坐卧皆是修行，将卡路里直接转化为五行真气。', iconPath: ICON_DB },
-      { title: '腕间炼丹阵', detail: '使用数码表冠把控火候脉搏，采集天地灵气进行无上限道基突破。', iconPath: ICON_MODE },
+      { title: '腕间炼丹阵', detail: '使用数码表冠把把控火候脉搏，采集天地灵气进行无上限道基突破。', iconPath: ICON_MODE },
       { title: '玄幻视觉系', detail: '融合赛博迷幻与上古宗门的视觉设计，将枯燥的健康环转换为天劫阵法。', iconPath: ICON_UI },
       { title: 'AI 墨老伴身', detail: '引入大模型残魂，随时倾听戒中老翁的点悟与毒舌，修炼之途永不孤单。', iconPath: ICON_PLAY }
     ]
@@ -156,21 +167,36 @@ const loadApp = (appid) => {
   }
 }
 
+const initObserver = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
 watch(
   () => route.params.appid,
-  (newAppId) => {
+  async (newAppId) => {
     if (newAppId) {
       loadApp(newAppId)
+      await nextTick()
+      initObserver()
     }
   }
 )
 
 onMounted(() => {
   window.scrollTo(0, 0)
-  // Simulate load delay for smooth ux transition
-  setTimeout(() => {
+  setTimeout(async () => {
     loadApp(route.params.appid)
     loading.value = false
+    await nextTick()
+    initObserver()
   }, 400)
 })
 </script>
@@ -178,144 +204,144 @@ onMounted(() => {
 <style scoped>
 .app-detail-page {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 4rem 5%;
+  padding-top: var(--nav-height);
+  position: relative;
+}
+
+.bg-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+  pointer-events: none;
 }
 
 .loader {
   display: flex;
   justify-content: center;
-  margin-top: 10rem;
+  align-items: center;
+  min-height: 60vh;
 }
+
 .spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid rgba(255,255,255,0.1);
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent-blue);
   border-radius: 50%;
-  border-top-color: var(--cta-color);
-  animation: spin 1s ease-in-out infinite;
+  animation: spin 1s linear infinite;
 }
+
 @keyframes spin { to { transform: rotate(360deg); } }
+
+.detail-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 4rem 5%;
+}
 
 .app-hero {
   margin-bottom: 6rem;
-  max-width: 800px;
 }
 
 .back-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
-  margin-bottom: 2rem;
-  transition: transform 0.2s ease, color 0.2s ease;
+  margin-bottom: 3rem;
+  transition: var(--transition-base);
 }
 
 .back-link:hover {
-  color: var(--text-primary);
+  color: white;
   transform: translateX(-5px);
 }
 
-.app-title-group {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.app-title-group h1 {
-  font-size: 4.5rem;
-  font-weight: 700;
-  letter-spacing: -2px;
-}
-
-.app-description {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 3rem;
+.hero-content {
   max-width: 800px;
 }
 
-.action-row .icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
+.hero-content h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  letter-spacing: -0.04em;
 }
 
-/* Feature Grid Content Area */
+.app-description {
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+/* Info Section */
 .info-section {
-  padding: 1rem 0 5rem 0;
+  margin-bottom: 8rem;
 }
 
 .section-title {
-  font-size: 2.2rem;
-  margin-bottom: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -1px;
+  margin-bottom: 4rem;
+  text-align: center;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
 .feature-card {
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 3rem;
 }
 
 .feature-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  background: var(--accent-gradient);
   color: white;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
 }
 
 .feature-icon svg {
-  width: 30px;
-  height: 30px;
-}
-
-.bg-gradient-accent {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(79, 70, 229, 0.8) 100%);
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+  width: 32px;
+  height: 32px;
 }
 
 .feature-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
 .feature-card p {
   color: var(--text-secondary);
-  line-height: 1.6;
-  font-size: 1rem;
+  line-height: 1.7;
 }
 
-.fade-in-up {
-  opacity: 0;
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.readme-section {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4rem;
 }
 
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 900px) {
-  .app-title-group h1 {
-    font-size: 3rem;
+@media (max-width: 768px) {
+  .readme-section {
+    padding: 2rem;
   }
 }
 </style>
