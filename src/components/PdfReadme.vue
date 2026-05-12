@@ -102,6 +102,8 @@
 
 .hero-text {
   max-width: 750px;
+  position: relative;
+  z-index: 10;
 }
 
 .serif-accent {
@@ -128,6 +130,8 @@
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 20;
 }
 
 .store-badge {
@@ -193,6 +197,8 @@
 .hero-gallery {
   width: 100%;
   max-width: 900px;
+  position: relative;
+  z-index: 1;
 }
 .main-mockup {
   width: 100%;
@@ -277,10 +283,12 @@
 .split-visual {
   flex: 1.2;
   position: relative;
+  z-index: 1;
 }
 
 .combo-visual {
-  height: 400px;
+  min-height: 450px;
+  position: relative;
 }
 
 .combo-1 {

@@ -16,7 +16,6 @@
       </p>
       <div class="hero-actions reveal" style="transition-delay: 0.3s">
         <a href="#products" class="btn-primary">开始探索</a>
-        <a href="https://github.com/never88gone" target="_blank" class="btn-secondary">查看源码</a>
       </div>
     </header>
 
@@ -105,6 +104,18 @@
             <span class="view-details">探索详情 &rarr;</span>
           </div>
         </router-link>
+
+        <!-- Play App -->
+        <router-link to="/app/thl-play" class="glass-card product-card reveal" style="transition-delay: 0.45s">
+          <div class="card-image bg-gradient-indigo">
+            <img src="../assets/play/home_ios.png" alt="糖葫芦享屏" class="hero-image" />
+          </div>
+          <div class="card-content">
+            <h3 class="display-text">糖葫芦享屏</h3>
+            <p>旗舰级 AirPlay 接收方案。支持 4K 镜像与无损音频，适配全系 Apple 生态。</p>
+            <span class="view-details">探索详情 &rarr;</span>
+          </div>
+        </router-link>
       </div>
     </section>
 
@@ -144,13 +155,14 @@
             <h4>产品</h4>
             <router-link to="/app/thl-browser">浏览器</router-link>
             <router-link to="/app/thl-screen">投屏</router-link>
+            <router-link to="/app/thl-play">享屏</router-link>
             <router-link to="/app/thl-tv">TV播放器</router-link>
           </div>
           <div class="link-group">
-            <h4>开发者</h4>
-            <a href="https://github.com/never88gone" target="_blank">GitHub</a>
-            <a href="#">文档</a>
-            <a href="#">API</a>
+            <h4>支持</h4>
+            <a href="#">使用文档</a>
+            <a href="#">意见反馈</a>
+            <a href="#">隐私政策</a>
           </div>
         </div>
       </div>
@@ -353,6 +365,7 @@ onMounted(() => {
 .bg-gradient-orange { background: radial-gradient(circle at 50% 50%, #9a3412 0%, #050505 100%); }
 .bg-gradient-green { background: radial-gradient(circle at 50% 50%, #065f46 0%, #050505 100%); }
 .bg-gradient-cyan { background: radial-gradient(circle at 50% 50%, #0891b2 0%, #050505 100%); }
+.bg-gradient-indigo { background: radial-gradient(circle at 50% 50%, #312e81 0%, #050505 100%); }
 
 .card-content {
   padding: 3rem;

@@ -9,16 +9,7 @@
           将您的每一滴汗水与每一步跋涉，转化为经脉中流淌的五行真气。起阵、聚灵、渡劫，只在腕转之间。
         </p>
         <div class="download-options">
-          <a href="https://github.com/never88gone/ZEWatch" target="_blank" class="store-badge bg-black">
-            <span class="store-icon">
-              <!-- Github Icon -->
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-            </span>
-            <div class="store-text">
-              <span class="store-title">Github 探索开源</span>
-              <span class="store-price">ZEWatch Repository</span>
-            </div>
-          </a>
+          <!-- 移除下载/源码入口，后续如有 App Store 链接可在此添加 -->
         </div>
       </div>
       <div class="hero-image-wrapper floating-anim">

@@ -29,10 +29,7 @@
           </p>
           
           <div class="action-row reveal" style="transition-delay: 0.3s">
-            <a :href="currentGithubUrl" target="_blank" class="btn-primary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              在 GitHub 上查看
-            </a>
+            <!-- 移除 GitHub 按钮 -->
           </div>
         </div>
       </section>
@@ -59,6 +56,7 @@
         <TvReadme v-if="$route.params.appid === 'thl-tv'" />
         <PdfReadme v-if="$route.params.appid === 'thl-pdf'" />
         <WatchReadme v-if="$route.params.appid === 'thl-watch'" />
+        <PlayReadme v-if="$route.params.appid === 'thl-play'" />
       </div>
     </div>
   </div>
@@ -72,6 +70,7 @@ import ScreenReadme from '../components/ScreenReadme.vue'
 import TvReadme from '../components/TvReadme.vue'
 import PdfReadme from '../components/PdfReadme.vue'
 import WatchReadme from '../components/WatchReadme.vue'
+import PlayReadme from '../components/PlayReadme.vue'
 
 const route = useRoute()
 
@@ -91,7 +90,6 @@ const APP_META = {
   'thl-browser': {
     name: '糖葫芦浏览器',
     desc: '极速、私密的下一代网络引擎。针对 TV 硬件深度优化，保障媒体最大化兼容性的同时，提供了极其丰富的控制交互逻辑层。',
-    github: 'https://github.com/never88gone/HSBTVBrowser',
     features: [
       { title: '全能播放控制器', detail: '双击呼出高级菜单；长按全屏沉浸；左右防误触快进退设计，全局掌控所有网页媒体。', iconPath: ICON_PLAY },
       { title: '多维交互引擎', detail: '支持无缝切换四种形态：浮窗鼠标模式、滚动驱动模式、精准触控识别以及原生拖拽模式，完美适配复杂验证组件。', iconPath: ICON_MODE },
@@ -102,7 +100,6 @@ const APP_META = {
   'thl-screen': {
     name: '糖葫芦投屏',
     desc: '打破屏幕尺寸界限的强悍无线投屏工具。无论您身处何处，皆可通过极低延迟的数据传递技术，让影像跃然于大屏之上。',
-    github: 'https://github.com/never88gone/HSBTVGithubAppStore',
     features: [
       { title: '极简时钟主屏', detail: '以极致简约为主干。默认屏显时钟保障常驻待机性能，随需下拉呼出全功能操作面板。', iconPath: ICON_UI },
       { title: '原生 DLNA 推流', detail: '完美适配包括优酷在内的主流视频软件，全链路保障推流质量与音频同步。', iconPath: ICON_PLAY },
@@ -112,7 +109,6 @@ const APP_META = {
   'thl-tv': {
     name: '糖葫芦TV',
     desc: '旗舰级的高端流媒体 IPTV 播放架构，带给您极具奢华感的用户操作界面，聚合无穷无尽的频道和视频媒体网络。',
-    github: 'https://github.com/never88gone/XHLIPTV',
     features: [
       { title: '奢华终端大屏', detail: '左侧快速导航搭配右侧丰富的频道流矩阵展现，无死角掌控一切订阅资源。', iconPath: ICON_UI },
       { title: '智慧播单管理', detail: '提供自动化网络连通性监测、极速切换上下频道与一键无效源清理能力。', iconPath: ICON_WIFI },
@@ -123,7 +119,6 @@ const APP_META = {
   'thl-pdf': {
     name: '糖葫芦PDF',
     desc: '处理文档的决定性解决方案。支持本地及远端跨网协议读取，满足严苛的大屏阅读场景。',
-    github: 'https://github.com/never88gone/XHLPDF',
     features: [
       { title: '全场景协议支持', detail: '不局限于本地读取，原生支持与局域网内挂载的 SMB 商业级文件共享服务器对话。', iconPath: ICON_DB },
       { title: '手机端无线直推', detail: '开启扫码配对机制。无论是推送外部云端 URL，或直传 iCloud 与手机文档，全部实现隔空瞬间投送。', iconPath: ICON_WIFI },
@@ -134,19 +129,24 @@ const APP_META = {
   'thl-watch': {
     name: '糖葫芦修仙',
     desc: '将您的每一次步伐转化为修为。这不仅是一款 Apple Watch 应用，更是随身携带的数字洞府和心境道场。',
-    github: 'https://github.com/never88gone/ZEWatch',
     features: [
       { title: '现实修仙化', detail: '深度接入 HealthKit 数据，行走坐卧皆是修行，将卡路里直接转化为五行真气。', iconPath: ICON_DB },
       { title: '腕间炼丹阵', detail: '使用数码表冠把把控火候脉搏，采集天地灵气进行无上限道基突破。', iconPath: ICON_MODE },
       { title: '玄幻视觉系', detail: '融合赛博迷幻与上古宗门的视觉设计，将枯燥的健康环转换为天劫阵法。', iconPath: ICON_UI },
       { title: 'AI 墨老伴身', detail: '引入大模型残魂，随时倾听戒中老翁的点悟与毒舌，修炼之途永不孤单。', iconPath: ICON_PLAY }
     ]
+  },
+  'thl-play': {
+    name: '糖葫芦享屏',
+    desc: '极致的高性能 AirPlay 与音频接收解决方案。基于私有优化协议栈，专为 Apple 生态设计，支持 4K 高清投屏与超低延迟音频流。',
+    features: [
+      { title: '4K 镜像引擎', detail: '深度集成 AVSampleBufferDisplayLayer 硬件加速，支持 4K/60fps 镜像流，丝滑流畅。', iconPath: ICON_PLAY },
+      { title: 'NW 现代通讯', detail: '基于 NWListenerBridge 技术，绕过传统 Socket 限制，显著提升搜索成功率与稳定性。', iconPath: ICON_WIFI },
+      { title: '无损音频舱', detail: '基于 AudioQueue Services 的渲染引擎，内置 16 级高性能缓冲池，彻底消除杂音。', iconPath: ICON_DB },
+      { title: '全端原生适配', detail: '深度适配 iPhone, iPad, Apple TV 及 Mac (Catalyst)，提供一致的毛玻璃美学体验。', iconPath: ICON_UI }
+    ]
   }
 }
-
-const currentGithubUrl = computed(() => {
-  return APP_META[route.params.appid]?.github || 'https://github.com/never88gone'
-})
 
 const appDescription = computed(() => {
   return APP_META[route.params.appid]?.desc || '探索这枚精心雕琢的优秀工具。'
@@ -256,6 +256,8 @@ onMounted(() => {
   font-weight: 500;
   margin-bottom: 3rem;
   transition: var(--transition-base);
+  position: relative;
+  z-index: 100;
 }
 
 .back-link:hover {
