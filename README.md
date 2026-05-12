@@ -87,4 +87,4 @@ sudo systemctl restart nginx
 - `SERVER_USER`: 登录用户 (如 root)
 - `SSH_PRIVATE_KEY`: SSH 私钥
 
-配置完成后，每次推送至 `main` 分支都会触发自动构建与部署。
+配置完成后，每次推送至 `main` 分支都会触发自动构建与部署
