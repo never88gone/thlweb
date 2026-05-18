@@ -88,3 +88,9 @@ sudo systemctl restart nginx
 - `SSH_PRIVATE_KEY`: SSH 私钥
 
 配置完成后，每次推送至 `main` 分支都会触发自动构建与部署。
+
+### 4. 证书过期执行这个命令，手动更新证书：
+acme.sh --install-cert -d myit2017.cn \
+--key-file       /root/certs/key.pem  \
+--fullchain-file /root/certs/cert.pem \
+--reloadcmd     "service nginx force-reload"
