@@ -138,9 +138,9 @@ const APP_META = {
   },
   'thl-play': {
     name: '糖葫芦享屏',
-    desc: '极致的高性能 AirPlay 与音频接收解决方案。基于私有优化协议栈，专为 Apple 生态设计，支持 4K 高清投屏与超低延迟音频流。',
+    desc: '极致的高性能 AirPlay 与音频接收解决方案。基于私有优化协议栈，专为 Apple 生态设计，支持高清投屏与超低延迟音频流。',
     features: [
-      { title: '4K 镜像引擎', detail: '深度集成 AVSampleBufferDisplayLayer 硬件加速，支持 4K/60fps 镜像流，丝滑流畅。', iconPath: ICON_PLAY },
+      { title: '硬件镜像引擎', detail: '深度集成 AVSampleBufferDisplayLayer 硬件加速，支持 60fps 极速镜像流，丝滑流畅。', iconPath: ICON_PLAY },
       { title: 'NW 现代通讯', detail: '基于 NWListenerBridge 技术，绕过传统 Socket 限制，显著提升搜索成功率与稳定性。', iconPath: ICON_WIFI },
       { title: '无损音频舱', detail: '基于 AudioQueue Services 的渲染引擎，内置 16 级高性能缓冲池，彻底消除杂音。', iconPath: ICON_DB },
       { title: '全端原生适配', detail: '深度适配 iPhone, iPad, Apple TV 及 Mac (Catalyst)，提供一致的毛玻璃美学体验。', iconPath: ICON_UI }

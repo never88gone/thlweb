@@ -19,21 +19,21 @@
       </div>
     </header>
 
-    <!-- Stats Section -->
+    <!-- Multi-device Ecosystem Brand Manifesto (多端互联生态主张代替原本下载评分指标) -->
     <section class="stats-section reveal">
       <div class="stat-item">
-        <span class="stat-value">1M+</span>
-        <span class="stat-label">全球下载</span>
+        <span class="stat-value">全场景互联</span>
+        <span class="stat-label">TV大屏 • 穿戴设备 • 移动端</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
-        <span class="stat-value">4.9</span>
-        <span class="stat-label">用户评分</span>
+        <span class="stat-value">超低延迟</span>
+        <span class="stat-label">原生极速镜像与无损解码</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
-        <span class="stat-value">99%</span>
-        <span class="stat-label">好评率</span>
+        <span class="stat-value">极简专注</span>
+        <span class="stat-label">无广告干扰的奢华视觉美学</span>
       </div>
     </section>
 
@@ -108,11 +108,11 @@
         <!-- Play App -->
         <router-link to="/app/thl-play" class="glass-card product-card reveal" style="transition-delay: 0.45s">
           <div class="card-image bg-gradient-indigo">
-            <img src="../assets/play/home_ios.png" alt="糖葫芦享屏" class="hero-image" />
+            <img src="../assets/play/logo.png" alt="糖葫芦享屏" class="hero-image" />
           </div>
           <div class="card-content">
             <h3 class="display-text">糖葫芦享屏</h3>
-            <p>旗舰级 AirPlay 接收方案。支持 4K 镜像与无损音频，适配全系 Apple 生态。</p>
+            <p>旗舰级 AirPlay 接收方案。支持高清镜像与无损音频，适配全系 Apple 生态。</p>
             <span class="view-details">探索详情 &rarr;</span>
           </div>
         </router-link>
@@ -177,7 +177,7 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+  background: radial-gradient(circle at 50% -20%, rgba(255, 78, 80, 0.18) 0%, rgba(249, 115, 22, 0.06) 35%, transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
@@ -195,13 +195,13 @@ onMounted(() => {
 }
 
 .badge {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(249, 115, 22, 0.06);
   padding: 0.5rem 1.2rem;
   border-radius: 100px;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--accent-blue);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(249, 115, 22, 0.25);
   margin-bottom: 2rem;
 }
 
@@ -334,12 +334,12 @@ onMounted(() => {
   transform: scale(1.1) rotate(5deg);
 }
 
-.bg-gradient-blue { background: radial-gradient(circle at 50% 50%, #1e3a8a 0%, #050505 100%); }
-.bg-gradient-purple { background: radial-gradient(circle at 50% 50%, #4c1d95 0%, #050505 100%); }
-.bg-gradient-orange { background: radial-gradient(circle at 50% 50%, #9a3412 0%, #050505 100%); }
-.bg-gradient-green { background: radial-gradient(circle at 50% 50%, #065f46 0%, #050505 100%); }
-.bg-gradient-cyan { background: radial-gradient(circle at 50% 50%, #0891b2 0%, #050505 100%); }
-.bg-gradient-indigo { background: radial-gradient(circle at 50% 50%, #312e81 0%, #050505 100%); }
+.bg-gradient-blue { background: radial-gradient(circle at 50% 50%, #ff5e62 0%, #3a1c1c 65%, #0d0b0a 100%); }
+.bg-gradient-purple { background: radial-gradient(circle at 50% 50%, #7c3aed 0%, #311042 60%, #0d0b0a 100%); }
+.bg-gradient-orange { background: radial-gradient(circle at 50% 50%, #ea580c 0%, #431407 60%, #0d0b0a 100%); }
+.bg-gradient-green { background: radial-gradient(circle at 50% 50%, #16a34a 0%, #062f1e 60%, #0d0b0a 100%); }
+.bg-gradient-cyan { background: radial-gradient(circle at 50% 50%, #a855f7 0%, #3b0764 65%, #0d0b0a 100%); }
+.bg-gradient-indigo { background: radial-gradient(circle at 50% 50%, #f59e0b 0%, #3e2504 65%, #0d0b0a 100%); }
 
 .card-content {
   padding: 3rem;

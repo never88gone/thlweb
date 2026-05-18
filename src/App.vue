@@ -27,15 +27,17 @@
         <div class="footer-links">
           <div class="link-group">
             <h4>产品</h4>
-            <router-link to="/app/thl-browser">浏览器</router-link>
-            <router-link to="/app/thl-screen">投屏</router-link>
-            <router-link to="/app/thl-play">享屏</router-link>
-            <router-link to="/app/thl-tv">TV播放器</router-link>
+            <router-link to="/app/thl-browser">糖葫芦浏览器</router-link>
+            <router-link to="/app/thl-screen">糖葫芦投屏</router-link>
+            <router-link to="/app/thl-play">糖葫芦享屏</router-link>
+            <router-link to="/app/thl-tv">糖葫芦TV</router-link>
+            <router-link to="/app/thl-pdf">糖葫芦PDF</router-link>
+            <router-link to="/app/thl-watch">糖葫芦修仙</router-link>
           </div>
           <div class="link-group">
             <h4>支持</h4>
             <a href="#">使用文档</a>
-            <a href="#">意见反馈</a>
+            <a href="mailto:hsb@myit2017.cn">联系邮箱：hsb@myit2017.cn</a>
             <a href="#">隐私政策</a>
           </div>
         </div>
@@ -89,10 +91,10 @@ onUnmounted(() => {
 }
 
 .nav-scrolled {
-  background: rgba(5, 5, 5, 0.8);
+  background: rgba(13, 11, 10, 0.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 230, 200, 0.06);
   height: 70px;
 }
 
@@ -154,7 +156,7 @@ onUnmounted(() => {
   background: var(--bg-secondary);
   padding: 6rem 5% 3rem;
   margin-top: 8rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 230, 200, 0.05);
 }
 
 .footer-content {
@@ -200,7 +202,7 @@ onUnmounted(() => {
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding-top: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 230, 200, 0.05);
   text-align: center;
   color: var(--text-muted);
   font-size: 0.9rem;
