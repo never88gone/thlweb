@@ -17,6 +17,36 @@
         </transition>
       </router-view>
     </main>
+    <!-- 全局页脚 -->
+    <footer class="footer-section">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h2 class="display-text gradient-text">糖葫芦</h2>
+          <p>赋能客厅，连接未来。</p>
+        </div>
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>产品</h4>
+            <router-link to="/app/thl-browser">浏览器</router-link>
+            <router-link to="/app/thl-screen">投屏</router-link>
+            <router-link to="/app/thl-play">享屏</router-link>
+            <router-link to="/app/thl-tv">TV播放器</router-link>
+          </div>
+          <div class="link-group">
+            <h4>支持</h4>
+            <a href="#">使用文档</a>
+            <a href="#">意见反馈</a>
+            <a href="#">隐私政策</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 武汉铭研信息技术有限公司. 保留所有权利。</p>
+        <p class="icp-info">
+          <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2026023727号</a>
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -118,6 +148,78 @@ onUnmounted(() => {
   flex: 1;
 }
 
+/* 页脚样式 */
+.footer-section {
+  width: 100%;
+  background: var(--bg-secondary);
+  padding: 6rem 5% 3rem;
+  margin-top: 8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.footer-brand h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+}
+
+.footer-links {
+  display: flex;
+  gap: 6rem;
+}
+
+.link-group h4 {
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.link-group a {
+  display: block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-bottom: 0.8rem;
+  transition: var(--transition-base);
+}
+
+.link-group a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.icp-info {
+  margin-top: 0.8rem;
+}
+
+.icp-info a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.icp-info a:hover {
+  color: white;
+}
+
 /* 页面转场动效 */
 .page-fade-enter-active,
 .page-fade-leave-active {
@@ -131,5 +233,13 @@ onUnmounted(() => {
 .page-fade-leave-to {
   opacity: 0;
   transform: translateY(-10px);
+}
+
+/* 响应式适配 */
+@media (max-width: 1024px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 4rem;
+  }
 }
 </style>
