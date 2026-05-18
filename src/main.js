@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import './assets/style.css?v=warm-sunset-no-4k'
+import './assets/style.css?v=warm-sunset-final-perfect'
 import App from './App.vue'
 import router from './router'
 

@@ -112,7 +112,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 4rem 2rem 8rem;
-  background: radial-gradient(circle at top left, rgba(67, 56, 202, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at top left, rgba(245, 158, 11, 0.07) 0%, transparent 50%);
   border-radius: 24px;
 }
 

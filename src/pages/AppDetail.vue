@@ -214,7 +214,7 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+  background: radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.05) 0%, transparent 45%);
   pointer-events: none;
 }
 
@@ -316,7 +316,7 @@ onMounted(() => {
   margin-bottom: 2rem;
   background: var(--accent-gradient);
   color: white;
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 10px 20px rgba(249, 115, 22, 0.12);
 }
 
 .feature-icon svg {

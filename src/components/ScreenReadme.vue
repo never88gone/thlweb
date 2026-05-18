@@ -84,7 +84,7 @@
 }
 
 .blur-backdrop {
-  background: radial-gradient(circle at center, rgba(147, 51, 234, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(239, 68, 68, 0.06) 0%, transparent 60%);
   border-radius: 24px;
 }
 
@@ -171,18 +171,19 @@
 .tf-badge {
   display: inline-flex;
   align-items: center;
-  padding: 14px 28px;
-  background: var(--text-accent, #4f46e5);
+  padding: 12px 26px;
+  background: rgba(255,255,255,0.06);
   color: white;
   border-radius: 12px;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.2s;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .tf-badge:hover {
-  background: #4338ca;
+  background: rgba(255,255,255,0.12);
   transform: translateY(-2px);
 }
 

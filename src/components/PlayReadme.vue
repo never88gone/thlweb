@@ -96,7 +96,7 @@
 }
 
 .blur-backdrop {
-  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(251, 146, 60, 0.08) 0%, transparent 60%);
   border-radius: 24px;
 }
 
