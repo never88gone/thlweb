@@ -399,4 +399,65 @@
   .row-span-2, .col-span-2 { grid-row: auto; grid-column: auto; }
   .slide-layout { flex-direction: column-reverse; }
 }
+
+@media (max-width: 768px) {
+  .hero-showcase {
+    padding: 3rem 1.25rem 2rem;
+    gap: 2rem;
+  }
+  .display-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .download-options {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+  }
+  .store-badge, .tf-badge {
+    width: 100%;
+    justify-content: center;
+    max-width: 320px;
+  }
+  .bento-box {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  .bento-box h3 {
+    font-size: 1.5rem;
+  }
+  .bento-box p {
+    font-size: 0.95rem;
+  }
+  .cinema-mode-section {
+    padding: 2rem 1.25rem;
+  }
+  .cinema-text {
+    margin-bottom: 2rem;
+  }
+  .cinema-text h2 {
+    font-size: 1.8rem;
+  }
+  .cinema-text p {
+    font-size: 1rem;
+  }
+  .cinema-carousel {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .cinema-carousel img {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}
 </style>

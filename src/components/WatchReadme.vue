@@ -330,4 +330,46 @@ onMounted(() => {
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+  .hero-showcase {
+    padding: 3rem 1.25rem 2rem;
+    gap: 2rem;
+  }
+  .display-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  .bento-card {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  .bento-card h3 {
+    font-size: 1.5rem;
+  }
+  .bento-card p {
+    font-size: 0.95rem;
+  }
+  .combo-feature {
+    padding: 1.5rem;
+    border-radius: 24px;
+    gap: 2rem;
+  }
+  .combo-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .combo-text p {
+    font-size: 0.95rem;
+  }
+}
 </style>

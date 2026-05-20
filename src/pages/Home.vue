@@ -409,4 +409,101 @@ onMounted(() => {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 80vh;
+    padding: 0 1.5rem;
+  }
+  .display-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .stats-section {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 2rem 1.5rem;
+  }
+  .stat-value {
+    font-size: 2.2rem;
+  }
+  .stat-label {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .stat-divider {
+    width: 60px;
+    height: 1px;
+  }
+  
+  .products-grid {
+    padding: 4rem 1.5rem;
+  }
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+  .section-header p {
+    font-size: 1rem;
+  }
+  .grid-container {
+    gap: 1.5rem;
+  }
+  .card-image {
+    height: 180px;
+  }
+  .hero-image {
+    width: 95px;
+    height: 95px;
+    border-radius: 20px;
+  }
+  .card-content {
+    padding: 1.5rem;
+  }
+  .card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .card-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .features-section {
+    padding: 4rem 1.5rem;
+  }
+  .features-grid {
+    gap: 1.5rem;
+  }
+  .feature-card {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  .feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+}
 </style>

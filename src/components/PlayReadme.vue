@@ -303,4 +303,35 @@
   .feature-masonry { grid-template-columns: 1fr; }
   .flex-row { flex-direction: column; }
 }
+
+@media (max-width: 768px) {
+  .hero-showcase {
+    padding: 3rem 1.25rem 2rem;
+    gap: 2rem;
+  }
+  .display-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  .masonry-item {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  .card-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .card-text p {
+    font-size: 0.95rem;
+  }
+}
 </style>

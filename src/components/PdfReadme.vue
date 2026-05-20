@@ -361,4 +361,46 @@
   .combo-visual { height: 300px; margin-top: 2rem; }
   .gallery-grid { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 768px) {
+  .hero-showcase {
+    padding: 3rem 1.25rem 2rem;
+    gap: 2rem;
+  }
+  .display-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  .split-section {
+    padding: 2rem 1.25rem;
+  }
+  .text-content h2 {
+    font-size: 1.8rem;
+  }
+  .text-content p {
+    font-size: 1rem;
+  }
+  .gallery-showcase {
+    padding: 2rem 1.25rem;
+  }
+  .gallery-showcase h2 {
+    font-size: 1.8rem;
+  }
+  .gallery-showcase p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .gallery-grid {
+    gap: 1rem;
+  }
+}
 </style>

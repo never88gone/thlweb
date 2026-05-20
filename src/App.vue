@@ -35,10 +35,10 @@
             <router-link to="/app/thl-watch">糖葫芦修仙</router-link>
           </div>
           <div class="link-group">
-            <h4>支持</h4>
-            <a href="#">使用文档</a>
-            <a href="mailto:hsb@myit2017.cn">联系邮箱：hsb@myit2017.cn</a>
-            <a href="#">隐私政策</a>
+            <h4>交流与联系</h4>
+            <a href="mailto:hsb@myit2017.cn">联系邮箱</a>
+            <a href="https://github.com/never88gone" target="_blank">GitHub</a>
+            <a href="https://t.me/tanghulutvos" target="_blank">Telegram 频道</a>
           </div>
         </div>
       </div>
@@ -242,6 +242,34 @@ onUnmounted(() => {
   .footer-content {
     flex-direction: column;
     gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-content {
+    padding: 0 1.5rem;
+  }
+  .nav-brand {
+    font-size: 1.4rem;
+  }
+  .nav-links {
+    gap: 1.5rem;
+  }
+  .footer-section {
+    padding: 4rem 1.5rem 2rem;
+    margin-top: 4rem;
+  }
+  .footer-brand {
+    text-align: center;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  .link-group a {
+    margin-bottom: 0.6rem;
   }
 }
 </style>

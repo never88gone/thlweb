@@ -340,4 +340,68 @@
   .large-card, .standard-card, .long-card { grid-column: 1 / -1; }
   .flex-row { flex-direction: column; }
 }
+
+@media (max-width: 768px) {
+  .product-landing {
+    gap: 3rem;
+  }
+  .hero-showcase {
+    padding: 3rem 1.25rem 2rem;
+    gap: 2rem;
+  }
+  .gradient-text-purple {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .download-options {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+  }
+  .store-badge, .tf-badge {
+    width: 100%;
+    justify-content: center;
+    max-width: 320px;
+  }
+  .hero-center-graphic {
+    width: 100%;
+  }
+  .device-frame {
+    width: 100%;
+  }
+  .feature-masonry {
+    gap: 1.5rem;
+  }
+  .masonry-item {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  .masonry-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .masonry-item p {
+    font-size: 1rem;
+  }
+  .media-stack {
+    height: 240px;
+    margin-top: 1.5rem;
+  }
+  .offset-img {
+    top: 40px !important;
+  }
+  .media-row {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .media-row img {
+    width: 100%;
+  }
+}
 </style>

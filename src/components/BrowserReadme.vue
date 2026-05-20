@@ -364,4 +364,61 @@
   .feature-row, .feature-row.reversed { flex-direction: column; gap: 4rem; }
   .dual-grid img:nth-child(2) { transform: none; }
 }
+
+@media (max-width: 768px) {
+  .hero-showcase {
+    padding: 2.5rem 1.25rem 4rem;
+    gap: 2.5rem;
+  }
+  .display-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-app-icon {
+    width: 140px;
+    border-radius: 28px;
+  }
+  .features-zig-zag {
+    gap: 4rem;
+  }
+  .feature-row {
+    gap: 2.5rem;
+  }
+  .feature-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .feature-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .feature-list {
+    gap: 0.8rem;
+  }
+  .feature-list li {
+    font-size: 0.95rem;
+  }
+  .feature-visual {
+    min-height: auto;
+  }
+  .stack-images {
+    aspect-ratio: 16 / 11;
+  }
+  .dual-grid {
+    gap: 12px;
+  }
+  .custom-grid-tight {
+    gap: 10px;
+  }
+}
 </style>
