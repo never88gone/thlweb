@@ -116,6 +116,18 @@
             <span class="view-details">探索详情 &rarr;</span>
           </div>
         </router-link>
+
+        <!-- Send App -->
+        <router-link to="/app/thl-send" class="glass-card product-card reveal" style="transition-delay: 0.5s">
+          <div class="card-image bg-gradient-teal">
+            <img src="../assets/thlsend.png" alt="糖葫芦投送" class="hero-image" />
+          </div>
+          <div class="card-content">
+            <h3 class="display-text">糖葫芦投送</h3>
+            <p>基于 LocalSend 鸿蒙 Next 局域网点对点互传工具，零流量，安全极速。</p>
+            <span class="view-details">探索详情 &rarr;</span>
+          </div>
+        </router-link>
       </div>
     </section>
 
@@ -340,6 +352,7 @@ onMounted(() => {
 .bg-gradient-green { background: radial-gradient(circle at 50% 50%, #16a34a 0%, #062f1e 60%, #0d0b0a 100%); }
 .bg-gradient-cyan { background: radial-gradient(circle at 50% 50%, #a855f7 0%, #3b0764 65%, #0d0b0a 100%); }
 .bg-gradient-indigo { background: radial-gradient(circle at 50% 50%, #f59e0b 0%, #3e2504 65%, #0d0b0a 100%); }
+.bg-gradient-teal { background: radial-gradient(circle at 50% 50%, #06b6d4 0%, #083344 65%, #0d0b0a 100%); }
 
 .card-content {
   padding: 3rem;

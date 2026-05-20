@@ -33,6 +33,7 @@
             <router-link to="/app/thl-tv">糖葫芦TV</router-link>
             <router-link to="/app/thl-pdf">糖葫芦PDF</router-link>
             <router-link to="/app/thl-watch">糖葫芦修仙</router-link>
+            <router-link to="/app/thl-send">糖葫芦投送</router-link>
           </div>
           <div class="link-group">
             <h4>交流与联系</h4>

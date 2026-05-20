@@ -57,6 +57,7 @@
         <PdfReadme v-if="$route.params.appid === 'thl-pdf'" />
         <WatchReadme v-if="$route.params.appid === 'thl-watch'" />
         <PlayReadme v-if="$route.params.appid === 'thl-play'" />
+        <SendReadme v-if="$route.params.appid === 'thl-send'" />
       </div>
     </div>
   </div>
@@ -71,6 +72,7 @@ import TvReadme from '../components/TvReadme.vue'
 import PdfReadme from '../components/PdfReadme.vue'
 import WatchReadme from '../components/WatchReadme.vue'
 import PlayReadme from '../components/PlayReadme.vue'
+import SendReadme from '../components/SendReadme.vue'
 
 const route = useRoute()
 
@@ -144,6 +146,16 @@ const APP_META = {
       { title: 'NW 现代通讯', detail: '基于 NWListenerBridge 技术，绕过传统 Socket 限制，显著提升搜索成功率与稳定性。', iconPath: ICON_WIFI },
       { title: '无损音频舱', detail: '基于 AudioQueue Services 的渲染引擎，内置 16 级高性能缓冲池，彻底消除杂音。', iconPath: ICON_DB },
       { title: '全端原生适配', detail: '深度适配 iPhone, iPad, Apple TV 及 Mac (Catalyst)，提供一致的毛玻璃美学体验。', iconPath: ICON_UI }
+    ]
+  },
+  'thl-send': {
+    name: '糖葫芦投送',
+    desc: '基于 LocalSend 开源协议的鸿蒙 Next 原生跨端局域网免流量点对点（P2P）文件与文本传输投送利器。',
+    features: [
+      { title: '鸿蒙原生体验', detail: '专为 HarmonyOS NEXT 深度定制开发，完美支持 ArkUI 动效及系统原生文件管理器桥接。', iconPath: ICON_UI },
+      { title: '极速免流投送', detail: '采用高级 P2P 局域网自组网直连，文件及大容量视频无需上传云端，享受物理带宽上限速度。', iconPath: ICON_PLAY },
+      { title: '端对端隐私安全', detail: '全流程在局域网内进行，无中转服务器，默认不收集、不上传任何个人隐私及操作轨迹。', iconPath: ICON_DB },
+      { title: '跨平台无缝联通', detail: '与 Windows, macOS, Linux, iOS, Android 各大平台上的 LocalSend 客户端原生完全互通。', iconPath: ICON_WIFI }
     ]
   }
 }
