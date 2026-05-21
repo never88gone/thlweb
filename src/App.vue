@@ -36,6 +36,16 @@
             <router-link to="/app/thl-send">糖葫芦投送</router-link>
           </div>
           <div class="link-group">
+            <h4>隐私政策</h4>
+            <router-link to="/privacy/thl-browser">浏览器隐私政策</router-link>
+            <router-link to="/privacy/thl-screen">投屏隐私政策</router-link>
+            <router-link to="/privacy/thl-play">享屏隐私政策</router-link>
+            <router-link to="/privacy/thl-tv">TV隐私政策</router-link>
+            <router-link to="/privacy/thl-pdf">PDF隐私政策</router-link>
+            <router-link to="/privacy/thl-watch">修仙隐私政策</router-link>
+            <router-link to="/privacy/thl-send">投送隐私政策</router-link>
+          </div>
+          <div class="link-group">
             <h4>交流与联系</h4>
             <a href="mailto:hsb@myit2017.cn">联系邮箱</a>
             <a href="https://github.com/never88gone" target="_blank">GitHub</a>

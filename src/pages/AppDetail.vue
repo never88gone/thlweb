@@ -29,7 +29,10 @@
           </p>
           
           <div class="action-row reveal" style="transition-delay: 0.3s">
-            <!-- 移除 GitHub 按钮 -->
+            <router-link :to="`/privacy/${$route.params.appid}`" class="privacy-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>隐私政策声明</span>
+            </router-link>
           </div>
         </div>
       </section>
@@ -351,6 +354,45 @@ onMounted(() => {
   border-radius: 32px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 4rem;
+}
+
+.action-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.privacy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 100px;
+  background: rgba(255, 230, 200, 0.03);
+  border: 1px solid rgba(255, 230, 200, 0.1);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition-base);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.privacy-btn:hover {
+  color: white;
+  border-color: var(--accent-blue);
+  background: rgba(249, 115, 22, 0.08);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
+  transform: translateY(-2px);
+}
+
+.privacy-btn svg {
+  color: var(--accent-blue);
+  transition: var(--transition-base);
+}
+
+.privacy-btn:hover svg {
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

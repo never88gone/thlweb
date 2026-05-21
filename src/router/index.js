@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
 import AppDetail from '../pages/AppDetail.vue'
+import PrivacyDetail from '../pages/PrivacyDetail.vue'
 
 const routes = [
   {
@@ -17,6 +18,12 @@ const routes = [
   {
     path: '/dashboard/:appid',
     redirect: to => ({ path: `/app/${to.params.appid}` })
+  },
+  {
+    path: '/privacy/:appid',
+    name: 'PrivacyDetail',
+    component: PrivacyDetail,
+    props: true
   }
 ]
 
