@@ -21,6 +21,17 @@
               <span class="store-title">App Store</span>
             </div>
           </a>
+          <a href="https://appgallery.huawei.com/app/detail?id=com.never88gone.airpaly.THLAirPlayApp" target="_blank" class="store-badge">
+            <span class="store-icon color-cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6h4v12H4zM16 6h4v12h-4zM8 12h8" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="store-text">
+              <span class="store-price">HarmonyOS</span>
+              <span class="store-title">AppGallery 下载</span>
+            </div>
+          </a>
           <a href="https://testflight.apple.com/join/YUS31axK" target="_blank" class="tf-badge">
             <span class="icon">🚀</span> TestFlight 体验通道
           </a>
@@ -207,6 +218,10 @@
   transform: translateY(-2px);
 }
 
+.color-cyan {
+  color: #22d3ee;
+}
+
 .github-link {
   display: none;
 }
@@ -321,6 +336,18 @@
     justify-content: center;
     padding: 12px 24px;
     font-size: 1rem;
+  }
+  .download-options {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+  }
+  .store-badge, .tf-badge {
+    width: 100%;
+    justify-content: center;
+    max-width: 320px;
+    padding: 10px 16px;
   }
   .masonry-item {
     padding: 1.5rem;
