@@ -32,6 +32,17 @@
               <span class="store-title">AppGallery 下载</span>
             </div>
           </a>
+          <a href="https://play.google.com/store/apps/details?id=com.never88gone.airpaly.THLAirPlayApp" target="_blank" class="store-badge">
+            <span class="store-icon color-green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3l14 9-14 9V3z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="store-text">
+              <span class="store-price">Android</span>
+              <span class="store-title">Google Play 下载</span>
+            </div>
+          </a>
           <a href="https://testflight.apple.com/join/YUS31axK" target="_blank" class="tf-badge">
             <span class="icon">🚀</span> TestFlight 体验通道
           </a>
@@ -220,6 +231,10 @@
 
 .color-cyan {
   color: #22d3ee;
+}
+
+.color-green {
+  color: #10b981;
 }
 
 .github-link {
