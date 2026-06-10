@@ -128,6 +128,18 @@
             <span class="view-details">探索详情 &rarr;</span>
           </div>
         </router-link>
+
+        <!-- Dytv App -->
+        <router-link to="/app/thl-dytv" class="glass-card product-card reveal" style="transition-delay: 0.55s">
+          <div class="card-image bg-gradient-pink">
+            <img src="../assets/dytv/logo.png" alt="糖葫芦视界" class="hero-image" />
+          </div>
+          <div class="card-content">
+            <h3 class="display-text">糖葫芦视界</h3>
+            <p>专为 Apple TV 打造的第三方流媒体客户端，提供沉浸式大屏刷视频体验。</p>
+            <span class="view-details">探索详情 &rarr;</span>
+          </div>
+        </router-link>
       </div>
     </section>
 
@@ -353,6 +365,7 @@ onMounted(() => {
 .bg-gradient-cyan { background: radial-gradient(circle at 50% 50%, #a855f7 0%, #3b0764 65%, #0d0b0a 100%); }
 .bg-gradient-indigo { background: radial-gradient(circle at 50% 50%, #f59e0b 0%, #3e2504 65%, #0d0b0a 100%); }
 .bg-gradient-teal { background: radial-gradient(circle at 50% 50%, #06b6d4 0%, #083344 65%, #0d0b0a 100%); }
+.bg-gradient-pink { background: radial-gradient(circle at 50% 50%, #ec4899 0%, #4c1d95 65%, #0d0b0a 100%); }
 
 .card-content {
   padding: 3rem;

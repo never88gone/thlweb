@@ -61,6 +61,7 @@
         <WatchReadme v-if="$route.params.appid === 'thl-watch'" />
         <PlayReadme v-if="$route.params.appid === 'thl-play'" />
         <SendReadme v-if="$route.params.appid === 'thl-send'" />
+        <DytvReadme v-if="$route.params.appid === 'thl-dytv'" />
       </div>
     </div>
   </div>
@@ -76,6 +77,7 @@ import PdfReadme from '../components/PdfReadme.vue'
 import WatchReadme from '../components/WatchReadme.vue'
 import PlayReadme from '../components/PlayReadme.vue'
 import SendReadme from '../components/SendReadme.vue'
+import DytvReadme from '../components/DytvReadme.vue'
 
 const route = useRoute()
 
@@ -159,6 +161,16 @@ const APP_META = {
       { title: '极速免流投送', detail: '采用高级 P2P 局域网自组网直连，文件及大容量视频无需上传云端，享受物理带宽上限速度。', iconPath: ICON_PLAY },
       { title: '端对端隐私安全', detail: '全流程在局域网内进行，无中转服务器，默认不收集、不上传任何个人隐私及操作轨迹。', iconPath: ICON_DB },
       { title: '跨平台无缝联通', detail: '与 Windows, macOS, Linux, iOS, Android 各大平台上的 LocalSend 客户端原生完全互通。', iconPath: ICON_WIFI }
+    ]
+  },
+  'thl-dytv': {
+    name: '糖葫芦视界',
+    desc: '专为 Apple TV (tvOS) 打造，提供沉浸式的大屏刷视频体验，智能后台无感预缓冲，零等待的开屏体验。',
+    features: [
+      { title: '原生交互', detail: '完全适配 Apple TV 焦点引擎，支持 Siri Remote 丝滑滑动，一键上下切换视频。', iconPath: ICON_UI },
+      { title: '极致秒开', detail: '智能后台无感预缓冲，结合绝美的“毛玻璃”背景效果，打造真正的“零等待”体验。', iconPath: ICON_PLAY },
+      { title: '空间管理', detail: '自定义本地缓存上限，自动在后台静默清理最旧的视频，保护电视存储空间不受侵占。', iconPath: ICON_DB },
+      { title: '多端同步', detail: '支持手机扫码登录，一键同步您的账号推荐算法，在电视上也能刷到懂您的内容。', iconPath: ICON_WIFI }
     ]
   }
 }

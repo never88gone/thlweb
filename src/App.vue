@@ -34,6 +34,7 @@
             <router-link to="/app/thl-pdf">糖葫芦PDF</router-link>
             <router-link to="/app/thl-watch">糖葫芦修仙</router-link>
             <router-link to="/app/thl-send">糖葫芦投送</router-link>
+            <router-link to="/app/thl-dytv">糖葫芦视界</router-link>
           </div>
           <div class="link-group">
             <h4>隐私政策</h4>
@@ -44,6 +45,7 @@
             <router-link to="/privacy/thl-pdf">PDF隐私政策</router-link>
             <router-link to="/privacy/thl-watch">修仙隐私政策</router-link>
             <router-link to="/privacy/thl-send">投送隐私政策</router-link>
+            <router-link to="/privacy/thl-dytv">视界隐私政策</router-link>
           </div>
           <div class="link-group">
             <h4>交流与联系</h4>
