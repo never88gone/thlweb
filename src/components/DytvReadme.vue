@@ -3,11 +3,11 @@
     <!-- Hero Section -->
     <section class="hero-showcase blur-backdrop">
       <div class="hero-text">
-        <div class="tag-new">TV EDITION</div>
-        <h1 class="display-title gradient-text-pink">沉浸式大屏刷视频</h1>
+        <div class="tag-new">BETA RELEASE</div>
+        <h1 class="display-title gradient-text-pink">THLDYTV · 抖音 TV 版</h1>
         <p class="hero-subtitle">
-          专为 Apple TV (tvOS) 打造，完全适配 Apple TV 焦点引擎 (Focus Engine)。
-          支持 Siri Remote 丝滑滑动，一键上下切换视频，彻底告别视频防盗链和黑屏卡顿。
+          重塑大屏内容生态，专为 Apple TV (tvOS) 打造的沉浸式影音终端。
+          告别漫长的加载圈，重构底层拉流逻辑，指尖轻触，世界即达。
         </p>
         <div class="download-options">
           <a href="https://testflight.apple.com/join/5VdH6a3m" target="_blank" class="tf-badge">
@@ -15,12 +15,12 @@
           </a>
         </div>
         <p class="disclaimer">
-          📢 注意：本项目目前为闭源状态。您可以直接点击上方 TestFlight 链接参与内部测试体验。
+          📢 注意：本项目目前为闭源状态，主要用作技术展示与内测体验。
         </p>
       </div>
       <div class="hero-center-graphic">
         <div class="device-frame drop-shadow">
-          <img src="../assets/dytv/介绍.gif" alt="操作演示" class="inner-img" />
+          <video src="../assets/dytv/切换视频.mp4" autoplay loop muted playsinline class="inner-img"></video>
         </div>
       </div>
     </section>
@@ -31,62 +31,84 @@
       <div class="masonry-item large-card glass-panel">
         <div class="card-text">
           <div class="tag accent-pink">Experience</div>
-          <h3>原生 TV 交互体验</h3>
+          <h3>重新定义 TV 交互</h3>
           <p>
-            完全适配 Apple TV 焦点引擎 (Focus Engine)。支持 Siri Remote 丝滑滑动，一键上下切换视频。
-            沉浸式全屏播放，自动适应横屏电视比例，结合绝美的“毛玻璃”背景效果完美呈现竖屏视频。
+            <strong>焦点引擎深度契合</strong>：纯血 tvOS 开发，遥控器操作指哪打哪。<br/>
+            <strong>自适应画幅与毛玻璃艺术</strong>：独创动态“毛玻璃”背景系统，实时提取视频主色调并向两侧晕染，竖屏内容再无突兀黑边。
           </p>
         </div>
-        <div class="media-stack">
-          <img src="../assets/dytv/播放页面.png" alt="播放页面" class="drop-shadow rounded hover-lift" />
+        <div class="media-stack mt-4">
+          <img src="../assets/dytv/视频播放.jpg" alt="沉浸视听" class="drop-shadow rounded hover-lift" />
         </div>
       </div>
 
       <div class="masonry-item standard-card glass-panel">
         <div class="card-text">
           <div class="tag accent-purple">Performance</div>
-          <h3>极致“秒开”与丝滑播放</h3>
+          <h3>极速秒开与双核驱动</h3>
           <p>
-            智能后台无感预缓冲，提前加载接下来的视频流。
-            打开 App 的瞬间直接展示视频，配合优雅的极光渐变动画，打造真正的“零等待”开屏体验。
+            <strong>智能预缓冲矩阵</strong>：后台无感加载，等待时间压缩到0毫秒。<br/>
+            <strong>双核播放器</strong>：内置双内核，遇阻后台热切换，画面永不中断。
           </p>
+        </div>
+        <div class="floating-mockup mt-4">
+          <img src="../assets/dytv/操作控制器.jpg" alt="操作控制器" class="rounded drop-shadow" />
         </div>
       </div>
 
       <div class="masonry-item standard-card glass-panel">
         <div class="card-text">
           <div class="tag accent-cyan">Storage</div>
-          <h3>自定义缓存与空间管理</h3>
+          <h3>聪明的空间管家</h3>
           <p>
-            在大屏电视上也能随心所欲管理存储空间。用户可在设置中自定义本地缓存上限。
-            超过阈值后，系统将自动在后台静默清理最旧的视频。
+            电视存储寸土寸金。我们提供多档缓存上限策略。触及阈值后，自动唤醒后台静默清理机制，默默淘汰最旧视频碎片。
           </p>
         </div>
-        <div class="floating-mockup">
-          <img src="../assets/dytv/设置页面.png" alt="设置页面" class="rounded drop-shadow" />
-        </div>
-      </div>
-
-      <div class="masonry-item long-card glass-panel flex-row">
-        <div class="card-text flex-1">
-          <div class="tag accent-orange">Account</div>
-          <h3>便捷扫码同步</h3>
-          <p>
-            支持手机扫码登录，一键同步您的账号推荐算法，在电视上也能刷到懂您的内容。
-            初次安装无缓存时，建议扫码登录可极大提高拉流成功率。
-          </p>
-        </div>
-        <div class="media-row flex-1">
-          <img src="../assets/dytv/我的页面.png" alt="我的页面" class="rounded drop-shadow" />
+        <div class="floating-mockup mt-4">
+          <img src="../assets/dytv/设置通用.jpg" alt="通用设置" class="rounded drop-shadow" />
         </div>
       </div>
 
     </div>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section mt-5">
+      <div class="section-header text-center">
+        <h2 class="display-text mb-3">全景图赏与功能矩阵</h2>
+        <p class="text-secondary mb-5">电视不该只是放大的手机。我们为大屏幕重新设计了每一个交互场景。</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item glass-panel">
+          <h3 class="mb-3">社交互动与探索</h3>
+          <p class="text-secondary mb-4">大屏重新排版的评论区，清晰的盖楼回复；高效搜索引擎追踪热点。</p>
+          <div class="img-row">
+            <img src="../assets/dytv/评论回复.jpg" alt="评论回复" class="rounded hover-lift drop-shadow" />
+            <img src="../assets/dytv/搜索.jpg" alt="搜索" class="rounded hover-lift drop-shadow" />
+          </div>
+        </div>
+
+        <div class="gallery-item glass-panel">
+          <h3 class="mb-3">你的内容宇宙</h3>
+          <p class="text-secondary mb-4">进入博主的专属主页深度考古，在“我的关注”跟进最新动态。</p>
+          <div class="img-row">
+            <img src="../assets/dytv/博主页面.jpg" alt="博主页面" class="rounded hover-lift drop-shadow" />
+            <img src="../assets/dytv/我的关注.jpg" alt="我的关注" class="rounded hover-lift drop-shadow" />
+          </div>
+        </div>
+
+        <div class="gallery-item glass-panel full-width">
+          <h3 class="mb-3">跨时空的狂欢</h3>
+          <p class="text-secondary mb-4">不仅短视频，更有完美直播体验。自定义弹幕透明度与速度，让客厅秒变互动现场。</p>
+          <img src="../assets/dytv/直播弹幕设置.jpg" alt="直播弹幕" class="w-100 rounded hover-lift drop-shadow" />
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
 <script setup>
-// 组件逻辑
 </script>
 
 <style scoped>
@@ -210,8 +232,6 @@
 
 .large-card { grid-row: span 2; }
 .long-card { grid-column: 1 / -1; }
-.flex-row { flex-direction: row; align-items: center; gap: 4rem; }
-.flex-1 { flex: 1; }
 
 .tag {
   display: inline-block;
@@ -225,7 +245,6 @@
 .accent-pink { background: rgba(236, 72, 153, 0.1); color: #f472b6; }
 .accent-purple { background: rgba(168, 85, 247, 0.1); color: #c084fc; }
 .accent-cyan { background: rgba(34, 211, 238, 0.1); color: #67e8f9; }
-.accent-orange { background: rgba(249, 115, 22, 0.1); color: #fb923c; }
 
 .card-text h3 {
   font-size: 2rem;
@@ -237,28 +256,42 @@
   line-height: 1.7;
 }
 
-.media-stack {
-  margin-top: 2rem;
-}
+.mt-4 { margin-top: 1.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+.mt-5 { margin-top: 3rem; }
+.text-center { text-align: center; }
+.text-secondary { color: var(--text-secondary); line-height: 1.6; }
+.w-100 { width: 100%; }
 
-.media-stack img {
+.media-stack img, .floating-mockup img {
   width: 100%;
   border-radius: 16px;
 }
 
-.floating-mockup {
-  margin-top: 2rem;
-  text-align: center;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
-.floating-mockup img {
-  width: 100%;
-  max-width: 400px;
+.gallery-item h3 {
+  font-size: 1.6rem;
 }
 
-.media-row img {
-  width: 100%;
-  border-radius: 16px;
+.img-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.img-row img {
+  width: calc(50% - 0.5rem);
+  object-fit: cover;
+}
+
+.full-width {
+  grid-column: 1 / -1;
 }
 
 .rounded { border-radius: 16px; }
@@ -267,8 +300,7 @@
 .hover-lift:hover { transform: translateY(-10px); }
 
 @media (max-width: 960px) {
-  .feature-masonry { grid-template-columns: 1fr; }
-  .flex-row { flex-direction: column; }
+  .feature-masonry, .gallery-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -281,7 +313,6 @@
   }
   .hero-subtitle {
     font-size: 1rem;
-    margin-bottom: 2rem;
   }
   .tf-badge {
     width: 100%;
@@ -289,16 +320,12 @@
     max-width: 320px;
     padding: 10px 16px;
   }
-  .masonry-item {
+  .glass-panel {
     padding: 1.5rem;
     border-radius: 24px;
   }
   .card-text h3 {
     font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-  }
-  .card-text p {
-    font-size: 0.95rem;
   }
 }
 </style>
