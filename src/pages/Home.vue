@@ -140,6 +140,18 @@
             <span class="view-details">探索详情 &rarr;</span>
           </div>
         </router-link>
+
+        <!-- Remote App -->
+        <router-link to="/app/thl-remote" class="glass-card product-card reveal" style="transition-delay: 0.60s">
+          <div class="card-image bg-gradient-orange">
+            <img src="../assets/remote/logo.png" alt="糖葫芦遥控器" class="hero-image" />
+          </div>
+          <div class="card-content">
+            <h3 class="display-text">糖葫芦遥控器</h3>
+            <p>基于端侧大模型与实时计算机视觉构建的多屏互动引擎与万能遥控。</p>
+            <span class="view-details">探索详情 &rarr;</span>
+          </div>
+        </router-link>
       </div>
     </section>
 

@@ -62,6 +62,7 @@
         <PlayReadme v-if="$route.params.appid === 'thl-play'" />
         <SendReadme v-if="$route.params.appid === 'thl-send'" />
         <DytvReadme v-if="$route.params.appid === 'thl-dytv'" />
+        <RemoteReadme v-if="$route.params.appid === 'thl-remote'" />
       </div>
     </div>
   </div>
@@ -78,6 +79,7 @@ import WatchReadme from '../components/WatchReadme.vue'
 import PlayReadme from '../components/PlayReadme.vue'
 import SendReadme from '../components/SendReadme.vue'
 import DytvReadme from '../components/DytvReadme.vue'
+import RemoteReadme from '../components/RemoteReadme.vue'
 
 const route = useRoute()
 
@@ -171,6 +173,16 @@ const APP_META = {
       { title: '极致秒开', detail: '智能后台无感预缓冲，结合绝美的“毛玻璃”背景效果，打造真正的“零等待”体验。', iconPath: ICON_PLAY },
       { title: '空间管理', detail: '自定义本地缓存上限，自动在后台静默清理最旧的视频，保护电视存储空间不受侵占。', iconPath: ICON_DB },
       { title: '多端同步', detail: '支持手机扫码登录，一键同步您的账号推荐算法，在电视上也能刷到懂您的内容。', iconPath: ICON_WIFI }
+    ]
+  },
+  'thl-remote': {
+    name: '糖葫芦遥控器',
+    desc: '基于端侧大模型与实时计算机视觉构建的多屏互动引擎，将边缘计算与 Apple 极致生态完美融合的客厅革命。',
+    features: [
+      { title: '端侧大模型驱动', detail: '深度集成 MLX-Swift 与 CoreML，为局域网内的 Apple TV 提供专属翻译与智能推理，数据 100% 隐私安全。', iconPath: ICON_DB },
+      { title: '毫秒级 OCR 视频翻译', detail: '利用 Apple Vision 框架，精准锁定大屏字幕区域。独创的翻译缓存调度机制，将翻译延迟降至毫秒级。', iconPath: ICON_UI },
+      { title: '超低延迟局域网通讯', detail: '通过 UDP 广播、多播 DNS 协议，实现多设备极速连接。120Hz 丝滑触控映射，告别迟滞感。', iconPath: ICON_WIFI },
+      { title: '全生态矩阵万能遥控', detail: '智能识别当前大屏端运行的应用类型，并动态提供专属的控制与 AI 服务面板。', iconPath: ICON_PLAY }
     ]
   }
 }
