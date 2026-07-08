@@ -4,7 +4,7 @@
     <section class="hero-showcase blur-backdrop">
       <div class="hero-text">
         <div class="tag-new">BETA RELEASE</div>
-        <h1 class="display-title gradient-text-pink">THLDYTV · 抖音 TV 版</h1>
+        <h1 class="display-title gradient-text-pink">THLDYTV · 短视频 TV 版</h1>
         <p class="hero-subtitle">
           重塑大屏内容生态，专为 Apple TV (tvOS) 打造的沉浸式影音终端。
           告别漫长的加载圈，重构底层拉流逻辑，指尖轻触，世界即达。
@@ -31,7 +31,7 @@
       </div>
       <div class="hero-center-graphic">
         <div class="device-frame drop-shadow">
-          <video src="../assets/dytv/切换视频.mp4" autoplay loop muted playsinline class="inner-img"></video>
+          <video src="../assets/dytv/switch_video.mp4" autoplay loop muted playsinline class="inner-img"></video>
         </div>
       </div>
     </section>
@@ -49,7 +49,7 @@
           </p>
         </div>
         <div class="media-stack mt-4">
-          <img src="../assets/dytv/视频播放.jpg" alt="沉浸视听" class="drop-shadow rounded hover-lift" />
+          <img src="../assets/dytv/video_play.jpg" alt="沉浸视听" class="drop-shadow rounded hover-lift" />
         </div>
       </div>
 
@@ -63,7 +63,7 @@
           </p>
         </div>
         <div class="floating-mockup mt-4">
-          <img src="../assets/dytv/操作控制器.jpg" alt="操作控制器" class="rounded drop-shadow" />
+          <img src="../assets/dytv/remote_controller.jpg" alt="操作控制器" class="rounded drop-shadow" />
         </div>
       </div>
 
@@ -76,7 +76,7 @@
           </p>
         </div>
         <div class="floating-mockup mt-4">
-          <img src="../assets/dytv/设置通用.jpg" alt="通用设置" class="rounded drop-shadow" />
+          <img src="../assets/dytv/settings_general.jpg" alt="通用设置" class="rounded drop-shadow" />
         </div>
       </div>
 
@@ -94,8 +94,8 @@
           <h3 class="mb-3">社交互动与探索</h3>
           <p class="text-secondary mb-4">大屏重新排版的评论区，清晰的盖楼回复；高效搜索引擎追踪热点。</p>
           <div class="img-row">
-            <img src="../assets/dytv/评论回复.jpg" alt="评论回复" class="rounded hover-lift drop-shadow" />
-            <img src="../assets/dytv/搜索.jpg" alt="搜索" class="rounded hover-lift drop-shadow" />
+            <img src="../assets/dytv/comments_reply.jpg" alt="评论回复" class="rounded hover-lift drop-shadow" />
+            <img src="../assets/dytv/search.jpg" alt="搜索" class="rounded hover-lift drop-shadow" />
           </div>
         </div>
 
@@ -103,15 +103,15 @@
           <h3 class="mb-3">你的内容宇宙</h3>
           <p class="text-secondary mb-4">进入博主的专属主页深度考古，在“我的关注”跟进最新动态。</p>
           <div class="img-row">
-            <img src="../assets/dytv/博主页面.jpg" alt="博主页面" class="rounded hover-lift drop-shadow" />
-            <img src="../assets/dytv/我的关注.jpg" alt="我的关注" class="rounded hover-lift drop-shadow" />
+            <img src="../assets/dytv/creator_profile.jpg" alt="博主页面" class="rounded hover-lift drop-shadow" />
+            <img src="../assets/dytv/my_following.jpg" alt="我的关注" class="rounded hover-lift drop-shadow" />
           </div>
         </div>
 
         <div class="gallery-item glass-panel full-width">
           <h3 class="mb-3">跨时空的狂欢</h3>
           <p class="text-secondary mb-4">不仅短视频，更有完美直播体验。自定义弹幕透明度与速度，让客厅秒变互动现场。</p>
-          <img src="../assets/dytv/直播弹幕设置.jpg" alt="直播弹幕" class="w-100 rounded hover-lift drop-shadow" />
+          <img src="../assets/dytv/live_danmaku.jpg" alt="直播弹幕" class="w-100 rounded hover-lift drop-shadow" />
         </div>
       </div>
     </section>

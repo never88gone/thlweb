@@ -5,7 +5,7 @@
       <div class="hero-text">
         <h1 class="display-title">重塑客厅浏览体验</h1>
         <p class="hero-subtitle">
-          为大屏幕量身定制。以强大的媒体解析兼容性，全维度支持优酷、抖音、腾讯视频等复杂架构的站点网络。这不只是一款浏览器，这是您通向宽广数字世界的私家门户。
+          为大屏幕量身定制。以强大的媒体解析兼容性，全维度支持优酷、短视频、腾讯视频等复杂架构的站点网络。这不只是一款浏览器，这是您通向宽广数字世界的私家门户。
         </p>
         <a href="https://testflight.apple.com/join/QWne6G6V" target="_blank" class="cta-button primary-cta">
           加入 TestFlight 内测 
@@ -62,7 +62,7 @@
           <p>当页面深处的视频开始奏响，我们将立即捕获播放源。长按随时呼唤大屏沉浸播放模式。强大的原生进度控制器接管一切，不仅支持精细拖拽，更内置左/右倾屏快进功能，让跳过枯燥桥段如呼吸般自然。</p>
         </div>
         <div class="feature-visual dual-grid">
-           <img src="../assets/browser/browser.png" alt="抖音视频网页完美解析" class="drop-shadow rounded hover-zoom" />
+           <img src="../assets/browser/browser.png" alt="短视频网页完美解析" class="drop-shadow rounded hover-zoom" />
            <img src="../assets/browser/videoplayprocess.png" alt="底层劫持的视频进度播放器" class="drop-shadow rounded hover-zoom" />
         </div>
       </section>
