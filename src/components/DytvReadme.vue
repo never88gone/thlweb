@@ -13,6 +13,17 @@
           <a href="https://testflight.apple.com/join/5VdH6a3m" target="_blank" class="tf-badge">
             <span class="icon">🚀</span> TestFlight 体验通道
           </a>
+          <a href="https://play.google.com/apps/testing/com.never88gone.thldytv" target="_blank" class="store-badge">
+            <span class="store-icon color-green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3l14 9-14 9V3z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="store-text">
+              <span class="store-price">Android TV</span>
+              <span class="store-title">Play 商店测试</span>
+            </div>
+          </a>
         </div>
         <p class="disclaimer">
           📢 注意：本项目目前为闭源状态，主要用作技术展示与内测体验。
@@ -193,6 +204,50 @@
   transform: translateY(-2px);
 }
 
+.store-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  background: #000;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.store-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.store-icon {
+  display: flex;
+  align-items: center;
+}
+
+.store-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.store-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.store-price {
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+
+.color-green {
+  color: #10b981;
+}
+
 .disclaimer {
   font-size: 0.9rem;
   color: var(--text-muted);
@@ -314,7 +369,7 @@
   .hero-subtitle {
     font-size: 1rem;
   }
-  .tf-badge {
+  .tf-badge, .store-badge {
     width: 100%;
     justify-content: center;
     max-width: 320px;
