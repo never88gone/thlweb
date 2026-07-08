@@ -6,7 +6,7 @@
         <div class="tag-new">BETA RELEASE</div>
         <h1 class="display-title gradient-text-pink">THLDYTV · 短视频 TV 版</h1>
         <p class="hero-subtitle">
-          重塑大屏内容生态，专为 Apple TV (tvOS) 打造的沉浸式影音终端。
+          重塑大屏内容生态，专为 Apple TV (tvOS) 与 Android TV 打造的沉浸式影音终端。
           告别漫长的加载圈，重构底层拉流逻辑，指尖轻触，世界即达。
         </p>
         <div class="download-options">
