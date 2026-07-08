@@ -22,9 +22,6 @@
               <span class="store-title">AppGallery 下载</span>
             </div>
           </a>
-          <a href="javascript:void(0)" class="tf-badge cursor-default">
-            <span class="icon">🚀</span> 鸿蒙 Beta 体验通道
-          </a>
         </div>
       </div>
       <div class="hero-center-graphic">
