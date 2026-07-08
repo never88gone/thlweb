@@ -13,6 +13,17 @@
           <a href="https://testflight.apple.com/join/5VdH6a3m" target="_blank" class="tf-badge">
             <span class="icon">🚀</span> TestFlight 体验通道
           </a>
+          <a href="https://play.google.com/store/apps/details?id=com.never88gone.thldytv" target="_blank" class="store-badge">
+            <span class="store-icon color-green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3l14 9-14 9V3z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="store-text">
+              <span class="store-price">Android TV</span>
+              <span class="store-title">Google Play 下载</span>
+            </div>
+          </a>
           <a href="https://play.google.com/apps/testing/com.never88gone.thldytv" target="_blank" class="store-badge">
             <span class="store-icon color-green">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
