@@ -10,7 +10,7 @@
           摆脱云端中转与速度限制，局域网内一秒点亮投送星图。
         </p>
         <div class="download-options">
-          <a href="javascript:void(0)" class="store-badge cursor-default">
+          <a href="https://appgallery.huawei.com/app/detail?id=com.never88gone.airdrop" target="_blank" class="store-badge">
             <span class="store-icon">
               <!-- 鸿蒙 H 字形 Logo 拟态 -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +19,7 @@
             </span>
             <div class="store-text">
               <span class="store-price">HarmonyOS</span>
-              <span class="store-title">AppGallery 抢先下载</span>
+              <span class="store-title">AppGallery 下载</span>
             </div>
           </a>
           <a href="javascript:void(0)" class="tf-badge cursor-default">
