@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品概念 PRD - HSBBrowser</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body { box-sizing: border-box; min-width: 200px; max-width: 980px; margin: 0 auto; padding: 45px; background: #0d1117; color: #c9d1d9; }
+        @media (max-width: 767px) { body { padding: 15px; } }
+        /* Force dark mode styling for github-markdown-css */
+        .markdown-body { color: #c9d1d9; background-color: #0d1117; }
+        .markdown-body table tr { background-color: #0d1117; }
+        .markdown-body table tr:nth-child(2n) { background-color: #161b22; }
+    </style>
+</head>
+<body class="markdown-body">
+    <div id="content"></div>
+    <script type="text/markdown" id="markdown-source">
+# HSBBrowser (tvOS 专属自动化浏览器) - 产品概念文档
+
+## 一句话定位
+> 这是一个专为 **Apple TV (tvOS) 用户** 打造的**自动化网页浏览器**，核心帮他们解决**在电视上刷短视频（如抖音）、看网页视频时，遥控器交互极其繁琐**的痛点。
+> 与现有的投屏方案或简陋的 TV 浏览器相比，核心差异在于它**内置了强大的自动化规则引擎与定制化交互能力（如自动全屏、验证码辅助拖拽、快捷手势映射）**，让电视看网页拥有接近原生 App 的流畅体验。
+
+## 市场调研与合规可行性
+1. **真实需求存在断层**：tvOS 商店唯一的一款“浏览器”竞品货不对板，大量差评印证了用户对真·浏览器的强诉求。
+2. **上架风险完全可控**：虽 Apple 政策不鼓励纯浏览器，但内嵌系统底层引擎过审已是业内惯例，工具化包装可顺畅上架。
+
+## 产品形态
+- **当前选型**：tvOS 原生 App。
+- **选择理由**：只有原生 tvOS App 才能深度接管 Apple TV 的遥控器事件（甚至游戏手柄），并利用底层引擎提供视图模式伪装、视频拦截和自动化规则执行。
+- **阶段策略**：第一阶段作为效率/播放工具上架，第二阶段通过 Telegram 等社群收集用户规则，建立“规则分享生态”。
+
+## 目标用户
+- **核心用户画像**：
+  1. **Apple TV 深度用户**：喜欢在电视大屏上消费内容，但苦于没有完美的 tvOS 客户端。
+  2. **极客/自动化爱好者**：有特定网页挂机、自动刷视频或监控需求，希望能在电视上跑自动化流程。
+- **他们的核心痛点**：Apple TV 的触控板在网页上移动光标极其痛苦（比如想点一下右下角的全屏按钮需要滑好几次）。
+- **为什么选我们**：省去了繁杂的滑动和点击，打开网页就能通过规则自动完成全屏、翻页，甚至是验证码拖拽。
+
+## 产品价值
+- **用户价值**：将原本在电视上“没法用”的复杂网页交互，简化为“一键操作”或“完全自动”，大幅提升大屏观影体验。
+- **商业价值**：
+  - **直接变现**：1 期主打 App Store 付费下载（买断制 $3.99）；高级功能内购订阅（$0.99/年）纳入 2 期规划。
+  - **流量价值**：通过现有 1k+ 人的 Telegram 社群进行冷启动推广，并作为沉淀用户的私域池。
+
+## 核心功能方向（MVP 必备）
+- **视频播放拦截与沉浸定制**：自动侦测网页视频流，实现视频加载后立刻强制全屏，隐藏网页其他无关元素。
+- **自动化规则管理模块**：支持自定义执行规则，自动化处理网页逻辑（例如：跳过广告、自动连播）。
+- **跨端扫码同步模块**：支持扫码将手机端/电脑端的规则长文本快捷推送到电视上，解决电视打字痛点。
+- **遥控器/手柄深度适配**：将网页的高频操作（上下滑动翻页、点击特定按钮）映射到遥控器实体按键或游戏手柄上。
+- **Siri Remote 触控板映射 (自由滑鼠)**：针对 Apple TV 遥控器的硬件特性，在网页内将其中心触控板的物理手指滑动转化为“自由光标”的连续位移，实现如同笔记本触摸板般丝滑的精准点击体验。
+- **多端视图模式伪装**：自由切换移动端/桌面端视图，以获取最适合电视展示的网页排版。
+
+## 不做什么（边界）
+- **不做重度网页编辑/办公**：产品仅侧重“内容消费”和“自动化执行”，不为表单填写和文字输入做复杂优化。
+- **不做非法内容聚合**：仅提供浏览器和自动化执行引擎，不主动提供任何侵权视频内容。
+
+## 待确认问题
+- [ ] 针对“验证码拖动”（已划入 2 期），目前我们是通过后台模拟轨迹来通过，还是呼出专用拖拽区域让用户用遥控器手动平滑拖动？
+- [ ] 内购订阅（$0.99/年）在 2 期具体解锁哪些权益？（比如：云端规则库、手柄高级映射配置？）
+
+    </script>
+    <script>
+        const rawMd = document.getElementById('markdown-source').textContent;
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = marked.parse(rawMd);
+        
+        contentDiv.querySelectorAll('pre code.language-mermaid').forEach(el => {
+            const div = document.createElement('div');
+            div.className = 'mermaid';
+            div.textContent = el.textContent;
+            el.parentElement.replaceWith(div);
+        });
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    </script>
+</body>
+</html>
