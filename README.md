@@ -94,3 +94,36 @@ acme.sh --install-cert -d myit2017.cn \
 --key-file       /root/certs/key.pem  \
 --fullchain-file /root/certs/cert.pem \
 --reloadcmd     "service nginx force-reload"
+
+---
+
+## 🌍 多环境构建区分 (阿里云 vs Cloudflare)
+
+项目通过一套代码同时部署在 **阿里云** 和 **Cloudflare** 上，我们需要在打包阶段对它们进行区分，以便控制特定代码（如阿里云的备案信息，或 Cloudflare 的 TestFlight 申请入口）是否渲染。
+
+### 区分逻辑
+两端的打包动作由各自的服务器独立完成，因此我们通过注入不同的 **Vite 环境变量 (`VITE_APP_PLATFORM`)** 进行标识：
+
+1. **阿里云环境 (GitHub Actions)**
+   - 打包机器：GitHub 服务器
+   - 触发方式：推送到 `main` 分支时触发 `.github/workflows/deploy.yml`。
+   - 注入变量：在部署脚本执行 `npm run build` 时，注入环境变量 `VITE_APP_PLATFORM=aliyun`。
+   
+2. **Cloudflare 环境 (Cloudflare Pages)**
+   - 打包机器：Cloudflare 服务器
+   - 触发方式：Cloudflare 监听到 GitHub 仓库变更后自动拉取打包。
+   - 注入变量：在 Cloudflare Pages 的网页控制台 (Settings -> Environment variables) 手动添加变量 `VITE_APP_PLATFORM=cloudflare`。
+
+### 前端代码识别
+在 Vue 代码中，通过 Vite 暴露的环境变量对象 `import.meta.env` 进行判断：
+```javascript
+// 判断当前是否是阿里云环境
+const isAliyun = import.meta.env.VITE_APP_PLATFORM === 'aliyun';
+
+// 判断当前是否是 Cloudflare 环境
+const isCloudflare = import.meta.env.VITE_APP_PLATFORM === 'cloudflare';
+```
+在模板中可以使用该变量动态绑定样式类或控制区块的显隐：
+```html
+<footer v-if="isAliyun">京ICP备XXXXXXXX号</footer>
+```

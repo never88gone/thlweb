@@ -7,6 +7,7 @@
         </router-link>
         <div class="nav-links">
           <router-link to="/">产品矩阵</router-link>
+          <router-link v-if="isCloudflare" to="/testflight" class="nav-link-tf">TestFlight 申请</router-link>
         </div>
       </div>
     </nav>
@@ -57,8 +58,11 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 武汉铭研信息技术有限公司. 保留所有权利。</p>
-        <p class="icp-info">
+        <p v-if="isAliyun" class="icp-info">
           <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2026023727号</a>
+        </p>
+        <p v-if="isCloudflare" class="footer-tf-link">
+          <router-link to="/testflight">✈️ 申请加入 TestFlight 内测</router-link>
         </p>
       </div>
     </footer>
@@ -69,6 +73,8 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const isScrolled = ref(false);
+const isAliyun = import.meta.env.VITE_APP_PLATFORM === 'aliyun';
+const isCloudflare = import.meta.env.VITE_APP_PLATFORM === 'cloudflare';
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 20;
@@ -233,6 +239,28 @@ onUnmounted(() => {
 
 .icp-info a:hover {
   color: white;
+}
+
+.nav-link-tf {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.footer-tf-link {
+  margin-top: 0.8rem;
+}
+
+.footer-tf-link a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.footer-tf-link a:hover {
+  color: var(--accent-blue);
 }
 
 /* 页面转场动效 */

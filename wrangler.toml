@@ -1,0 +1,29 @@
+# Cloudflare Pages + Functions 配置文件
+# 部署时，在 Cloudflare Dashboard 中设置绑定，或使用 wrangler 命令行工具
+#
+# 使用前需要：
+# 1. 安装 wrangler: npm install -g wrangler
+# 2. 登录: wrangler login
+# 3. 创建 D1 数据库: wrangler d1 create thlweb-db
+# 4. 初始化数据库: wrangler d1 execute thlweb-db --file=./schema.sql
+# 5. 创建 R2 Bucket: wrangler r2 bucket create thlweb-screenshots
+# 6. 开启 R2 公开访问（在 Cloudflare Dashboard 的 R2 -> 设置 -> 公开访问）
+
+name = "thlweb"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+# D1 数据库绑定
+[[d1_databases]]
+binding = "DB"
+database_name = "thlweb-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# R2 存储桶绑定（存放订单截图）
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "thlweb-screenshots"
+
+# 环境变量（在 Cloudflare Dashboard 中配置，不要写在此文件）
+# VITE_APP_PLATFORM = cloudflare   ← 在 Dashboard: Settings > Environment variables
+# R2_PUBLIC_URL = https://your-r2-domain.com  ← R2 公开访问域名

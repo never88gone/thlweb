@@ -24,6 +24,22 @@ const routes = [
     name: 'PrivacyDetail',
     component: PrivacyDetail,
     props: true
+  },
+  {
+    path: '/testflight',
+    name: 'TestFlightApply',
+    component: () => import('../pages/TestFlightApply.vue')
+  },
+  {
+    path: '/testflight/:appId',
+    name: 'TestFlightApplyApp',
+    component: () => import('../pages/TestFlightApply.vue'),
+    props: true
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('../pages/Admin.vue')
   }
 ]
 
