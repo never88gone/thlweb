@@ -57,11 +57,21 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 武汉铭研信息技术有限公司. 保留所有权利。</p>
-        <p v-if="isAliyun" class="icp-info">
-          <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2026023727号</a>
-        </p>
-
+        <!-- 阿里云环境显示国内公司与备案 -->
+        <template v-if="isAliyun">
+          <p>&copy; 2026 武汉铭研信息技术有限公司. 保留所有权利。</p>
+          <p class="icp-info">
+            <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2026023727号</a>
+          </p>
+        </template>
+        <!-- 其他环境（如 Cloudflare）显示国际化版权和二维码 -->
+        <template v-else>
+          <p>&copy; 2026 THLWeb. All rights reserved.</p>
+          <div v-if="isCloudflare" class="tg-qrcode-wrapper">
+            <img src="./assets/TG.png" alt="Telegram 频道" class="tg-qrcode-img" />
+            <p class="tg-hint">扫码加入 Telegram 频道</p>
+          </div>
+        </template>
       </div>
     </footer>
   </div>
@@ -310,5 +320,26 @@ onUnmounted(() => {
   .link-group a {
     margin-bottom: 0.6rem;
   }
+}
+
+/* Telegram 二维码样式 */
+.tg-qrcode-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tg-qrcode-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  background: white;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.tg-hint {
+  font-size: 0.85rem;
+  color: #a1a1aa;
 }
 </style>

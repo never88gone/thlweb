@@ -29,8 +29,8 @@
             <div class="form-group" v-if="selectedApp">
               <label class="form-label">您正在申请</label>
               <div class="selected-app-display">
-                <div class="app-btn active" style="cursor: default; pointer-events: none; max-width: 200px;">
-                  <span class="app-icon">{{ selectedApp.icon }}</span>
+                <div class="app-badge-elegant">
+                  <img :src="getAppImage(selectedApp.id)" :alt="selectedApp.name" class="app-real-icon" />
                   <span class="app-label">{{ selectedApp.name }}</span>
                 </div>
               </div>
@@ -189,6 +189,20 @@ const APP_LIST = [
   { id: 'thl-send',   name: '糖葫芦投送',   icon: '🚀' },
   { id: 'thl-dytv',   name: '糖葫芦视界',   icon: '🎭' },
 ];
+
+function getAppImage(id) {
+  const map = {
+    'thl-browser': new URL('../assets/thlbrowser.png', import.meta.url).href,
+    'thl-screen': new URL('../assets/thlairplay.png', import.meta.url).href,
+    'thl-play': new URL('../assets/play/logo.png', import.meta.url).href,
+    'thl-tv': new URL('../assets/thltv.jpg', import.meta.url).href,
+    'thl-pdf': new URL('../assets/thlpdf.jpg', import.meta.url).href,
+    'thl-send': new URL('../assets/thlsend.png', import.meta.url).href,
+    'thl-dytv': new URL('../assets/dytv/logo.png', import.meta.url).href,
+    'thl-watch': new URL('../assets/watch/xiuxian_logo.jpg', import.meta.url).href,
+  };
+  return map[id] || '';
+}
 
 const route = useRoute();
 
@@ -614,6 +628,32 @@ function resetForm() {
   font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+/* 优雅的应用徽章 */
+.app-badge-elegant {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 8px;
+}
+.app-badge-elegant .app-real-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.app-badge-elegant .app-label {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
 }
 
 /* 响应式 */
