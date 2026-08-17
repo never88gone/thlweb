@@ -24,7 +24,7 @@
             :class="{ active: filter.app_id === app.id }"
             @click="setAppFilter(app.id)"
           >
-            <span class="nav-icon">{{ app.icon }}</span>
+            <span class="nav-icon"><img :src="getAppImage(app.id)" class="real-icon-sm" /></span>
             {{ app.name }}
           </button>
         </nav>
@@ -41,19 +41,38 @@
               共 {{ total }} 条记录
             </p>
           </div>
-          <!-- 状态筛选 -->
-          <div class="status-tabs">
-            <button
-              v-for="tab in STATUS_TABS"
-              :key="tab.value"
-              class="status-tab"
-              :class="{ active: filter.status === tab.value }"
-              @click="setStatusFilter(tab.value)"
-            >
-              {{ tab.label }}
-            </button>
+          <!-- 状态与时间筛选 -->
+          <div class="filters-wrap">
+            <select v-model="filter.days" class="time-select">
+              <option value="0">全部时间</option>
+              <option value="1">最近 24 小时</option>
+              <option value="3">最近 3 天</option>
+              <option value="7">最近 7 天</option>
+            </select>
+            <div class="status-tabs">
+              <button
+                v-for="tab in STATUS_TABS"
+                :key="tab.value"
+                class="status-tab"
+                :class="{ active: filter.status === tab.value }"
+                @click="setStatusFilter(tab.value)"
+              >
+                {{ tab.label }}
+              </button>
+            </div>
           </div>
         </header>
+
+        <!-- 批量操作栏 -->
+        <div v-if="selectedIds.length > 0" class="bulk-actions glass-card">
+          <span class="bulk-text">已选择 <strong>{{ selectedIds.length }}</strong> 项</span>
+          <div class="bulk-btns">
+            <button class="action-btn" @click="copySelectedEmails">📋 复制邮箱</button>
+            <button class="action-btn approve" :disabled="bulkUpdating" @click="bulkApproveAndInvite">
+              {{ bulkUpdating ? '⏳ 处理中...' : '🚀 一键导入 TestFlight 并批准' }}
+            </button>
+          </div>
+        </div>
 
         <!-- 加载中 -->
         <div v-if="loading" class="loading-state">
@@ -72,6 +91,9 @@
           <table class="admin-table">
             <thead>
               <tr>
+                <th class="checkbox-col">
+                  <input type="checkbox" :checked="isAllSelected" @change="toggleSelectAll" />
+                </th>
                 <th>ID</th>
                 <th>应用</th>
                 <th>邮箱</th>
@@ -91,9 +113,12 @@
                 class="table-row"
                 :class="'row-' + row.status"
               >
+                <td class="checkbox-col">
+                  <input type="checkbox" v-model="selectedIds" :value="row.id" />
+                </td>
                 <td class="cell-id">#{{ row.id }}</td>
                 <td>
-                  <span class="app-tag">{{ getAppIcon(row.app_id) }} {{ row.app_name }}</span>
+                  <span class="app-tag"><img :src="getAppImage(row.app_id)" class="real-icon-xs" /> {{ row.app_name }}</span>
                 </td>
                 <td>
                   <a :href="'mailto:' + row.email" class="email-link">{{ row.email }}</a>
@@ -211,13 +236,77 @@ const LIMIT = 20;
 const filter = reactive({
   app_id: '',
   status: '',
+  days: '0',
   page: 1,
 });
 
+const selectedIds = ref([]);
+const bulkUpdating = ref(false);
+
 const totalPages = computed(() => Math.ceil(total.value / LIMIT));
 
-function getAppIcon(app_id) {
-  return APP_LIST.find(a => a.id === app_id)?.icon || '📱';
+const isAllSelected = computed(() => {
+  return records.value.length > 0 && selectedIds.value.length === records.value.length;
+});
+
+function toggleSelectAll(e) {
+  if (e.target.checked) {
+    selectedIds.value = records.value.map(r => r.id);
+  } else {
+    selectedIds.value = [];
+  }
+}
+
+async function copySelectedEmails() {
+  const emails = records.value
+    .filter(r => selectedIds.value.includes(r.id))
+    .map(r => r.email)
+    .join(',');
+  try {
+    await navigator.clipboard.writeText(emails);
+    alert('已复制所有选中的邮箱！');
+  } catch (e) {
+    alert('复制失败，请手动选取。');
+  }
+}
+
+async function bulkApproveAndInvite() {
+  if (!confirm('确定将选中的记录自动导入 TestFlight 并批准吗？')) return;
+  bulkUpdating.value = true;
+  try {
+    const res = await fetch('/api/records', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ids: selectedIds.value, status: 'approved', auto_invite: true }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      alert(data.message);
+      selectedIds.value = [];
+      fetchRecords(); // 刷新数据
+    } else {
+      alert('批量操作出现错误:\n' + (data.details ? data.details.join('\n') : data.error));
+      fetchRecords(); // 部分成功时，也要刷新
+    }
+  } catch (e) {
+    alert('请求失败，请检查网络设置');
+  } finally {
+    bulkUpdating.value = false;
+  }
+}
+
+function getAppImage(id) {
+  const map = {
+    'thl-browser': new URL('../assets/thlbrowser.png', import.meta.url).href,
+    'thl-screen': new URL('../assets/thlairplay.png', import.meta.url).href,
+    'thl-play': new URL('../assets/play/logo.png', import.meta.url).href,
+    'thl-tv': new URL('../assets/thltv.jpg', import.meta.url).href,
+    'thl-pdf': new URL('../assets/thlpdf.jpg', import.meta.url).href,
+    'thl-send': new URL('../assets/thlsend.png', import.meta.url).href,
+    'thl-dytv': new URL('../assets/dytv/logo.png', import.meta.url).href,
+    'thl-watch': new URL('../assets/watch/xiuxian_logo.jpg', import.meta.url).href,
+  };
+  return map[id] || '';
 }
 
 function formatDate(iso) {
@@ -236,6 +325,7 @@ async function fetchRecords() {
     const params = new URLSearchParams({
       page: filter.page,
       limit: LIMIT,
+      days: filter.days,
       ...(filter.app_id && { app_id: filter.app_id }),
       ...(filter.status  && { status:  filter.status }),
     });
@@ -256,7 +346,7 @@ async function updateStatus(row, status) {
     const res = await fetch('/api/records', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: row.id, status }),
+      body: JSON.stringify({ ids: [row.id], status }),
     });
     const data = await res.json();
     if (data.success) {
@@ -411,6 +501,26 @@ onMounted(fetchRecords);
   font-size: 0.88rem;
 }
 
+/* 过滤及时间选择 */
+.filters-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.time-select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,230,200,0.08);
+  border-radius: 12px;
+  color: var(--text-primary);
+  padding: 0.4rem 1rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+}
+.time-select option {
+  background: var(--bg-primary);
+}
+
 /* 状态 Tabs */
 .status-tabs {
   display: flex;
@@ -464,6 +574,19 @@ onMounted(fetchRecords);
 }
 .empty-icon { font-size: 3rem; margin-bottom: 1rem; }
 
+/* 批量操作区 */
+.bulk-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+  margin-bottom: 1rem;
+  background: rgba(249,115,22,0.05);
+  border-color: rgba(249,115,22,0.2);
+}
+.bulk-text { font-size: 0.9rem; color: var(--text-primary); }
+.bulk-btns { display: flex; gap: 0.8rem; }
+
 /* 表格 */
 .table-wrapper {
   border-radius: 16px;
@@ -498,16 +621,24 @@ onMounted(fetchRecords);
 .table-row.row-approved td { border-left: 2px solid rgba(34,197,94,0.4); }
 .table-row.row-rejected td { border-left: 2px solid rgba(239,68,68,0.4); }
 
+.checkbox-col {
+  width: 40px;
+  text-align: center;
+}
+
 .cell-id { color: var(--text-muted); font-size: 0.8rem; }
 .app-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   background: rgba(255,255,255,0.06);
   border-radius: 8px;
   padding: 0.25rem 0.6rem;
   font-size: 0.82rem;
 }
+.real-icon-sm { width: 20px; height: 20px; border-radius: 5px; object-fit: cover; }
+.real-icon-xs { width: 16px; height: 16px; border-radius: 4px; object-fit: cover; }
+
 .email-link {
   color: var(--accent-blue);
   text-decoration: none;

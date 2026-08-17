@@ -8,6 +8,9 @@ dependencies:
   echarts:
     specifier: ^6.0.0
     version: 6.1.0
+  jose:
+    specifier: ^6.2.9
+    version: 6.2.9
   vue:
     specifier: ^3.5.25
     version: 3.5.41
@@ -650,6 +653,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /jose@6.2.9:
+    resolution: {integrity: sha512-XrchZOFZUl/T3vTwRe8XK+cJrGtMF4th1ARnDfwbBXFKThGhlsxEE4Zu03AD/bjJSt/9jT/mxrOCkJWOg77aPA==}
+    dev: false
 
   /magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
