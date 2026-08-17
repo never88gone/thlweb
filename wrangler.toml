@@ -17,7 +17,7 @@ pages_build_output_dir = "dist"
 [[d1_databases]]
 binding = "DB"
 database_name = "thlweb-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "4bfc202b-00be-4f5c-9916-7382c5e3e477"
 
 # R2 存储桶绑定（存放订单截图）
 [[r2_buckets]]
