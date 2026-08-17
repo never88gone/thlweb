@@ -1,5 +1,18 @@
 <template>
   <div class="admin-page">
+    
+    <!-- 全局 Toast 提示 -->
+    <transition name="toast-fade">
+      <div v-if="toast.visible" class="toast-message glass-card" :class="'toast-' + toast.type">
+        <span class="toast-icon">{{ toast.icon }}</span>
+        <div class="toast-content">
+          <div class="toast-title">{{ toast.title }}</div>
+          <div v-if="toast.desc" class="toast-desc" v-html="toast.desc"></div>
+        </div>
+        <button class="toast-close" @click="toast.visible = false">✕</button>
+      </div>
+    </transition>
+
     <div class="admin-layout">
       <!-- 侧边栏 -->
       <aside class="admin-sidebar glass-card">
@@ -68,8 +81,14 @@
           <span class="bulk-text">已选择 <strong>{{ selectedIds.length }}</strong> 项</span>
           <div class="bulk-btns">
             <button class="action-btn" @click="copySelectedEmails">📋 复制邮箱</button>
-            <button class="action-btn approve" :disabled="bulkUpdating" @click="bulkApproveAndInvite">
-              {{ bulkUpdating ? '⏳ 处理中...' : '🚀 一键导入 TestFlight 并批准' }}
+            <button class="action-btn approve" :disabled="bulkUpdating" @click="bulkUpdateStatus('approved', false)">
+              ✓ 批量通过
+            </button>
+            <button class="action-btn reject" :disabled="bulkUpdating" @click="bulkUpdateStatus('rejected', false)">
+              ✕ 批量拒绝
+            </button>
+            <button class="action-btn apple" :disabled="bulkUpdating" @click="bulkUpdateStatus('approved', true)">
+              {{ bulkUpdating ? '⏳ 处理中...' : '🚀 导入 TestFlight' }}
             </button>
           </div>
         </div>
@@ -88,6 +107,12 @@
 
         <!-- 数据表格 -->
         <div v-else class="table-wrapper glass-card">
+          <!-- 批量处理遮罩层 -->
+          <div v-if="bulkUpdating" class="bulk-overlay glass-card">
+            <div class="spinner-lg"></div>
+            <p>正在执行自动化操作，请勿关闭页面...</p>
+          </div>
+
           <table class="admin-table">
             <thead>
               <tr>
@@ -243,6 +268,27 @@ const filter = reactive({
 const selectedIds = ref([]);
 const bulkUpdating = ref(false);
 
+const toast = reactive({
+  visible: false,
+  type: 'success', // success, error, warning
+  title: '',
+  desc: '',
+  icon: '✅',
+});
+
+let toastTimer = null;
+function showToast(type, title, desc = '', duration = 5000) {
+  if (toastTimer) clearTimeout(toastTimer);
+  toast.type = type;
+  toast.title = title;
+  toast.desc = desc.replace(/\n/g, '<br/>');
+  toast.icon = type === 'success' ? '✅' : (type === 'error' ? '❌' : '⚠️');
+  toast.visible = true;
+  if (duration > 0) {
+    toastTimer = setTimeout(() => { toast.visible = false; }, duration);
+  }
+}
+
 const totalPages = computed(() => Math.ceil(total.value / LIMIT));
 
 const isAllSelected = computed(() => {
@@ -264,32 +310,49 @@ async function copySelectedEmails() {
     .join(',');
   try {
     await navigator.clipboard.writeText(emails);
-    alert('已复制所有选中的邮箱！');
+    showToast('success', '复制成功', `已复制 ${selectedIds.value.length} 个邮箱到剪贴板。`, 3000);
   } catch (e) {
-    alert('复制失败，请手动选取。');
+    showToast('error', '复制失败', '浏览器不支持或被阻止，请手动复制。');
   }
 }
 
-async function bulkApproveAndInvite() {
-  if (!confirm('确定将选中的记录自动导入 TestFlight 并批准吗？')) return;
+async function bulkUpdateStatus(status, auto_invite = false) {
+  const actionName = auto_invite ? '导入 TestFlight 并批准' : (status === 'approved' ? '通过' : '拒绝');
+  
+  const validRecords = records.value.filter(r => selectedIds.value.includes(r.id) && r.status !== status);
+  const skipCount = selectedIds.value.length - validRecords.length;
+  
+  if (validRecords.length === 0) {
+    showToast('warning', '无需操作', '选中的记录状态已经全部一致，无需重复提交。', 3000);
+    selectedIds.value = [];
+    return;
+  }
+  
+  let confirmMsg = `确定要对选中的 ${validRecords.length} 条记录执行 [${actionName}] 吗？`;
+  if (skipCount > 0) {
+    confirmMsg += `\n(已为您智能过滤跳过了 ${skipCount} 条无效记录)`;
+  }
+  
+  if (!confirm(confirmMsg)) return;
+
   bulkUpdating.value = true;
   try {
     const res = await fetch('/api/records', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ids: selectedIds.value, status: 'approved', auto_invite: true }),
+      body: JSON.stringify({ ids: validRecords.map(r => r.id), status, auto_invite }),
     });
     const data = await res.json();
     if (data.success) {
-      alert(data.message);
+      showToast('success', '批量处理完毕', data.message + (data.details ? '<br/><br/>异常明细：<br/>' + data.details.join('<br/>') : ''), 6000);
       selectedIds.value = [];
       fetchRecords(); // 刷新数据
     } else {
-      alert('批量操作出现错误:\n' + (data.details ? data.details.join('\n') : data.error));
-      fetchRecords(); // 部分成功时，也要刷新
+      showToast('error', '批量操作出错', data.details ? data.details.join('<br/>') : data.error, 0); // 0 表示不自动关闭
+      fetchRecords(); 
     }
   } catch (e) {
-    alert('请求失败，请检查网络设置');
+    showToast('error', '网络请求失败', '请检查网络设置或查看控制台。');
   } finally {
     bulkUpdating.value = false;
   }
@@ -350,7 +413,7 @@ async function updateStatus(row, status) {
     });
     const data = await res.json();
     if (data.success) {
-      // 用 splice 替换整个对象，确保 Vue 3 响应式正确触发视图更新
+      showToast('success', '更新成功', `记录 #${row.id} 已变为 ${STATUS_LABELS[status]}`, 3000);
       const idx = records.value.findIndex(r => r.id === row.id);
       if (idx !== -1) {
         records.value.splice(idx, 1, {
@@ -359,9 +422,11 @@ async function updateStatus(row, status) {
           reviewed_at: status !== 'pending' ? new Date().toISOString() : null,
         });
       }
+    } else {
+      showToast('error', '状态更新失败', data.error);
     }
   } catch (e) {
-    console.error('updateStatus error', e);
+    showToast('error', '请求失败', e.message);
   } finally {
     updating.value = null;
   }
@@ -708,6 +773,69 @@ onMounted(fetchRecords);
   background: rgba(255,255,255,0.1);
   color: var(--text-secondary);
 }
+.action-btn.apple {
+  background: rgba(56,189,248,0.1);
+  border-color: rgba(56,189,248,0.3);
+  color: #38bdf8;
+}
+.action-btn.apple:hover:not(:disabled) {
+  background: rgba(56,189,248,0.25);
+}
+
+/* 遮罩层 */
+.bulk-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  gap: 1.5rem;
+  border-radius: 16px;
+}
+
+/* Toast 提示框 */
+.toast-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  min-width: 320px;
+  max-width: 400px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border-left: 4px solid;
+}
+.toast-success { border-left-color: #4ade80; }
+.toast-error   { border-left-color: #f87171; }
+.toast-warning { border-left-color: #fbbf24; }
+.toast-icon { font-size: 1.4rem; }
+.toast-content { flex: 1; }
+.toast-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.3rem; }
+.toast-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+.toast-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+}
+.toast-close:hover { color: var(--text-primary); }
+
+.toast-fade-enter-active, .toast-fade-leave-active { transition: all 0.3s ease; }
+.toast-fade-enter-from { opacity: 0; transform: translateX(50px); }
+.toast-fade-leave-to { opacity: 0; transform: translateX(50px); }
 
 /* 分页 */
 .pagination {

@@ -79,20 +79,34 @@ export async function onRequestPost(context) {
 
     let successCount = 0;
     let failCount = 0;
+    let skipCount = 0;
     const errors = [];
 
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
     for (const id of ids) {
+      let currentEmail = `ID #${id}`;
       try {
         const record = await env.DB.prepare('SELECT * FROM applications WHERE id = ?').bind(id).first();
         if (!record) continue;
+        currentEmail = record.email;
+
+        // 如果状态已一致，跳过处理，节约资源
+        if (record.status === status) {
+          skipCount++;
+          continue;
+        }
 
         if (auto_invite && status === 'approved') {
           const envKeyName = `BETA_GROUP_${record.app_id.replace(/-/g, '_').toUpperCase()}`;
           const groupId = env[envKeyName];
           if (!groupId) {
-            throw new Error(`缺少环境变量配置: 未配置 ${envKeyName}`);
+            throw new Error(`缺少环境变量配置: ${envKeyName}`);
           }
           await inviteToTestFlight(record.email, groupId, env);
+          
+          // 增加 300ms 漏斗延时，避免触发苹果 429 风控
+          await delay(300);
         }
 
         await env.DB.prepare(
@@ -101,20 +115,25 @@ export async function onRequestPost(context) {
 
         successCount++;
       } catch (err) {
-        console.error(`申请 #${id} 失败:`, err);
-        errors.push(`ID #${id} 失败: ${err.message}`);
+        console.error(`处理申请 #${id} 失败:`, err);
+        errors.push(`[${currentEmail}] 失败: ${err.message}`);
         failCount++;
       }
     }
 
-    if (failCount > 0 && successCount === 0) {
+    if (failCount > 0 && successCount === 0 && skipCount === 0) {
       return Response.json({ error: '全部失败', details: errors }, { status: 500, headers: corsHeaders });
     }
 
+    let summary = `处理完成：成功 ${successCount} 个`;
+    if (skipCount > 0) summary += `，跳过 ${skipCount} 个(状态已一致)`;
+    if (failCount > 0) summary += `，失败 ${failCount} 个`;
+
     return Response.json({ 
       success: true, 
-      message: `操作完成: 成功 ${successCount} 个, 失败 ${failCount} 个`,
-      details: errors.length ? errors : undefined
+      message: summary,
+      details: errors.length ? errors : undefined,
+      stats: { success: successCount, skip: skipCount, fail: failCount }
     }, { headers: corsHeaders });
 
   } catch (err) {
