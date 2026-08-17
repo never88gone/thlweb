@@ -68,7 +68,7 @@
         <template v-else>
           <p>&copy; 2026 THLWeb. All rights reserved.</p>
           <div v-if="isCloudflare" class="tg-qrcode-wrapper">
-            <img src="./assets/TG.png" alt="Telegram 频道" class="tg-qrcode-img" />
+            <img src="./assets/telegram_icon.png" alt="Telegram 频道" class="tg-qrcode-img" />
             <p class="tg-hint">扫码加入 Telegram 频道</p>
           </div>
         </template>
