@@ -43,9 +43,9 @@
               <span class="store-title">Google Play 下载</span>
             </div>
           </a>
-          <a href="https://testflight.apple.com/join/YUS31axK" target="_blank" class="tf-badge">
-            <span class="icon">🚀</span> TestFlight 体验通道
-          </a>
+          <router-link :to="{ path: '/testflight', query: { app_id: 'thl-play' } }" class="tf-badge">
+            <span class="icon">🚀</span> 申请加入 TestFlight 内测
+          </router-link>
         </div>
       </div>
       <div class="hero-center-graphic">

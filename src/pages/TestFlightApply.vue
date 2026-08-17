@@ -25,23 +25,15 @@
         <div v-else class="form-card glass-card">
           <form @submit.prevent="submitForm">
 
-            <!-- App 选择 -->
-            <div class="form-group">
-              <label class="form-label">选择申请的应用 <span class="required">*</span></label>
-              <div class="app-grid">
-                <button
-                  v-for="app in APP_LIST"
-                  :key="app.id"
-                  type="button"
-                  class="app-btn"
-                  :class="{ active: form.app_id === app.id }"
-                  @click="form.app_id = app.id"
-                >
-                  <span class="app-icon">{{ app.icon }}</span>
-                  <span class="app-label">{{ app.name }}</span>
-                </button>
+            <!-- 当前申请的应用 -->
+            <div class="form-group" v-if="selectedApp">
+              <label class="form-label">您正在申请</label>
+              <div class="selected-app-display">
+                <div class="app-btn active" style="cursor: default; pointer-events: none; max-width: 200px;">
+                  <span class="app-icon">{{ selectedApp.icon }}</span>
+                  <span class="app-label">{{ selectedApp.name }}</span>
+                </div>
               </div>
-              <p v-if="errors.app_id" class="field-error">{{ errors.app_id }}</p>
             </div>
 
             <!-- 邮箱 -->
@@ -179,7 +171,8 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 const props = defineProps({
   appId: { type: String, default: '' }
@@ -197,13 +190,17 @@ const APP_LIST = [
   { id: 'thl-dytv',   name: '糖葫芦视界',   icon: '🎭' },
 ];
 
+const route = useRoute();
+
 const form = reactive({
-  app_id: props.appId || '',
+  app_id: route.query.app_id || props.appId || '',
   email: '',
   order_id: '',
   icloud: '',
   screenshot_url: '',
 });
+
+const selectedApp = computed(() => APP_LIST.find(a => a.id === form.app_id));
 
 const errors = reactive({});
 const loading = ref(false);

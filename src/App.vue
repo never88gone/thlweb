@@ -7,7 +7,7 @@
         </router-link>
         <div class="nav-links">
           <router-link to="/">产品矩阵</router-link>
-          <router-link v-if="isCloudflare" to="/testflight" class="nav-link-tf">TestFlight 申请</router-link>
+
         </div>
       </div>
     </nav>
@@ -61,9 +61,7 @@
         <p v-if="isAliyun" class="icp-info">
           <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2026023727号</a>
         </p>
-        <p v-if="isCloudflare" class="footer-tf-link">
-          <router-link to="/testflight">✈️ 申请加入 TestFlight 内测</router-link>
-        </p>
+
       </div>
     </footer>
   </div>

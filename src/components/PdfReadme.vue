@@ -14,9 +14,9 @@
               <span class="store-title">App Store 下载</span>
             </div>
           </a>
-          <a href="https://testflight.apple.com/join/4kqbe61s" target="_blank" class="tf-badge">
-            TestFlight 历史通道
-          </a>
+          <router-link :to="{ path: '/testflight', query: { app_id: 'thl-pdf' } }" class="tf-badge">
+            申请加入 TestFlight 内测
+          </router-link>
         </div>
       </div>
       <div class="hero-gallery">

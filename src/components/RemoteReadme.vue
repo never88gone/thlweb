@@ -9,9 +9,9 @@
           将边缘计算与 Apple 极致生态完美融合的客厅革命。基于端侧大模型与实时计算机视觉构建的多屏互动引擎。
         </p>
         <div class="download-options">
-          <a href="https://testflight.apple.com/join/uZz9NZz4" target="_blank" class="tf-badge">
-            <span class="icon">🚀</span> TestFlight 抢先体验
-          </a>
+          <router-link :to="{ path: '/testflight', query: { app_id: 'thl-send' } }" class="tf-badge">
+            <span class="icon">🚀</span> 申请加入 TestFlight 内测
+          </router-link>
         </div>
       </div>
       <div class="hero-center-graphic">

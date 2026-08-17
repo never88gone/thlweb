@@ -17,9 +17,9 @@
               <span class="store-price">$3.99 一次性买断</span>
             </div>
           </a>
-          <a href="https://testflight.apple.com/join/EVsAuvZn" target="_blank" class="tf-badge">
-            TestFlight 体验版
-          </a>
+          <router-link :to="{ path: '/testflight', query: { app_id: 'thl-tv' } }" class="tf-badge">
+            申请加入 TestFlight 内测
+          </router-link>
         </div>
       </div>
     </section>

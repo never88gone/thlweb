@@ -10,9 +10,9 @@
           告别漫长的加载圈，重构底层拉流逻辑，指尖轻触，世界即达。
         </p>
         <div class="download-options">
-          <a href="https://testflight.apple.com/join/5VdH6a3m" target="_blank" class="tf-badge">
-            <span class="icon">🚀</span> TestFlight 体验通道
-          </a>
+          <router-link :to="{ path: '/testflight', query: { app_id: 'thl-dytv' } }" class="tf-badge">
+            <span class="icon">🚀</span> 申请加入 TestFlight 内测
+          </router-link>
           <a href="https://play.google.com/store/apps/details?id=com.never88gone.thldytv" target="_blank" class="store-badge">
             <span class="store-icon color-green">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">

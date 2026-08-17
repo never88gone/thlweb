@@ -16,9 +16,9 @@
               <span class="store-price">$0.99 下载 / 年费 $0.99</span>
             </div>
           </a>
-          <a href="https://testflight.apple.com/join/UgjErcbV" target="_blank" class="tf-badge">
-            TestFlight 体验版
-          </a>
+          <router-link :to="{ path: '/testflight', query: { app_id: 'thl-screen' } }" class="tf-badge">
+            申请加入 TestFlight 内测
+          </router-link>
         </div>
       </div>
       <div class="hero-center-graphic">
