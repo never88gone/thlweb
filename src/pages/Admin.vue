@@ -93,8 +93,18 @@
           </div>
         </div>
 
+        <!-- 权限拦截 -->
+        <div v-if="authError" class="empty-state glass-card auth-error">
+          <div class="empty-icon">⛔</div>
+          <h2 style="margin-bottom: 0.5rem; color: #f87171;">访问受限</h2>
+          <p>只有管理员 (never88gone@gmail.com) 才能访问此页面。</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
+            请确保已通过 Cloudflare Access 验证身份，或者联系管理员。
+          </p>
+        </div>
+
         <!-- 加载中 -->
-        <div v-if="loading" class="loading-state">
+        <div v-else-if="loading" class="loading-state">
           <div class="spinner-lg"></div>
           <p>加载中...</p>
         </div>
@@ -267,6 +277,7 @@ const filter = reactive({
 
 const selectedIds = ref([]);
 const bulkUpdating = ref(false);
+const authError = ref(false);
 
 const toast = reactive({
   visible: false,
@@ -384,6 +395,7 @@ function formatDate(iso) {
 
 async function fetchRecords() {
   loading.value = true;
+  authError.value = false;
   try {
     const params = new URLSearchParams({
       page: filter.page,
@@ -393,6 +405,10 @@ async function fetchRecords() {
       ...(filter.status  && { status:  filter.status }),
     });
     const res  = await fetch(`/api/records?${params}`);
+    if (res.status === 403 || res.status === 401) {
+      authError.value = true;
+      return;
+    }
     const data = await res.json();
     records.value = data.data || [];
     total.value   = data.total || 0;

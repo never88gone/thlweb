@@ -13,8 +13,24 @@ const corsHeaders = {
 };
 
 // GET 获取申请列表
+function checkAuth(request, env) {
+  const url = new URL(request.url);
+  // 本地开发环境放行
+  if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') {
+    return true;
+  }
+  const email = request.headers.get('Cf-Access-Authenticated-User-Email');
+  const allowedEmail = env.ADMIN_EMAIL || 'never88gone@gmail.com';
+  return email && email.toLowerCase() === allowedEmail.toLowerCase();
+}
+
 export async function onRequestGet(context) {
   const { request, env } = context;
+  
+  if (!checkAuth(request, env)) {
+    return Response.json({ error: 'Forbidden: Requires admin email via Cloudflare Access' }, { status: 403, headers: corsHeaders });
+  }
+
   const url = new URL(request.url);
 
   const app_id = url.searchParams.get('app_id') || '';
@@ -62,6 +78,10 @@ export async function onRequestGet(context) {
 
 export async function onRequestPost(context) {
   const { request, env } = context;
+
+  if (!checkAuth(request, env)) {
+    return Response.json({ error: 'Forbidden: Requires admin email via Cloudflare Access' }, { status: 403, headers: corsHeaders });
+  }
 
   try {
     const body = await request.json();
