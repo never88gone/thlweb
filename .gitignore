@@ -3,3 +3,8 @@ node_modules
 AccessKey.csv
 dist
 .vscode
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.log

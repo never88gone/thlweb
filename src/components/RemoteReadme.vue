@@ -16,7 +16,7 @@
       </div>
       <div class="hero-center-graphic">
         <div class="device-frame drop-shadow">
-          <img src="../assets/remote/设备发现.PNG" alt="设备发现" class="inner-img" />
+          <img loading="lazy" src="../assets/remote/设备发现.PNG" alt="设备发现" class="inner-img" />
         </div>
       </div>
     </section>
@@ -33,7 +33,7 @@
           </p>
         </div>
         <div class="media-stack mt-4">
-          <img src="../assets/remote/设置.PNG" alt="设置页面" class="drop-shadow rounded hover-lift" />
+          <img loading="lazy" src="../assets/remote/设置.PNG" alt="设置页面" class="drop-shadow rounded hover-lift" />
         </div>
       </div>
 
@@ -46,7 +46,7 @@
           </p>
         </div>
         <div class="floating-mockup mt-4">
-          <img src="../assets/remote/视频控制.PNG" alt="视频控制" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/remote/视频控制.PNG" alt="视频控制" class="rounded drop-shadow" />
         </div>
       </div>
 
@@ -59,7 +59,7 @@
           </p>
         </div>
         <div class="floating-mockup mt-4">
-          <img src="../assets/remote/浏览器控制.PNG" alt="浏览器控制" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/remote/浏览器控制.PNG" alt="浏览器控制" class="rounded drop-shadow" />
         </div>
       </div>
 

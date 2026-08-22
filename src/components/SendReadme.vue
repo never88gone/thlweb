@@ -26,7 +26,7 @@
       </div>
       <div class="hero-center-graphic">
         <div class="device-frame drop-shadow">
-          <img src="../assets/send/home.png" alt="糖葫芦投送鸿蒙版主页面" class="inner-img" />
+          <img loading="lazy" src="../assets/send/home.png" alt="糖葫芦投送鸿蒙版主页面" class="inner-img" />
         </div>
       </div>
     </section>
@@ -45,7 +45,7 @@
           </p>
         </div>
         <div class="media-stack">
-          <img src="../assets/send/send.png" alt="发送文件及设备发现" class="drop-shadow rounded hover-lift" />
+          <img loading="lazy" src="../assets/send/send.png" alt="发送文件及设备发现" class="drop-shadow rounded hover-lift" />
         </div>
       </div>
 
@@ -60,7 +60,7 @@
           </p>
         </div>
         <div class="floating-mockup">
-          <img src="../assets/send/privacy.png" alt="关于隐私与安全的说明弹窗" class="rounded drop-shadow hover-lift" />
+          <img loading="lazy" src="../assets/send/privacy.png" alt="关于隐私与安全的说明弹窗" class="rounded drop-shadow hover-lift" />
         </div>
       </div>
 
@@ -75,8 +75,8 @@
           </p>
         </div>
         <div class="media-row flex-1">
-          <img src="../assets/send/settings.png" alt="别名与端口设置" class="rounded drop-shadow hover-lift" />
-          <img src="../assets/send/history.png" alt="传输历史面板" class="rounded drop-shadow hover-lift" />
+          <img loading="lazy" src="../assets/send/settings.png" alt="别名与端口设置" class="rounded drop-shadow hover-lift" />
+          <img loading="lazy" src="../assets/send/history.png" alt="传输历史面板" class="rounded drop-shadow hover-lift" />
         </div>
       </div>
 

@@ -60,7 +60,7 @@
           </p>
         </div>
         <div class="media-stack mt-4">
-          <img src="../assets/dytv/video_play.jpg" alt="沉浸视听" class="drop-shadow rounded hover-lift" />
+          <img loading="lazy" src="../assets/dytv/video_play.jpg" alt="沉浸视听" class="drop-shadow rounded hover-lift" />
         </div>
       </div>
 
@@ -74,7 +74,7 @@
           </p>
         </div>
         <div class="floating-mockup mt-4">
-          <img src="../assets/dytv/remote_controller.jpg" alt="操作控制器" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/dytv/remote_controller.jpg" alt="操作控制器" class="rounded drop-shadow" />
         </div>
       </div>
 
@@ -87,7 +87,7 @@
           </p>
         </div>
         <div class="floating-mockup mt-4">
-          <img src="../assets/dytv/settings_general.jpg" alt="通用设置" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/dytv/settings_general.jpg" alt="通用设置" class="rounded drop-shadow" />
         </div>
       </div>
 
@@ -105,8 +105,8 @@
           <h3 class="mb-3">社交互动与探索</h3>
           <p class="text-secondary mb-4">大屏重新排版的评论区，清晰的盖楼回复；高效搜索引擎追踪热点。</p>
           <div class="img-row">
-            <img src="../assets/dytv/comments_reply.jpg" alt="评论回复" class="rounded hover-lift drop-shadow" />
-            <img src="../assets/dytv/search.jpg" alt="搜索" class="rounded hover-lift drop-shadow" />
+            <img loading="lazy" src="../assets/dytv/comments_reply.jpg" alt="评论回复" class="rounded hover-lift drop-shadow" />
+            <img loading="lazy" src="../assets/dytv/search.jpg" alt="搜索" class="rounded hover-lift drop-shadow" />
           </div>
         </div>
 
@@ -114,15 +114,15 @@
           <h3 class="mb-3">你的内容宇宙</h3>
           <p class="text-secondary mb-4">进入博主的专属主页深度考古，在“我的关注”跟进最新动态。</p>
           <div class="img-row">
-            <img src="../assets/dytv/creator_profile.jpg" alt="博主页面" class="rounded hover-lift drop-shadow" />
-            <img src="../assets/dytv/my_following.jpg" alt="我的关注" class="rounded hover-lift drop-shadow" />
+            <img loading="lazy" src="../assets/dytv/creator_profile.jpg" alt="博主页面" class="rounded hover-lift drop-shadow" />
+            <img loading="lazy" src="../assets/dytv/my_following.jpg" alt="我的关注" class="rounded hover-lift drop-shadow" />
           </div>
         </div>
 
         <div class="gallery-item glass-panel full-width">
           <h3 class="mb-3">跨时空的狂欢</h3>
           <p class="text-secondary mb-4">不仅短视频，更有完美直播体验。自定义弹幕透明度与速度，让客厅秒变互动现场。</p>
-          <img src="../assets/dytv/live_danmaku.jpg" alt="直播弹幕" class="w-100 rounded hover-lift drop-shadow" />
+          <img loading="lazy" src="../assets/dytv/live_danmaku.jpg" alt="直播弹幕" class="w-100 rounded hover-lift drop-shadow" />
         </div>
       </div>
     </section>

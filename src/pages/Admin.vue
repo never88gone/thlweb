@@ -37,7 +37,7 @@
             :class="{ active: filter.app_id === app.id }"
             @click="setAppFilter(app.id)"
           >
-            <span class="nav-icon"><img :src="getAppImage(app.id)" class="real-icon-sm" /></span>
+            <span class="nav-icon"><img loading="lazy" :src="getAppImage(app.id)" class="real-icon-sm" /></span>
             {{ app.name }}
           </button>
         </nav>
@@ -153,7 +153,7 @@
                 </td>
                 <td class="cell-id">#{{ row.id }}</td>
                 <td>
-                  <span class="app-tag"><img :src="getAppImage(row.app_id)" class="real-icon-xs" /> {{ row.app_name }}</span>
+                  <span class="app-tag"><img loading="lazy" :src="getAppImage(row.app_id)" class="real-icon-xs" /> {{ row.app_name }}</span>
                 </td>
                 <td>
                   <a :href="'mailto:' + row.email" class="email-link">{{ row.email }}</a>
@@ -236,7 +236,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, watch } from 'vue';
+import { ref, reactive, computed, onMounted, onUnmounted, watch } from 'vue';
 
 const APP_LIST = [
   { id: 'thl-browser', name: '糖葫芦浏览器', icon: '🌐' },
@@ -462,6 +462,9 @@ function goPage(p) {
 
 watch(filter, fetchRecords, { deep: true });
 onMounted(fetchRecords);
+onUnmounted(() => {
+  if (toastTimer) clearTimeout(toastTimer);
+});
 </script>
 
 <style scoped>

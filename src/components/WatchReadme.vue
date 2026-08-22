@@ -24,7 +24,7 @@
       </div>
       <div class="hero-image-wrapper floating-anim">
         <!-- App Logo -->
-        <img src="../assets/watch/xiuxian_logo.jpg" alt="糖葫芦修仙 Logo" class="hero-app-icon drop-shadow" />
+        <img loading="lazy" src="../assets/watch/xiuxian_logo.jpg" alt="糖葫芦修仙 Logo" class="hero-app-icon drop-shadow" />
       </div>
     </section>
 
@@ -37,7 +37,7 @@
           <p>告别单调的图表统计，在腕间监控您的真气汇聚效率。境界与资质的每一成提升，都将直接改变您的天地灵气摄取量。</p>
         </div>
         <div class="card-media">
-          <img src="../assets/watch/media__1776148448843.png" alt="洞府界面" />
+          <img loading="lazy" src="../assets/watch/media__1776148448843.png" alt="洞府界面" />
         </div>
       </div>
 
@@ -48,7 +48,7 @@
           <p>顺应天道进行起阵入定。选择体修或法修，通过现实锻炼触发劫雷挑战。</p>
         </div>
         <div class="card-media">
-          <img src="../assets/watch/media__1776148448531.png" alt="择脉演武" />
+          <img loading="lazy" src="../assets/watch/media__1776148448531.png" alt="择脉演武" />
         </div>
       </div>
 
@@ -59,7 +59,7 @@
           <p>金木水火土五行资质随心相生。打破传统运动类型，用属相赋予成就独特的灵根组合。</p>
         </div>
         <div class="card-media">
-          <img src="../assets/watch/media__1776148448552.png" alt="先天道基" />
+          <img loading="lazy" src="../assets/watch/media__1776148448552.png" alt="先天道基" />
         </div>
       </div>
     </section>
@@ -73,7 +73,7 @@
       </div>
       <div class="combo-media">
         <!-- AI 对话截图 -->
-        <img src="../assets/watch/media__1776148463757.png" alt="老爷爷对话" class="drop-shadow" style="border-radius:24px; max-height: 480px; object-fit: contain;" />
+        <img loading="lazy" src="../assets/watch/media__1776148463757.png" alt="老爷爷对话" class="drop-shadow" style="border-radius:24px; max-height: 480px; object-fit: contain;" />
       </div>
     </section>
   </div>

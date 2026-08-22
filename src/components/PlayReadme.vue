@@ -50,7 +50,7 @@
       </div>
       <div class="hero-center-graphic">
         <div class="device-frame drop-shadow">
-          <img src="../assets/play/home_tvos.png" alt="Apple TV 首页展示" class="inner-img" />
+          <img loading="lazy" src="../assets/play/home_tvos.png" alt="Apple TV 首页展示" class="inner-img" />
         </div>
       </div>
     </section>
@@ -68,7 +68,7 @@
           </p>
         </div>
         <div class="media-stack">
-          <img src="../assets/play/stream_tvos.png" alt="投屏状态" class="drop-shadow rounded hover-lift" />
+          <img loading="lazy" src="../assets/play/stream_tvos.png" alt="投屏状态" class="drop-shadow rounded hover-lift" />
         </div>
       </div>
 
@@ -82,7 +82,7 @@
           </p>
         </div>
         <div class="floating-mockup">
-          <img src="../assets/play/home_ios.png" alt="iOS 首页" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/play/home_ios.png" alt="iOS 首页" class="rounded drop-shadow" />
         </div>
       </div>
 
@@ -96,7 +96,7 @@
           </p>
         </div>
         <div class="media-row flex-1">
-          <img src="../assets/play/stream_ios.png" alt="iOS 投屏状态" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/play/stream_ios.png" alt="iOS 投屏状态" class="rounded drop-shadow" />
         </div>
       </div>
 

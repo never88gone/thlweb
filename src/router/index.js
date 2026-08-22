@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
-import AppDetail from '../pages/AppDetail.vue'
-import PrivacyDetail from '../pages/PrivacyDetail.vue'
 
 const routes = [
   {
@@ -10,9 +8,14 @@ const routes = [
     component: Home
   },
   {
+    path: '/app/thl-dance',
+    name: 'DanceShowcase',
+    component: () => import('../pages/DanceShowcase.vue')
+  },
+  {
     path: '/app/:appid',
     name: 'AppDetail',
-    component: AppDetail,
+    component: () => import('../pages/AppDetail.vue'),
     props: true
   },
   {
@@ -22,7 +25,7 @@ const routes = [
   {
     path: '/privacy/:appid',
     name: 'PrivacyDetail',
-    component: PrivacyDetail,
+    component: () => import('../pages/PrivacyDetail.vue'),
     props: true
   },
   {

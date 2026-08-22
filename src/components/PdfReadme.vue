@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="hero-gallery">
-        <img src="../assets/pdf/PDF操作指南.png" alt="高级操作面板向导" class="main-mockup drop-shadow" />
+        <img loading="lazy" src="../assets/pdf/PDF操作指南.png" alt="高级操作面板向导" class="main-mockup drop-shadow" />
       </div>
     </section>
 
@@ -40,8 +40,8 @@
           </ul>
         </div>
         <div class="split-visual combo-visual">
-          <img src="../assets/pdf/上传PDF.png" alt="多网络载入界面" class="combo-1 drop-shadow rounded" />
-          <img src="../assets/pdf/文件列表.png" alt="内建文件历史管理器" class="combo-2 drop-shadow rounded blur-behind" />
+          <img loading="lazy" src="../assets/pdf/上传PDF.png" alt="多网络载入界面" class="combo-1 drop-shadow rounded" />
+          <img loading="lazy" src="../assets/pdf/文件列表.png" alt="内建文件历史管理器" class="combo-2 drop-shadow rounded blur-behind" />
         </div>
       </section>
 
@@ -59,7 +59,7 @@
           <p>配置中心更能控制系统深色转换、排版缩放甚至强制转换阅读流，适应从暗房直至强光环境下的不同浏览需求。</p>
         </div>
         <div class="split-visual solo-visual">
-          <img src="../assets/pdf/PDF设置.png" alt="高度可定制的阅读参数" class="drop-shadow rounded hover-elevate" />
+          <img loading="lazy" src="../assets/pdf/PDF设置.png" alt="高度可定制的阅读参数" class="drop-shadow rounded hover-elevate" />
         </div>
       </section>
       
@@ -68,8 +68,8 @@
         <h2>记忆你的每一步探索</h2>
         <p>系统化追踪你的上次阅读锚点和无网络环境下的历史状态留存。</p>
         <div class="gallery-grid">
-           <img src="../assets/pdf/历史页面无数据.png" alt="极简缺省状态栏" class="rounded border-subtle" />
-           <img src="../assets/pdf/本地存储有数据.png" alt="云端加持的历史面板" class="rounded border-subtle" />
+           <img loading="lazy" src="../assets/pdf/历史页面无数据.png" alt="极简缺省状态栏" class="rounded border-subtle" />
+           <img loading="lazy" src="../assets/pdf/本地存储有数据.png" alt="云端加持的历史面板" class="rounded border-subtle" />
         </div>
       </section>
 

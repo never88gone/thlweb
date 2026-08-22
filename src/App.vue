@@ -7,7 +7,7 @@
         </router-link>
         <div class="nav-links">
           <router-link to="/">产品矩阵</router-link>
-
+          <router-link to="/testflight" class="nav-link-tf">内测申请</router-link>
         </div>
       </div>
     </nav>
@@ -28,6 +28,7 @@
         <div class="footer-links">
           <div class="link-group">
             <h4>产品</h4>
+            <router-link to="/app/thl-dance">THLDance</router-link>
             <router-link to="/app/thl-browser">糖葫芦浏览器</router-link>
             <router-link to="/app/thl-screen">糖葫芦投屏</router-link>
             <router-link to="/app/thl-play">糖葫芦享屏</router-link>
@@ -49,7 +50,8 @@
             <router-link to="/privacy/thl-dytv">视界隐私政策</router-link>
           </div>
           <div class="link-group">
-            <h4>交流与联系</h4>
+            <h4>交流与支持</h4>
+            <router-link to="/testflight">内测资格申请</router-link>
             <a href="mailto:hsb@myit2017.cn">联系邮箱</a>
             <a href="https://github.com/never88gone" target="_blank">GitHub</a>
             <a href="https://t.me/tanghulutvos" target="_blank">Telegram 频道</a>
@@ -68,7 +70,7 @@
         <template v-else>
           <p>&copy; 2026 THLWeb. All rights reserved.</p>
           <div v-if="isCloudflare" class="tg-qrcode-wrapper">
-            <img src="./assets/telegram_icon.png" alt="Telegram 频道" class="tg-qrcode-img" />
+            <img loading="lazy" src="./assets/telegram_icon.png" alt="Telegram 频道" class="tg-qrcode-img" />
             <p class="tg-hint">扫码加入 Telegram 频道</p>
           </div>
         </template>

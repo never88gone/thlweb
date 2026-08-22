@@ -26,13 +26,22 @@
           <form @submit.prevent="submitForm">
 
             <!-- 当前申请的应用 -->
-            <div class="form-group" v-if="selectedApp">
-              <label class="form-label">您正在申请</label>
-              <div class="selected-app-display">
+            <div class="form-group">
+              <label class="form-label">您正在申请 <span class="required">*</span></label>
+              <div class="selected-app-display" v-if="selectedApp">
                 <div class="app-badge-elegant">
-                  <img :src="getAppImage(selectedApp.id)" :alt="selectedApp.name" class="app-real-icon" />
+                  <img loading="lazy" :src="getAppImage(selectedApp.id)" :alt="selectedApp.name" class="app-real-icon" />
                   <span class="app-label">{{ selectedApp.name }}</span>
                 </div>
+              </div>
+              <div v-else>
+                <select v-model="form.app_id" class="form-input" :class="{ error: errors.app_id }">
+                  <option value="" disabled>请选择要申请的应用</option>
+                  <option v-for="app in APP_LIST" :key="app.id" :value="app.id">
+                    {{ app.name }}
+                  </option>
+                </select>
+                <p v-if="errors.app_id" class="field-error">{{ errors.app_id }}</p>
               </div>
             </div>
 
@@ -110,7 +119,7 @@
 
                 <!-- 预览图 -->
                 <div v-if="previewUrl" class="preview-wrapper">
-                  <img :src="previewUrl" alt="订单截图预览" class="preview-img" />
+                  <img loading="lazy" :src="previewUrl" alt="订单截图预览" class="preview-img" />
                   <button type="button" class="remove-img" @click.stop="removeImage">✕</button>
                 </div>
 

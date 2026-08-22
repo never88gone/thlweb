@@ -23,7 +23,7 @@
       </div>
       <div class="hero-center-graphic">
         <div class="device-frame drop-shadow">
-          <img src="../assets/screen/优酷投屏截图.png" alt="投屏识别展示" class="inner-img" />
+          <img loading="lazy" src="../assets/screen/优酷投屏截图.png" alt="投屏识别展示" class="inner-img" />
         </div>
       </div>
     </section>
@@ -38,8 +38,8 @@
           <p>默认时钟屏保掩藏全部入口，无需与繁杂的应用陈列打交道。当有数据涌入，界面在毫秒之内苏醒化身为视听播放器主脑。点击向下按键即可呼出包含完整配置、投屏信息的底侧控制栏。</p>
         </div>
         <div class="media-stack">
-          <img src="../assets/screen/首页.png" alt="首页极简时钟" class="drop-shadow rounded hover-lift" />
-          <img src="../assets/screen/底部.png" alt="底部上滑呼出菜单" class="drop-shadow rounded hover-lift offset-img" />
+          <img loading="lazy" src="../assets/screen/首页.png" alt="首页极简时钟" class="drop-shadow rounded hover-lift" />
+          <img loading="lazy" src="../assets/screen/底部.png" alt="底部上滑呼出菜单" class="drop-shadow rounded hover-lift offset-img" />
         </div>
       </div>
 
@@ -52,7 +52,7 @@
           </p>
         </div>
         <div class="floating-mockup">
-          <img src="../assets/screen/设置.png" alt="强大的底层控制力" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/screen/设置.png" alt="强大的底层控制力" class="rounded drop-shadow" />
         </div>
       </div>
 
@@ -63,8 +63,8 @@
           <p>没有安装匹配 App？无惧任何障碍！利用设备侧面指令呼出 HTTP 二维码。处于同 Wi-Fi 结构下的手机只要扫一扫，立刻搭建安全跨域传输桥。输入任意带有流媒体的网页 URL 或手机里的视频，瞬间直接呈现在客厅中心。</p>
         </div>
         <div class="media-row flex-1">
-          <img src="../assets/screen/二维码.png" alt="局域网点对点互联" class="rounded drop-shadow" />
-          <img src="../assets/screen/手机发送视频.png" alt="投屏信息管理交互框" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/screen/二维码.png" alt="局域网点对点互联" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/screen/手机发送视频.png" alt="投屏信息管理交互框" class="rounded drop-shadow" />
         </div>
       </div>
 

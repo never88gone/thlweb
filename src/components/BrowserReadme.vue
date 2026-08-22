@@ -13,7 +13,7 @@
         </router-link>
       </div>
       <div class="hero-image-wrapper floating-anim">
-        <img src="../assets/browser/Logo.png" alt="糖葫芦浏览器标志" class="hero-app-icon" />
+        <img loading="lazy" src="../assets/browser/Logo.png" alt="糖葫芦浏览器标志" class="hero-app-icon" />
       </div>
     </section>
 
@@ -28,8 +28,8 @@
         </div>
         <div class="feature-visual">
           <div class="stack-images">
-            <img src="../assets/browser/home.png" alt="时钟首页" class="img-base drop-shadow" />
-            <img src="../assets/browser/setting.png" alt="系统设置" class="img-layered float-high" />
+            <img loading="lazy" src="../assets/browser/home.png" alt="时钟首页" class="img-base drop-shadow" />
+            <img loading="lazy" src="../assets/browser/setting.png" alt="系统设置" class="img-layered float-high" />
           </div>
         </div>
       </section>
@@ -50,7 +50,7 @@
           </ul>
         </div>
         <div class="feature-visual custom-bg gap-fix">
-          <img src="../assets/browser/验证码拖动效果.gif" alt="轻松解决复杂滑块验证码演示" class="full-width-media rounded" />
+          <img loading="lazy" src="../assets/browser/验证码拖动效果.gif" alt="轻松解决复杂滑块验证码演示" class="full-width-media rounded" />
         </div>
       </section>
 
@@ -62,8 +62,8 @@
           <p>当页面深处的视频开始奏响，我们将立即捕获播放源。长按随时呼唤大屏沉浸播放模式。强大的原生进度控制器接管一切，不仅支持精细拖拽，更内置左/右倾屏快进功能，让跳过枯燥桥段如呼吸般自然。</p>
         </div>
         <div class="feature-visual dual-grid">
-           <img src="../assets/browser/browser.png" alt="短视频网页完美解析" class="drop-shadow rounded hover-zoom" />
-           <img src="../assets/browser/videoplayprocess.png" alt="底层劫持的视频进度播放器" class="drop-shadow rounded hover-zoom" />
+           <img loading="lazy" src="../assets/browser/browser.png" alt="短视频网页完美解析" class="drop-shadow rounded hover-zoom" />
+           <img loading="lazy" src="../assets/browser/videoplayprocess.png" alt="底层劫持的视频进度播放器" class="drop-shadow rounded hover-zoom" />
         </div>
       </section>
 
@@ -80,7 +80,7 @@
           </ul>
         </div>
         <div class="feature-visual">
-          <img src="../assets/browser/自动脚本_final.gif" alt="自动化登录脚本示范" class="full-width-media rounded push-down" />
+          <img loading="lazy" src="../assets/browser/自动脚本_final.gif" alt="自动化登录脚本示范" class="full-width-media rounded push-down" />
         </div>
       </section>
       
@@ -91,9 +91,9 @@
           <p>我们提供完善的操作界面，供您掌控成百上千张不同的代码卷轴（Scripts）。您可以为每一个特殊域名下达绝不相同的魔法指令。</p>
         </div>
         <div class="feature-visual custom-grid-tight">
-          <img src="../assets/browser/scriptmanager.png" alt="脚本管理工具" class="drop-shadow rounded" />
-          <img src="../assets/browser/douyinsetting.png" alt="站点细分定制触发" class="drop-shadow rounded" />
-          <img src="../assets/browser/custombtn.gif" alt="动作宏控制示范" class="drop-shadow rounded span-2-col" />
+          <img loading="lazy" src="../assets/browser/scriptmanager.png" alt="脚本管理工具" class="drop-shadow rounded" />
+          <img loading="lazy" src="../assets/browser/douyinsetting.png" alt="站点细分定制触发" class="drop-shadow rounded" />
+          <img loading="lazy" src="../assets/browser/custombtn.gif" alt="动作宏控制示范" class="drop-shadow rounded span-2-col" />
         </div>
       </section>
     </div>

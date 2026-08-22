@@ -69,7 +69,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, computed, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, watch, computed, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import BrowserReadme from '../components/BrowserReadme.vue'
 import ScreenReadme from '../components/ScreenReadme.vue'
@@ -206,8 +206,13 @@ const loadApp = (appid) => {
   }
 }
 
+let observer = null;
+
 const initObserver = () => {
-  const observer = new IntersectionObserver((entries) => {
+  if (observer) {
+    observer.disconnect();
+  }
+  observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
@@ -237,6 +242,12 @@ onMounted(() => {
     await nextTick()
     initObserver()
   }, 400)
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect();
+  }
 })
 </script>
 

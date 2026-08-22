@@ -26,7 +26,7 @@
 
     <!-- Edge-to-edge Showcase -->
     <section class="panorama-section custom-bg">
-      <img src="../assets/tv/首页.png" alt="主页媒体网络" class="hero-panorama drop-shadow" />
+      <img loading="lazy" src="../assets/tv/首页.png" alt="主页媒体网络" class="hero-panorama drop-shadow" />
     </section>
 
     <!-- Features Bento Box -->
@@ -42,7 +42,7 @@
           </p>
         </div>
         <div class="bento-media absolute-bottom">
-           <img src="../assets/tv/首页展开.png" alt="流媒体主页多通道" class="drop-shadow rounded float-x" />
+           <img loading="lazy" src="../assets/tv/首页展开.png" alt="流媒体主页多通道" class="drop-shadow rounded float-x" />
         </div>
       </div>
 
@@ -56,22 +56,22 @@
           </p>
         </div>
         <div class="bento-media">
-          <img src="../assets/tv/统计.png" alt="高级后台质量地图" class="drop-shadow rounded hover-scale" />
+          <img loading="lazy" src="../assets/tv/统计.png" alt="高级后台质量地图" class="drop-shadow rounded hover-scale" />
         </div>
       </div>
 
       <!-- Box 3 -->
       <div class="bento-box bg-dark col-span-2 slide-layout">
         <div class="media-side">
-          <img src="../assets/tv/浏览EPG.png" alt="原生解析电视预报" class="drop-shadow rounded" />
+          <img loading="lazy" src="../assets/tv/浏览EPG.png" alt="原生解析电视预报" class="drop-shadow rounded" />
         </div>
         <div class="text-side flex-center">
           <div class="tag accent-blue">时间魔法: EPG</div>
           <h3>洞察数字时间线</h3>
           <p>强大的前瞻机制通过对频道订阅内嵌套资源的抓取，将枯燥的代码变成生动详实的网格化节目指南 (Electronic Program Guide)。昨日重现或是明日播报，一目了然。</p>
           <div class="detail-icons mt-3">
-             <img src="../assets/tv/EPG详情.png" alt="精彩频道描述" class="mini-img rounded" />
-             <img src="../assets/tv/EPG设置.png" alt="多重适配控制" class="mini-img rounded" />
+             <img loading="lazy" src="../assets/tv/EPG详情.png" alt="精彩频道描述" class="mini-img rounded" />
+             <img loading="lazy" src="../assets/tv/EPG设置.png" alt="多重适配控制" class="mini-img rounded" />
           </div>
         </div>
       </div>
@@ -85,8 +85,8 @@
         <p>不遗漏任何一帧细节。专为超大屏幕优化的纯粹播报器，全遮幅沉浸控制。在收藏列表与常看频道之间跳转只需双击或在侧边调起快捷历史面板。</p>
       </div>
       <div class="cinema-carousel">
-        <img src="../assets/tv/视频播放.png" alt="纯净播放屏幕" class="rounded drop-shadow" />
-        <img src="../assets/tv/播放列表.png" alt="调出边侧列表" class="rounded drop-shadow" />
+        <img loading="lazy" src="../assets/tv/视频播放.png" alt="纯净播放屏幕" class="rounded drop-shadow" />
+        <img loading="lazy" src="../assets/tv/播放列表.png" alt="调出边侧列表" class="rounded drop-shadow" />
       </div>
     </div>
     
