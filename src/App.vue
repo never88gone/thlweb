@@ -49,7 +49,21 @@
             <router-link to="/privacy/thl-send">投送隐私政策</router-link>
             <router-link to="/privacy/thl-dytv">视界隐私政策</router-link>
           </div>
-          <div class="link-group">
+          <div class="link-group" v-if="isCloudflare">
+            <h4>联系方式</h4>
+            <a href="https://www.myit2017.cn" target="_blank">官网：https://www.thltv.com/</a>
+            <a href="mailto:support@thltv.com">邮箱：support@thltv.com</a>
+            <a href="https://t.me/tanghulutvos" target="_blank">Telegram频道</a>
+            <router-link to="/testflight">内测资格申请</router-link>
+          </div>
+          <div class="link-group" v-else-if="isAliyun">
+            <h4>交流与支持</h4>
+            <a href="https://www.myit2017.cn" target="_blank">官网：https://www.myit2017.cn</a>
+            <router-link to="/testflight">内测资格申请</router-link>
+            <a href="https://github.com/never88gone" target="_blank">GitHub</a>
+            <a href="https://t.me/tanghulutvos" target="_blank">Telegram 频道</a>
+          </div>
+          <div class="link-group" v-else>
             <h4>交流与支持</h4>
             <router-link to="/testflight">内测资格申请</router-link>
             <a href="mailto:hsb@myit2017.cn">联系邮箱</a>
