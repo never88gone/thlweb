@@ -54,6 +54,7 @@
       
       <!-- 各个应用的帮助文档 -->
       <div class="readme-section reveal">
+        <MarkdownReadme v-if="$route.params.appid === 'thl-markdown'" />
         <BrowserReadme v-if="$route.params.appid === 'thl-browser'" />
         <ScreenReadme v-if="$route.params.appid === 'thl-screen'" />
         <TvReadme v-if="$route.params.appid === 'thl-tv'" />
@@ -71,6 +72,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, watch, computed, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
+import MarkdownReadme from '../components/MarkdownReadme.vue'
 import BrowserReadme from '../components/BrowserReadme.vue'
 import ScreenReadme from '../components/ScreenReadme.vue'
 import TvReadme from '../components/TvReadme.vue'
@@ -96,6 +98,16 @@ const ICON_DB = "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s
 
 // 包含具体特性的 App 级元数据配置
 const APP_META = {
+  'thl-markdown': {
+    name: '糖葫芦墨记',
+    desc: '专为 macOS 打造的现代化 Markdown 编辑器。左侧专心写作，右侧实时排版，深度支持 LaTeX 数学公式与 Mermaid 流程图表。',
+    features: [
+      { title: '经典双栏分屏', detail: '毫秒级排版预览与光标跟随，支持打字机居中与聚焦模式，中英文混输深度调优。', iconPath: ICON_UI },
+      { title: 'LaTeX 与 Mermaid', detail: '内置 KaTeX 引擎快速渲染数学公式，支持代码直接绘制流程图、时序图与甘特图。', iconPath: ICON_PLAY },
+      { title: '多窗口与文档大纲', detail: '支持多文档独立窗口并发编辑，左侧边栏文件树快速切换，右侧自动提取标题层级大纲。', iconPath: ICON_MODE },
+      { title: '资产管理与无损导出', detail: '拖拽粘贴图片自动归档，支持 PicGo 图床服务，一键导出为标准 PDF、HTML 网页或纯文本。', iconPath: ICON_DB }
+    ]
+  },
   'thl-browser': {
     name: '糖葫芦浏览器',
     desc: '极速、私密的下一代网络引擎。针对 TV 硬件深度优化，保障媒体最大化兼容性的同时，提供了极其丰富的控制交互逻辑层。',

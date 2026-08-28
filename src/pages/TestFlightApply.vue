@@ -189,6 +189,7 @@ const props = defineProps({
 
 // App 清单（与后端 apply.js 保持一致，方便扩展）
 const APP_LIST = [
+  { id: 'thl-markdown', name: '糖葫芦墨记', icon: '📝' },
   { id: 'thl-browser', name: '糖葫芦浏览器', icon: '🌐' },
   { id: 'thl-screen',  name: '糖葫芦投屏',   icon: '📡' },
   { id: 'thl-play',   name: '糖葫芦享屏',   icon: '🎬' },
@@ -201,6 +202,7 @@ const APP_LIST = [
 
 function getAppImage(id) {
   const map = {
+    'thl-markdown': new URL('../assets/markdown/logo.png', import.meta.url).href,
     'thl-browser': new URL('../assets/thlbrowser.png', import.meta.url).href,
     'thl-screen': new URL('../assets/thlairplay.png', import.meta.url).href,
     'thl-play': new URL('../assets/play/logo.png', import.meta.url).href,

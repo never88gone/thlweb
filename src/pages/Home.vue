@@ -96,6 +96,7 @@ import { onMounted, onUnmounted } from 'vue';
 
 const products = [
   { id: 'thl-dance', name: 'THLDance', desc: '把客厅变成主舞台。用 Apple TV 跟跳、iPhone 连接、Apple Watch 感知每一个动作。', img: new URL('../assets/dance/app-icon.jpg', import.meta.url).href, bg: 'bg-gradient-dance' },
+  { id: 'thl-markdown', name: '糖葫芦墨记', desc: '专为 macOS 打造的双栏 Markdown 与 LaTeX 笔记利器，沉浸写作，所见即所得。', img: new URL('../assets/markdown/logo.png', import.meta.url).href, bg: 'bg-gradient-markdown' },
   { id: 'thl-browser', name: '糖葫芦浏览器', desc: '快如闪电的高效浏览体验，保护隐私安全的现代网络入口。', img: new URL('../assets/thlbrowser.png', import.meta.url).href, bg: 'bg-gradient-blue' },
   { id: 'thl-screen', name: '糖葫芦投屏', desc: '无缝的无线屏幕投射工具。让您的移动设备可即时共享媒体到大屏。', img: new URL('../assets/thlairplay.png', import.meta.url).href, bg: 'bg-gradient-purple' },
   { id: 'thl-tv', name: '糖葫芦TV', desc: '高端奢华的 IPTV 流媒体播放器，支持完备的频道管理。', img: new URL('../assets/thltv.jpg', import.meta.url).href, bg: 'bg-gradient-orange' },
@@ -296,6 +297,7 @@ onUnmounted(() => {
 .bg-gradient-indigo { background: radial-gradient(circle at 50% 50%, #f59e0b 0%, #3e2504 65%, #0d0b0a 100%); }
 .bg-gradient-teal { background: radial-gradient(circle at 50% 50%, #06b6d4 0%, #083344 65%, #0d0b0a 100%); }
 .bg-gradient-pink { background: radial-gradient(circle at 50% 50%, #ec4899 0%, #4c1d95 65%, #0d0b0a 100%); }
+.bg-gradient-markdown { background: radial-gradient(circle at 50% 50%, #8b5cf6 0%, #2e1065 65%, #0d0b0a 100%); }
 .bg-gradient-dance {
   overflow: hidden;
   background:

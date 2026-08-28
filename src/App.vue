@@ -29,6 +29,7 @@
           <div class="link-group">
             <h4>产品</h4>
             <router-link to="/app/thl-dance">THLDance</router-link>
+            <router-link to="/app/thl-markdown">糖葫芦墨记</router-link>
             <router-link to="/app/thl-browser">糖葫芦浏览器</router-link>
             <router-link to="/app/thl-screen">糖葫芦投屏</router-link>
             <router-link to="/app/thl-play">糖葫芦享屏</router-link>
@@ -40,6 +41,7 @@
           </div>
           <div class="link-group">
             <h4>隐私政策</h4>
+            <router-link to="/privacy/thl-markdown">墨记隐私政策</router-link>
             <router-link to="/privacy/thl-browser">浏览器隐私政策</router-link>
             <router-link to="/privacy/thl-screen">投屏隐私政策</router-link>
             <router-link to="/privacy/thl-play">享屏隐私政策</router-link>

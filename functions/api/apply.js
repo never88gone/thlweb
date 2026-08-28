@@ -17,14 +17,15 @@ const corsHeaders = {
 
 // 当前支持的 App 清单（后续新增 App 只需在此处添加）
 const APP_LIST = {
-  'thl-browser': '糖葫芦浏览器',
-  'thl-screen':  '糖葫芦投屏',
-  'thl-play':    '糖葫芦享屏',
-  'thl-tv':      '糖葫芦TV',
-  'thl-pdf':     '糖葫芦PDF',
-  'thl-watch':   '糖葫芦修仙',
-  'thl-send':    '糖葫芦投送',
-  'thl-dytv':    '糖葫芦视界',
+  'thl-markdown': '糖葫芦墨记',
+  'thl-browser':  '糖葫芦浏览器',
+  'thl-screen':   '糖葫芦投屏',
+  'thl-play':     '糖葫芦享屏',
+  'thl-tv':       '糖葫芦TV',
+  'thl-pdf':      '糖葫芦PDF',
+  'thl-watch':    '糖葫芦修仙',
+  'thl-send':     '糖葫芦投送',
+  'thl-dytv':     '糖葫芦视界',
 };
 
 export async function onRequestPost(context) {
