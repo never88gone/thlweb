@@ -13,6 +13,10 @@ const routes = [
     component: () => import('../pages/DanceShowcase.vue')
   },
   {
+    path: '/thldance',
+    redirect: '/app/thl-dance'
+  },
+  {
     path: '/app/:appid',
     name: 'AppDetail',
     component: () => import('../pages/AppDetail.vue'),
@@ -27,6 +31,18 @@ const routes = [
     name: 'PrivacyDetail',
     component: () => import('../pages/PrivacyDetail.vue'),
     props: true
+  },
+  {
+    path: '/privacy',
+    redirect: '/privacy/thl-dance'
+  },
+  {
+    path: '/privacy-policy',
+    redirect: '/privacy/thl-dance'
+  },
+  {
+    path: '/thldance/privacy',
+    redirect: '/privacy/thl-dance'
   },
   {
     path: '/testflight',

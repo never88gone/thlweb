@@ -8,7 +8,7 @@
         返回应用详情
       </router-link>
 
-      <div v-if="appPrivacy" class="privacy-content glass-card reveal active">
+      <article v-if="appPrivacy" class="privacy-content glass-card reveal active">
         <div class="privacy-header">
           <div class="shield-icon">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -16,15 +16,19 @@
             </svg>
           </div>
           <h1 class="display-text gradient-text">{{ appPrivacy.name }} 隐私政策</h1>
-          <p class="update-time">更新日期：2026年5月21日</p>
+          <p class="privacy-kicker">PRIVACY POLICY</p>
+          <p class="update-time">更新日期：{{ appPrivacy.updatedAt || '2026年5月21日' }}</p>
+          <div v-if="appPrivacy.badges" class="privacy-badges" aria-label="隐私政策摘要">
+            <span v-for="badge in appPrivacy.badges" :key="badge">{{ badge }}</span>
+          </div>
         </div>
 
         <div class="privacy-body">
           <p class="lead-text">
-            “糖葫芦”系列产品（以下简称“我们”）深知个人信息对您的重要性，并致力于保护您的个人隐私。本隐私政策旨在向您说明在您使用 <strong>{{ appPrivacy.name }}</strong> 的过程中，我们如何处理您的数据、申请的系统权限以及我们对您隐私的庄严承诺。<strong>请您在使用本应用前仔细阅读本政策。</strong>
+            {{ appPrivacy.intro || `“糖葫芦”系列产品（以下简称“我们”）深知个人信息对您的重要性，并致力于保护您的个人隐私。本隐私政策旨在向您说明在您使用 ${appPrivacy.name} 的过程中，我们如何处理您的数据、申请的系统权限以及我们对您隐私的承诺。请您在使用本应用前仔细阅读本政策。` }}
           </p>
 
-          <div v-for="(section, index) in appPrivacy.sections" :key="index" class="privacy-section">
+          <section v-for="(section, index) in appPrivacy.sections" :key="index" class="privacy-section">
             <h3 class="section-title">
               <span class="section-num">{{ index + 1 }}</span>
               {{ section.title }}
@@ -37,18 +41,18 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </section>
 
           <div class="privacy-footer-contact">
             <h3>联系我们</h3>
             <p>如果您对本隐私政策或个人信息保护有任何疑问、意见或建议，请通过以下官方邮箱与我们联系：</p>
             <p class="contact-email">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <a href="mailto:hsb@myit2017.cn">hsb@myit2017.cn</a>
+              <a :href="`mailto:${appPrivacy.contactEmail || 'hsb@myit2017.cn'}`">{{ appPrivacy.contactEmail || 'hsb@myit2017.cn' }}</a>
             </p>
           </div>
         </div>
-      </div>
+      </article>
 
       <div v-else class="error-panel glass-card reveal active">
         <h3>未找到对应的应用</h3>
@@ -60,7 +64,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({
   appid: {
@@ -71,6 +75,69 @@ const props = defineProps({
 
 // 各个产品的隐私条款数据
 const PRIVACY_DATA = {
+  'thl-dance': {
+    name: 'THLDance',
+    updatedAt: '2026年8月31日',
+    contactEmail: 'support@thltv.com',
+    badges: ['适用于 iPhone、Apple TV 与 Apple Watch', '不含广告或跨 App 跟踪', '运动与健康数据不上云'],
+    intro: '本政策说明武汉铭研信息技术有限公司在您使用 THLDance 时如何处理动作、运动、购买验证与网络数据。THLDance 不要求注册产品账号，也不集成广告或跨 App 跟踪 SDK。',
+    sections: [
+      {
+        title: '适用范围与运营主体',
+        paragraphs: [
+          '本政策适用于 THLDance 的 iPhone、Apple TV 与 Apple Watch 版本，以及与其配套的内容下载服务。产品运营主体为武汉铭研信息技术有限公司。',
+          'macOS 舞蹈内容制作工具仅供内部授权人员制作和发布舞曲，不向普通用户收集或开放上传入口。'
+        ]
+      },
+      {
+        title: '动作与健康数据',
+        paragraphs: [
+          '在您开始舞蹈后，Apple Watch 会处理加速度计、陀螺仪等运动传感器数据，并在手表本地生成动作特征和 Perfect、Good、Miss 判定。原始运动帧不会上传到我们的云端服务。',
+          '在您授权 HealthKit 后，应用会启动室内社交舞蹈训练，读取实时心率与活跃能量，并按 Apple 系统规则保存训练记录。拒绝 HealthKit 权限不会让我们取得相关健康数据，但部分体能展示可能不可用。'
+        ],
+        list: [
+          { label: '用途', detail: '动作比对、得分、触觉反馈、心率与卡路里展示，以及单局结算。' },
+          { label: '设备间传递', detail: '单局期间，动作摘要、判定结果、心率和卡路里会经 Apple Watch 与 iPhone 传递到 Apple TV，用于实时显示；这些数据不会写入我们的 D1/R2 云端内容库。' },
+          { label: '控制权', detail: '您可在 Apple 健康或系统设置中撤销健康权限，并可在健康 App 中查看或删除训练记录。' }
+        ]
+      },
+      {
+        title: '局域网发现与设备通信',
+        paragraphs: [
+          'iPhone 使用 Bonjour 在同一 Wi-Fi 中发现 Apple TV，并在用户选择后建立局域网连接。通信内容可能包括设备显示名称、会话标识、播放控制、动作摘要、判定结果和运动状态。',
+          '局域网通信不经过我们的云端中转服务器。由于 1.0 使用本地系统网络通道而不宣称端到端加密，请只在您信任的家庭或私人 Wi-Fi 环境中使用。'
+        ]
+      },
+      {
+        title: '舞曲目录、下载与本地存储',
+        paragraphs: [
+          'iPhone 与 Apple TV 会访问 dance.thltv.com 获取已发布舞曲目录及短期下载地址。Cloudflare Workers、D1 与 R2 仅用于保存舞曲元数据、视频和动作 JSON，不保存您的运动传感器或 HealthKit 数据。',
+          '已下载的视频、动作 JSON、手别偏好、判定宽容度和缓存状态保存在设备本地。您可以在应用设置中清理缓存；卸载应用会按 Apple 系统规则移除应用沙盒数据。'
+        ]
+      },
+      {
+        title: '购买与收据验证',
+        paragraphs: [
+          '免费舞曲无需提供购买收据。下载已购买的收费舞曲时，应用可能把 App Store 收据发送至我们的 Cloudflare Worker，再由 Worker 提交给 Apple 官方验单服务，以确认 App 身份、商品标识和退款状态。',
+          '我们的业务数据库不保存完整 App Store 收据，也不会使用收据信息建立用户画像。购买、退款与恢复购买仍由 Apple 及其 App Store 条款管理。'
+        ]
+      },
+      {
+        title: '第三方基础服务与网络日志',
+        paragraphs: [
+          'THLDance 使用 Apple 的 StoreKit、HealthKit、WatchConnectivity 和系统网络能力，并使用 Cloudflare Workers、D1 与 R2 分发产品内容。上述服务可能依据其自身政策处理履约所必需的设备、交易或基础网络信息。',
+          '网络服务提供商可能为安全、故障排查和防滥用处理请求时间、IP 地址、状态码等基础日志。我们不把这些日志用于广告投放、跨 App 跟踪或出售个人信息。'
+        ]
+      },
+      {
+        title: '儿童、数据保留与政策变更',
+        paragraphs: [
+          'THLDance 是家庭娱乐与运动产品，不以收集儿童个人信息为目的。未成年人应在监护人同意和陪同下使用，并由监护人管理健康权限与购买。',
+          '设备本地数据由您通过清理缓存、系统健康设置或卸载应用管理。若功能或数据处理方式发生实质变化，我们会更新本页面的日期和内容；重大变化将在应用或官网提供合理提示。'
+        ]
+      }
+    ]
+  },
   'thl-markdown': {
     name: '糖葫芦墨记',
     sections: [
@@ -347,8 +414,16 @@ const appPrivacy = computed(() => {
   return PRIVACY_DATA[props.appid] || null
 })
 
+let previousTitle = ''
+
 onMounted(() => {
+  previousTitle = document.title
+  document.title = appPrivacy.value ? `${appPrivacy.value.name} 隐私政策 | 糖葫芦` : '隐私政策 | 糖葫芦'
   window.scrollTo(0, 0)
+})
+
+onUnmounted(() => {
+  document.title = previousTitle
 })
 </script>
 
@@ -400,6 +475,11 @@ onMounted(() => {
   padding: 5rem;
 }
 
+.privacy-content:hover {
+  transform: none;
+  border-color: var(--card-border);
+}
+
 .privacy-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -431,9 +511,34 @@ onMounted(() => {
   margin-bottom: 1rem;
 }
 
+.privacy-kicker {
+  margin: 0 0 0.75rem;
+  color: var(--accent-blue);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
 .update-time {
   font-size: 0.95rem;
   color: var(--text-muted);
+}
+
+.privacy-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.privacy-badges span {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(249, 115, 22, 0.24);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  background: rgba(249, 115, 22, 0.07);
+  font-size: 0.78rem;
 }
 
 .privacy-body {
@@ -541,6 +646,13 @@ onMounted(() => {
   text-decoration: underline;
 }
 
+.back-link:focus-visible,
+.contact-email a:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
 .error-panel {
   text-align: center;
   padding: 5rem;
@@ -587,6 +699,31 @@ onMounted(() => {
   
   .section-title {
     font-size: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .section-list {
+    padding-left: 0;
+  }
+
+  .privacy-footer-contact {
+    margin-top: 3rem;
+  }
+
+  .contact-email {
+    max-width: 100%;
+    padding-inline: 1rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .privacy-page *,
+  .privacy-page *::before,
+  .privacy-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
 </style>

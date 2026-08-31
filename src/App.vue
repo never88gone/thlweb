@@ -41,6 +41,7 @@
           </div>
           <div class="link-group">
             <h4>隐私政策</h4>
+            <router-link to="/privacy/thl-dance">THLDance 隐私政策</router-link>
             <router-link to="/privacy/thl-markdown">墨记隐私政策</router-link>
             <router-link to="/privacy/thl-browser">浏览器隐私政策</router-link>
             <router-link to="/privacy/thl-screen">投屏隐私政策</router-link>
@@ -53,7 +54,7 @@
           </div>
           <div class="link-group" v-if="isCloudflare">
             <h4>联系方式</h4>
-            <a href="https://www.myit2017.cn" target="_blank">官网：https://www.thltv.com/</a>
+            <a href="https://www.thltv.com/" target="_blank" rel="noopener noreferrer">官网：https://www.thltv.com/</a>
             <a href="mailto:support@thltv.com">邮箱：support@thltv.com</a>
             <a href="https://t.me/tanghulutvos" target="_blank">Telegram频道</a>
             <router-link to="/testflight">内测资格申请</router-link>

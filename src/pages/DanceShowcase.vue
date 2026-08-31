@@ -22,6 +22,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
           </a>
           <a href="#dance-experience" class="dance-button dance-button-ghost" @click.prevent="scrollToSection('dance-experience')">看真实产品界面</a>
+          <router-link to="/privacy/thl-dance" class="dance-button dance-button-text">隐私与数据</router-link>
         </div>
         <div class="hero-meta" aria-label="THLDance 产品构成">
           <span><b>01</b> 个手腕传感器</span>
@@ -154,6 +155,7 @@
         回到舞台
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6" /></svg>
       </a>
+      <router-link to="/privacy/thl-dance" class="final-privacy-link dance-reveal">查看 THLDance 隐私政策</router-link>
     </section>
   </div>
 </template>
