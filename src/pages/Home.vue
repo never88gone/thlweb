@@ -94,7 +94,9 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
 
-const products = [
+const isAliyun = import.meta.env.VITE_APP_PLATFORM === 'aliyun';
+
+const baseProducts = [
   { id: 'thl-dance', name: 'THLDance', desc: '把客厅变成主舞台。用 Apple TV 跟跳、iPhone 连接、Apple Watch 感知每一个动作。', img: new URL('../assets/dance/app-icon.jpg', import.meta.url).href, bg: 'bg-gradient-dance' },
   { id: 'thl-markdown', name: '糖葫芦墨记', desc: '专为 macOS 打造的双栏 Markdown 与 LaTeX 笔记利器，沉浸写作，所见即所得。', img: new URL('../assets/markdown/logo.png', import.meta.url).href, bg: 'bg-gradient-markdown' },
   { id: 'thl-browser', name: '糖葫芦浏览器', desc: '快如闪电的高效浏览体验，保护隐私安全的现代网络入口。', img: new URL('../assets/thlbrowser.png', import.meta.url).href, bg: 'bg-gradient-blue' },
@@ -107,6 +109,8 @@ const products = [
   { id: 'thl-dytv', name: '糖葫芦视界', desc: '专为 Apple TV 打造的第三方流媒体客户端，提供沉浸式大屏刷视频体验。', img: new URL('../assets/dytv/logo.png', import.meta.url).href, bg: 'bg-gradient-pink' },
   { id: 'thl-remote', name: '糖葫芦遥控器', desc: '基于端侧大模型与实时计算机视觉构建的多屏互动引擎与万能遥控。', img: new URL('../assets/remote/logo.png', import.meta.url).href, bg: 'bg-gradient-orange' }
 ];
+
+const products = isAliyun ? baseProducts.filter(p => p.id !== 'thl-dytv') : baseProducts;
 
 let observer;
 

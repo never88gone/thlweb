@@ -3,7 +3,7 @@
     <nav class="glass-nav" :class="{ 'nav-scrolled': isScrolled }">
       <div class="nav-content">
         <router-link to="/" class="nav-brand display-text gradient-text">
-          糖葫芦
+          {{ isAliyun ? '武汉铭研信息技术有限公司' : '糖葫芦' }}
         </router-link>
         <div class="nav-links">
           <router-link to="/">产品矩阵</router-link>
@@ -22,7 +22,7 @@
     <footer class="footer-section">
       <div class="footer-content">
         <div class="footer-brand">
-          <h2 class="display-text gradient-text">糖葫芦</h2>
+          <h2 class="display-text gradient-text">{{ isAliyun ? '武汉铭研信息技术有限公司' : '糖葫芦' }}</h2>
           <p>赋能客厅，连接未来。</p>
         </div>
         <div class="footer-links">
@@ -37,7 +37,7 @@
             <router-link to="/app/thl-pdf">糖葫芦PDF</router-link>
             <router-link to="/app/thl-watch">糖葫芦修仙</router-link>
             <router-link to="/app/thl-send">糖葫芦投送</router-link>
-            <router-link to="/app/thl-dytv">糖葫芦视界</router-link>
+            <router-link v-if="!isAliyun" to="/app/thl-dytv">糖葫芦视界</router-link>
           </div>
           <div class="link-group">
             <h4>隐私政策</h4>
@@ -50,7 +50,7 @@
             <router-link to="/privacy/thl-pdf">PDF隐私政策</router-link>
             <router-link to="/privacy/thl-watch">修仙隐私政策</router-link>
             <router-link to="/privacy/thl-send">投送隐私政策</router-link>
-            <router-link to="/privacy/thl-dytv">视界隐私政策</router-link>
+            <router-link v-if="!isAliyun" to="/privacy/thl-dytv">视界隐私政策</router-link>
           </div>
           <div class="link-group" v-if="isCloudflare">
             <h4>联系方式</h4>
@@ -109,6 +109,7 @@ const handleScroll = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
+  document.title = isAliyun ? '武汉铭研信息技术有限公司' : '糖葫芦应用门户';
 });
 
 onUnmounted(() => {
