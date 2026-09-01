@@ -76,16 +76,16 @@ const props = defineProps({
 // 各个产品的隐私条款数据
 const PRIVACY_DATA = {
   'thl-dance': {
-    name: 'THLDance',
+    name: '糖葫芦Dance',
     updatedAt: '2026年8月31日',
     contactEmail: 'support@thltv.com',
     badges: ['适用于 iPhone、Apple TV 与 Apple Watch', '不含广告或跨 App 跟踪', '运动与健康数据不上云'],
-    intro: '本政策说明武汉铭研信息技术有限公司在您使用 THLDance 时如何处理动作、运动、购买验证与网络数据。THLDance 不要求注册产品账号，也不集成广告或跨 App 跟踪 SDK。',
+    intro: '本政策说明武汉铭研信息技术有限公司在您使用 糖葫芦Dance 时如何处理动作、运动、购买验证与网络数据。糖葫芦Dance 不要求注册产品账号，也不集成广告或跨 App 跟踪 SDK。',
     sections: [
       {
         title: '适用范围与运营主体',
         paragraphs: [
-          '本政策适用于 THLDance 的 iPhone、Apple TV 与 Apple Watch 版本，以及与其配套的内容下载服务。产品运营主体为武汉铭研信息技术有限公司。',
+          '本政策适用于 糖葫芦Dance 的 iPhone、Apple TV 与 Apple Watch 版本，以及与其配套的内容下载服务。产品运营主体为武汉铭研信息技术有限公司。',
           'macOS 舞蹈内容制作工具仅供内部授权人员制作和发布舞曲，不向普通用户收集或开放上传入口。'
         ]
       },
@@ -125,14 +125,14 @@ const PRIVACY_DATA = {
       {
         title: '第三方基础服务与网络日志',
         paragraphs: [
-          'THLDance 使用 Apple 的 StoreKit、HealthKit、WatchConnectivity 和系统网络能力，并使用 Cloudflare Workers、D1 与 R2 分发产品内容。上述服务可能依据其自身政策处理履约所必需的设备、交易或基础网络信息。',
+          '糖葫芦Dance 使用 Apple 的 StoreKit、HealthKit、WatchConnectivity 和系统网络能力，并使用 Cloudflare Workers、D1 与 R2 分发产品内容。上述服务可能依据其自身政策处理履约所必需的设备、交易或基础网络信息。',
           '网络服务提供商可能为安全、故障排查和防滥用处理请求时间、IP 地址、状态码等基础日志。我们不把这些日志用于广告投放、跨 App 跟踪或出售个人信息。'
         ]
       },
       {
         title: '儿童、数据保留与政策变更',
         paragraphs: [
-          'THLDance 是家庭娱乐与运动产品，不以收集儿童个人信息为目的。未成年人应在监护人同意和陪同下使用，并由监护人管理健康权限与购买。',
+          '糖葫芦Dance 是家庭娱乐与运动产品，不以收集儿童个人信息为目的。未成年人应在监护人同意和陪同下使用，并由监护人管理健康权限与购买。',
           '设备本地数据由您通过清理缓存、系统健康设置或卸载应用管理。若功能或数据处理方式发生实质变化，我们会更新本页面的日期和内容；重大变化将在应用或官网提供合理提示。'
         ]
       }

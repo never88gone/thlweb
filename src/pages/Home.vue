@@ -97,7 +97,7 @@ import { onMounted, onUnmounted } from 'vue';
 const isAliyun = import.meta.env.VITE_APP_PLATFORM === 'aliyun';
 
 const baseProducts = [
-  { id: 'thl-dance', name: 'THLDance', desc: '把客厅变成主舞台。用 Apple TV 跟跳、iPhone 连接、Apple Watch 感知每一个动作。', img: new URL('../assets/dance/app-icon.jpg', import.meta.url).href, bg: 'bg-gradient-dance' },
+  { id: 'thl-dance', name: '糖葫芦Dance', desc: '把客厅变成主舞台。用 Apple TV 跟跳、iPhone 连接、Apple Watch 感知每一个动作。', img: new URL('../assets/dance/app-icon.jpg', import.meta.url).href, bg: 'bg-gradient-dance' },
   { id: 'thl-markdown', name: '糖葫芦墨记', desc: '专为 macOS 打造的双栏 Markdown 与 LaTeX 笔记利器，沉浸写作，所见即所得。', img: new URL('../assets/markdown/logo.png', import.meta.url).href, bg: 'bg-gradient-markdown' },
   { id: 'thl-browser', name: '糖葫芦浏览器', desc: '快如闪电的高效浏览体验，保护隐私安全的现代网络入口。', img: new URL('../assets/thlbrowser.png', import.meta.url).href, bg: 'bg-gradient-blue' },
   { id: 'thl-screen', name: '糖葫芦投屏', desc: '无缝的无线屏幕投射工具。让您的移动设备可即时共享媒体到大屏。', img: new URL('../assets/thlairplay.png', import.meta.url).href, bg: 'bg-gradient-purple' },

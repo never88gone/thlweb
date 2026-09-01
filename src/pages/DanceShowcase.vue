@@ -24,7 +24,7 @@
           <a href="#dance-experience" class="dance-button dance-button-ghost" @click.prevent="scrollToSection('dance-experience')">看真实产品界面</a>
           <router-link to="/privacy/thl-dance" class="dance-button dance-button-text">隐私与数据</router-link>
         </div>
-        <div class="hero-meta" aria-label="THLDance 产品构成">
+        <div class="hero-meta" aria-label="糖葫芦Dance 产品构成">
           <span><b>01</b> 个手腕传感器</span>
           <span><b>03</b> 台 Apple 设备</span>
           <span><b>00</b> 专业门槛</span>
@@ -41,7 +41,7 @@
         <div class="orbit orbit-inner" aria-hidden="true"></div>
         <div class="pulse-ring" aria-hidden="true"></div>
         <div class="app-orb" :style="parallaxStyle(10)">
-          <img :src="danceIcon" alt="THLDance 霓虹舞者产品图标" width="720" height="720" />
+          <img :src="danceIcon" alt="糖葫芦Dance 霓虹舞者产品图标" width="720" height="720" />
           <div class="app-orb-gloss" aria-hidden="true"></div>
         </div>
         <div class="floating-card score-card" :style="parallaxStyle(22)">
@@ -59,7 +59,7 @@
       </div>
     </section>
 
-    <div class="signal-strip" aria-label="THLDance 产品特性">
+    <div class="signal-strip" aria-label="糖葫芦Dance 产品特性">
       <div class="signal-track">
         <template v-for="item in signalItems" :key="item">
           <span>{{ item }}</span><i aria-hidden="true"></i>
@@ -77,7 +77,7 @@
       <div class="product-showcase dance-reveal">
         <div class="tv-frame">
           <div class="tv-bezel">
-            <img :src="tvosPlay" alt="THLDance tvOS 播放页，完整显示舞蹈视频、得分和动作时间轴" width="1600" height="900" />
+            <img :src="tvosPlay" alt="糖葫芦Dance tvOS 播放页，完整显示舞蹈视频、得分和动作时间轴" width="1600" height="900" />
           </div>
           <div class="tv-stand" aria-hidden="true"></div>
         </div>
@@ -90,7 +90,7 @@
             <span class="phone-device-label">iPhone · 连接中枢</span>
             <div class="phone-frame">
               <div class="phone-screen">
-                <img :src="iphoneConnect" alt="THLDance iPhone App 连接页，显示附近的 Apple TV 房间" width="368" height="800" loading="lazy" />
+                <img :src="iphoneConnect" alt="糖葫芦Dance iPhone App 连接页，显示附近的 Apple TV 房间" width="368" height="800" loading="lazy" />
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@
       </div>
 
       <div class="library-shot dance-reveal">
-        <img :src="tvosLibrary" alt="THLDance tvOS 选曲页，完整显示曲目和三步连接引导" width="1600" height="900" loading="lazy" />
+        <img :src="tvosLibrary" alt="糖葫芦Dance tvOS 选曲页，完整显示曲目和三步连接引导" width="1600" height="900" loading="lazy" />
         <div class="library-note">
           <span>真实 tvOS 界面</span>
           <strong>选曲、连接、开跳，所有状态都在大屏上说清楚。</strong>
@@ -155,7 +155,7 @@
         回到舞台
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6" /></svg>
       </a>
-      <router-link to="/privacy/thl-dance" class="final-privacy-link dance-reveal">查看 THLDance 隐私政策</router-link>
+      <router-link to="/privacy/thl-dance" class="final-privacy-link dance-reveal">查看 糖葫芦Dance 隐私政策</router-link>
     </section>
   </div>
 </template>
@@ -227,13 +227,13 @@ const devices = [
 
 const steps = [
   { number: '01', title: '电视选曲', description: '在 Apple TV 选择喜欢的舞曲，大屏会等待你的设备就绪。' },
-  { number: '02', title: '手机连接', description: '打开 iPhone 上的 THLDance，选择同一 Wi-Fi 中的 Apple TV。' },
+  { number: '02', title: '手机连接', description: '打开 iPhone 上的 糖葫芦Dance，选择同一 Wi-Fi 中的 Apple TV。' },
   { number: '03', title: '戴表开跳', description: '系紧表带、清理周围障碍物，按下遥控器开始，跟着屏幕动起来。' }
 ]
 
 onMounted(() => {
   previousTitle = document.title
-  document.title = 'THLDance · 客厅体感舞蹈 | 糖葫芦'
+  document.title = '糖葫芦Dance · 客厅体感舞蹈 | 糖葫芦'
   observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
