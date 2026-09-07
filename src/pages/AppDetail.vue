@@ -100,12 +100,12 @@ const ICON_DB = "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s
 const APP_META = {
   'thl-markdown': {
     name: '糖葫芦墨记',
-    desc: '专为 macOS 打造的现代化 Markdown 编辑器。左侧专心写作，右侧实时排版，深度支持 LaTeX 数学公式与 Mermaid 流程图表。',
+    desc: '落笔生墨，文以载道。融合东方文人雅致与现代异构渲染技术的高性能 Markdown 写作与排版套件。',
     features: [
-      { title: '经典双栏分屏', detail: '毫秒级排版预览与光标跟随，支持打字机居中与聚焦模式，中英文混输深度调优。', iconPath: ICON_UI },
-      { title: 'LaTeX 与 Mermaid', detail: '内置 KaTeX 引擎快速渲染数学公式，支持代码直接绘制流程图、时序图与甘特图。', iconPath: ICON_PLAY },
-      { title: '多窗口与文档大纲', detail: '支持多文档独立窗口并发编辑，左侧边栏文件树快速切换，右侧自动提取标题层级大纲。', iconPath: ICON_MODE },
-      { title: '资产管理与无损导出', detail: '拖拽粘贴图片自动归档，支持 PicGo 图床服务，一键导出为标准 PDF、HTML 网页或纯文本。', iconPath: ICON_DB }
+      { title: '独创·墨记雅卡', detail: '一键提取段落生成东方美学知识卡片，内置宣纸松烟、竹青、泥金等主题，支持印章与高清无损导出。', iconPath: ICON_UI },
+      { title: '独创·思维脉络看板', detail: '智能解析多层级标题自动生成拓扑脑图，支持节点折叠、字数热度感知与正文双向联动跳转。', iconPath: ICON_MODE },
+      { title: '独创·多维深度透视仪', detail: '加权阅读时长预估、语法与图表要素可视化分布、文档结构健康度评分与专业透视报告。', iconPath: ICON_PLAY },
+      { title: '独创·双轨高保真导出', detail: '物理隔离深色编辑界面与出版级白底排版，消除深色 PDF 污染，高保真输出 PDF、Word、HTML 与长图。', iconPath: ICON_DB }
     ]
   },
   'thl-browser': {

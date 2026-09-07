@@ -3,11 +3,11 @@
     <!-- Hero Showcase -->
     <section class="hero-showcase blur-backdrop">
       <div class="hero-text center-aligned">
-        <div class="tag-new">MACOS NATIVE</div>
-        <h1 class="display-title gradient-text-markdown">沉浸式双栏 Markdown 与 LaTeX 写作利器</h1>
+        <div class="tag-new">MACOS NATIVE · 东方雅韵</div>
+        <h1 class="display-title gradient-text-markdown">东方雅韵 · 思维脉络 · 高保真排版</h1>
         <p class="hero-subtitle">
-          左写右看，实时呈现。专为 macOS 设计的全功能现代化 Markdown 编辑器。<br/>
-          深度集成 KaTeX 数学公式、Mermaid 图表、原生多窗口与无损导出，让思考流淌于文字之间。
+          落笔生墨，文以载道。融合东方文人雅致美学与现代异构渲染技术的高性能 Markdown 写作与排版套件。<br/>
+          打破传统编辑器枯燥单调的技术同质化设计，为技术创作者、学者与知识管理者带来全新境界的沉浸式写作体验。
         </p>
         <div class="download-options">
           <a href="https://apps.apple.com/app/tanghulu-notes/id6740000000" target="_blank" class="store-badge bg-black">
@@ -32,14 +32,14 @@
     <!-- Core Features Grid -->
     <div class="feature-masonry">
       
-      <!-- Feature 1: 双栏与专注编辑 -->
+      <!-- Feature 1: 双栏写作与墨记雅卡 -->
       <div class="masonry-item large-card glass-panel">
         <div class="card-text">
-          <div class="tag accent-blue">Immersive Writing</div>
-          <h3>经典双栏实时分屏，所见即所得</h3>
+          <div class="tag accent-purple">Oriental Aesthetics & Writing</div>
+          <h3>独创·墨记雅卡 与 经典双栏写作</h3>
           <p>
-            左侧专注输入，右侧毫秒级排版预览与光标跟随。支持打字机居中模式与段落聚焦模式，排除一切干扰。
-            底层引擎深度适配 macOS 原生拼音输入法，彻底告别字母吞字痛点。
+            一键提取选中金句或正文段落，排版生成极具东方神韵的高清知识卡片（提供「宣纸松烟」、「竹青雅韵」、「玄夜泥金」、「暮岚紫黛」专属主题，支持朱砂印鉴与高清导出）。
+            左侧极致流畅输入，右侧毫秒级排版预览与光标跟随，支持打字机居中与聚焦模式，中英文混输深度调优。
           </p>
         </div>
         <div class="media-stack">
@@ -47,13 +47,13 @@
         </div>
       </div>
 
-      <!-- Feature 2: 数学公式与图表 -->
+      <!-- Feature 2: 数学公式与排版 -->
       <div class="masonry-item standard-card glass-panel">
         <div class="card-text">
-          <div class="tag accent-purple">Academic & Science</div>
-          <h3>深度数学公式与 Mermaid 图表</h3>
+          <div class="tag accent-blue">Academic & LaTeX</div>
+          <h3>原生矢量数学公式支持</h3>
           <p>
-            内置 KaTeX 引擎快速渲染复杂 LaTeX 行内与行间公式。直接用代码绘制流程图、时序图与甘特图，支持主流编程语言代码高亮。
+            内置 KaTeX 引擎快速渲染复杂 LaTeX 行内与独立公式块。深度支持任务清单、代码高亮、多级表格、上下标与学术脚注。
           </p>
         </div>
         <div class="floating-mockup">
@@ -61,13 +61,13 @@
         </div>
       </div>
 
-      <!-- Feature 3: Mermaid 流程图展示 -->
+      <!-- Feature 3: Mermaid 图表 -->
       <div class="masonry-item standard-card glass-panel">
         <div class="card-text">
-          <div class="tag accent-cyan">Diagrams</div>
-          <h3>代码即图表，直观表达复杂逻辑</h3>
+          <div class="tag accent-cyan">Diagrams & Charts</div>
+          <h3>离屏无闪烁 Mermaid 图表</h3>
           <p>
-            纯文本形式维护图表，所见即所得。无论是算法流程还是系统架构，清晰呈现。
+            纯文本代码直接绘制流程图、时序图、类图与甘特图。离屏渲染平滑无闪烁，让复杂技术逻辑与算法结构一目了然。
           </p>
         </div>
         <div class="floating-mockup">
@@ -75,13 +75,14 @@
         </div>
       </div>
 
-      <!-- Feature 4: 多窗口与大纲导航 -->
+      <!-- Feature 4: 思维脉络看板与多窗口 -->
       <div class="masonry-item long-card glass-panel flex-row">
         <div class="card-text flex-1">
-          <div class="tag accent-green">Navigation</div>
-          <h3>原生多窗口、文件树与实时大纲</h3>
+          <div class="tag accent-green">Structure & Navigation</div>
+          <h3>独创·思维脉络看板 与 结构拓扑导图</h3>
           <p>
-            支持独立打开多个文档窗口对照编辑。左侧展开目录文件树快速切换笔记，右侧自动提取标题生成层级大纲，随点随到。
+            智能解析文档多层级标题（H1-H6），自动生成可视化思维脉络动态树状看板。支持节点折叠展开、字数热度感知与正文秒级双向跳转联动。
+            支持多文档独立窗口并发编辑与目录文件树秒级切换，长文掌控得心应手。
           </p>
         </div>
         <div class="media-row flex-1">
@@ -89,16 +90,17 @@
         </div>
       </div>
 
-      <!-- Feature 5: 资产管理与无损导出 -->
+      <!-- Feature 5: 双轨隔离导出与多维透视 -->
       <div class="masonry-item long-card glass-panel flex-row reversed">
         <div class="media-row flex-1">
           <img loading="lazy" src="../assets/markdown/markdown关于.png" alt="资产管理与导出" class="rounded drop-shadow" />
         </div>
         <div class="card-text flex-1">
-          <div class="tag accent-orange">Productivity</div>
-          <h3>丝滑资产管理与全功能导出管线</h3>
+          <div class="tag accent-orange">Fidelity & Telemetry</div>
+          <h3>独创·双轨高保真导出 与 多维深度透视仪</h3>
           <p>
-            拖拽即粘贴图片，自动相对路径存储或一键集成 PicGo 图床服务。支持将文档无损导出为标准 PDF、HTML 网页或纯文本，数据随心分享。
+            彻底解决传统编辑器深色模式下导出 PDF“黑底黑字”顽疾，深色编辑界面与出版级白底排版物理隔离，支持 A4/Letter PDF、Word (.docx)、HTML 及多页长图智能分页导出。
+            集成多维透视仪，加权估算阅读时长，全面透视语法资源配比与文档结构健康度。
           </p>
         </div>
       </div>
@@ -109,8 +111,8 @@
     <section class="privacy-banner glass-panel">
       <div class="banner-icon">🛡️</div>
       <div class="banner-text">
-        <h3>纯本地驱动 · 零数据收集</h3>
-        <p>无需注册任何账号，开箱即用。所有文档与笔记均严格保存在您的本地磁盘中，我们无法也绝不收集您的任何数据。</p>
+        <h3>纯粹本地驱动 · 零服务器依赖</h3>
+        <p>无需注册任何账号，开箱即用。100% 本地文档操作，绝不收集、存储或上传您的任何个人信息与文档数据，充分保护您的核心知识产权与隐私安全。</p>
       </div>
     </section>
   </div>
