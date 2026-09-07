@@ -24,7 +24,7 @@
       </div>
       <div class="hero-center-graphic">
         <div class="device-frame drop-shadow">
-          <img loading="lazy" src="../assets/markdown/markdown主页.png" alt="糖葫芦墨记主界面" class="inner-img" />
+          <img loading="lazy" src="../assets/markdown/墨记结构快照.png" alt="糖葫芦墨记主界面与结构快照" class="inner-img" />
         </div>
       </div>
     </section>
@@ -32,53 +32,53 @@
     <!-- Core Features Grid -->
     <div class="feature-masonry">
       
-      <!-- Feature 1: 双栏写作与墨记雅卡 -->
+      <!-- Feature 1: 墨记雅卡与双栏写作 -->
       <div class="masonry-item large-card glass-panel">
         <div class="card-text">
-          <div class="tag accent-purple">Oriental Aesthetics & Writing</div>
-          <h3>独创·墨记雅卡 与 经典双栏写作</h3>
+          <div class="tag accent-purple">Oriental Aesthetics & Card</div>
+          <h3>独创·墨记雅卡 知识卡片生成器</h3>
           <p>
-            一键提取选中金句或正文段落，排版生成极具东方神韵的高清知识卡片（提供「宣纸松烟」、「竹青雅韵」、「玄夜泥金」、「暮岚紫黛」专属主题，支持朱砂印鉴与高清导出）。
-            左侧极致流畅输入，右侧毫秒级排版预览与光标跟随，支持打字机居中与聚焦模式，中英文混输深度调优。
+            一键提取选中金句或正文段落，排版生成极具东方神韵的高清知识卡片（提供「宣纸松烟」、「竹青雅韵」、「玄夜泥金」、「暮岚紫黛」专属古典美学主题，支持作者落款、朱砂印鉴与高清无损导出分享）。
+            配合左侧极致流畅输入、右侧毫秒级排版预览与打字机居中模式，让创作尽显风雅。
           </p>
         </div>
         <div class="media-stack">
-          <img loading="lazy" src="../assets/markdown/markdown编辑.png" alt="沉浸式编辑模式" class="drop-shadow rounded hover-lift" />
+          <img loading="lazy" src="../assets/markdown/墨记卡片.png" alt="独创·墨记雅卡" class="drop-shadow rounded hover-lift" />
         </div>
       </div>
 
-      <!-- Feature 2: 数学公式与排版 -->
+      <!-- Feature 2: 多维深度透视仪 -->
       <div class="masonry-item standard-card glass-panel">
         <div class="card-text">
-          <div class="tag accent-blue">Academic & LaTeX</div>
-          <h3>原生矢量数学公式支持</h3>
+          <div class="tag accent-orange">Telemetry & Diagnostic</div>
+          <h3>独创·多维深度透视仪</h3>
           <p>
-            内置 KaTeX 引擎快速渲染复杂 LaTeX 行内与独立公式块。深度支持任务清单、代码高亮、多级表格、上下标与学术脚注。
+            文档全景深度诊断。全面统计中英文字数、代码行数与加权阅读耗时，可视化呈现标题分布、LaTeX 公式、图表及内嵌资源配比，输出健康度评分与专业报告。
           </p>
         </div>
         <div class="floating-mockup">
-          <img loading="lazy" src="../assets/markdown/markdown渲染.png" alt="数学公式与排版渲染" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/markdown/墨记分析.png" alt="独创·多维深度透视仪" class="rounded drop-shadow" />
         </div>
       </div>
 
-      <!-- Feature 3: Mermaid 图表 -->
+      <!-- Feature 3: 公式与图表 -->
       <div class="masonry-item standard-card glass-panel">
         <div class="card-text">
-          <div class="tag accent-cyan">Diagrams & Charts</div>
-          <h3>离屏无闪烁 Mermaid 图表</h3>
+          <div class="tag accent-cyan">KaTeX & Mermaid</div>
+          <h3>矢量公式与离屏图表排版</h3>
           <p>
-            纯文本代码直接绘制流程图、时序图、类图与甘特图。离屏渲染平滑无闪烁，让复杂技术逻辑与算法结构一目了然。
+            内置 KaTeX 引擎极速渲染行内与独立 LaTeX 公式块。离屏平滑渲染 Mermaid 流程图、时序图与甘特图，支持主流编程语言代码高亮。
           </p>
         </div>
         <div class="floating-mockup">
-          <img loading="lazy" src="../assets/markdown/markdown流程图.png" alt="Mermaid 图表" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/markdown/markdown流程图.png" alt="Mermaid 流程图与公式" class="rounded drop-shadow" />
         </div>
       </div>
 
-      <!-- Feature 4: 思维脉络看板与多窗口 -->
+      <!-- Feature 4: 思维脉络看板 -->
       <div class="masonry-item long-card glass-panel flex-row">
         <div class="card-text flex-1">
-          <div class="tag accent-green">Structure & Navigation</div>
+          <div class="tag accent-green">Mind Board & Navigation</div>
           <h3>独创·思维脉络看板 与 结构拓扑导图</h3>
           <p>
             智能解析文档多层级标题（H1-H6），自动生成可视化思维脉络动态树状看板。支持节点折叠展开、字数热度感知与正文秒级双向跳转联动。
@@ -86,21 +86,21 @@
           </p>
         </div>
         <div class="media-row flex-1">
-          <img loading="lazy" src="../assets/markdown/markdown目录+大纲.png" alt="文件树与文档大纲" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/markdown/墨记拓扑看板.png" alt="独创·思维脉络看板" class="rounded drop-shadow" />
         </div>
       </div>
 
-      <!-- Feature 5: 双轨隔离导出与多维透视 -->
+      <!-- Feature 5: 双轨高保真导出 -->
       <div class="masonry-item long-card glass-panel flex-row reversed">
         <div class="media-row flex-1">
-          <img loading="lazy" src="../assets/markdown/markdown关于.png" alt="资产管理与导出" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/markdown/墨记导文件.png" alt="独创·双轨高保真多格式导出" class="rounded drop-shadow" />
         </div>
         <div class="card-text flex-1">
-          <div class="tag accent-orange">Fidelity & Telemetry</div>
-          <h3>独创·双轨高保真导出 与 多维深度透视仪</h3>
+          <div class="tag accent-blue">Fidelity & Export</div>
+          <h3>独创·双轨主题隔离高保真多格式导出</h3>
           <p>
-            彻底解决传统编辑器深色模式下导出 PDF“黑底黑字”顽疾，深色编辑界面与出版级白底排版物理隔离，支持 A4/Letter PDF、Word (.docx)、HTML 及多页长图智能分页导出。
-            集成多维透视仪，加权估算阅读时长，全面透视语法资源配比与文档结构健康度。
+            彻底解决传统编辑器深色模式下导出 PDF“黑底黑字”顽疾，深色编辑界面与出版级白底排版物理隔离。
+            支持 A4/Letter PDF、带公式图表的 Word (.docx)、HTML 及多页长图智能分页导出，算法智能感知边界，确保图表与代码不被截断。
           </p>
         </div>
       </div>
