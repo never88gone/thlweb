@@ -107,7 +107,8 @@ const baseProducts = [
   { id: 'thl-play', name: '糖葫芦享屏', desc: '旗舰级 AirPlay 接收方案。支持高清镜像与无损音频，适配全系 Apple 生态。', img: new URL('../assets/play/logo.png', import.meta.url).href, bg: 'bg-gradient-indigo' },
   { id: 'thl-send', name: '糖葫芦投送', desc: '基于 LocalSend 鸿蒙 Next 局域网点对点互传工具，零流量，安全极速。', img: new URL('../assets/thlsend.png', import.meta.url).href, bg: 'bg-gradient-teal' },
   { id: 'thl-dytv', name: '糖葫芦视界', desc: '专为 Apple TV 打造的第三方流媒体客户端，提供沉浸式大屏刷视频体验。', img: new URL('../assets/dytv/logo.png', import.meta.url).href, bg: 'bg-gradient-pink' },
-  { id: 'thl-remote', name: '糖葫芦遥控器', desc: '基于端侧大模型与实时计算机视觉构建的多屏互动引擎与万能遥控。', img: new URL('../assets/remote/logo.png', import.meta.url).href, bg: 'bg-gradient-orange' }
+  { id: 'thl-remote', name: '糖葫芦遥控器', desc: '基于端侧大模型与实时计算机视觉构建的多屏互动引擎与万能遥控。', img: new URL('../assets/remote/logo.png', import.meta.url).href, bg: 'bg-gradient-orange' },
+  { id: 'thl-shot', name: '糖葫芦截屏', desc: '专为 macOS 打造的原生极速截图标注与长图拼接利器，支持智能吸附、置顶贴图与离线 OCR。', img: new URL('../assets/shot/logo.png', import.meta.url).href, bg: 'bg-gradient-shot' }
 ];
 
 const products = isAliyun ? baseProducts.filter(p => p.id !== 'thl-dytv') : baseProducts;
@@ -302,6 +303,7 @@ onUnmounted(() => {
 .bg-gradient-teal { background: radial-gradient(circle at 50% 50%, #06b6d4 0%, #083344 65%, #0d0b0a 100%); }
 .bg-gradient-pink { background: radial-gradient(circle at 50% 50%, #ec4899 0%, #4c1d95 65%, #0d0b0a 100%); }
 .bg-gradient-markdown { background: radial-gradient(circle at 50% 50%, #8b5cf6 0%, #2e1065 65%, #0d0b0a 100%); }
+.bg-gradient-shot { background: radial-gradient(circle at 50% 50%, #0284c7 0%, #0c4a6e 65%, #0d0b0a 100%); }
 .bg-gradient-dance {
   overflow: hidden;
   background:

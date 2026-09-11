@@ -45,6 +45,18 @@ const routes = [
     redirect: '/privacy/thl-dance'
   },
   {
+    path: '/thlshot',
+    redirect: '/app/thl-shot'
+  },
+  {
+    path: '/thlshot/privacy',
+    redirect: '/privacy/thl-shot'
+  },
+  {
+    path: '/thl-shot/privacy',
+    redirect: '/privacy/thl-shot'
+  },
+  {
     path: '/testflight',
     name: 'TestFlightApply',
     component: () => import('../pages/TestFlightApply.vue')

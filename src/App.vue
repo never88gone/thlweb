@@ -38,6 +38,7 @@
             <router-link to="/app/thl-watch">糖葫芦修仙</router-link>
             <router-link to="/app/thl-send">糖葫芦投送</router-link>
             <router-link v-if="!isAliyun" to="/app/thl-dytv">糖葫芦视界</router-link>
+            <router-link to="/app/thl-shot">糖葫芦截屏</router-link>
           </div>
           <div class="link-group">
             <h4>隐私政策</h4>
@@ -51,6 +52,7 @@
             <router-link to="/privacy/thl-watch">修仙隐私政策</router-link>
             <router-link to="/privacy/thl-send">投送隐私政策</router-link>
             <router-link v-if="!isAliyun" to="/privacy/thl-dytv">视界隐私政策</router-link>
+            <router-link to="/privacy/thl-shot">截屏隐私政策</router-link>
           </div>
           <div class="link-group" v-if="isCloudflare">
             <h4>联系方式</h4>

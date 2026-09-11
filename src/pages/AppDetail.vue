@@ -64,6 +64,7 @@
         <SendReadme v-if="$route.params.appid === 'thl-send'" />
         <DytvReadme v-if="$route.params.appid === 'thl-dytv'" />
         <RemoteReadme v-if="$route.params.appid === 'thl-remote'" />
+        <ShotReadme v-if="$route.params.appid === 'thl-shot'" />
       </div>
     </div>
   </div>
@@ -82,6 +83,7 @@ import PlayReadme from '../components/PlayReadme.vue'
 import SendReadme from '../components/SendReadme.vue'
 import DytvReadme from '../components/DytvReadme.vue'
 import RemoteReadme from '../components/RemoteReadme.vue'
+import ShotReadme from '../components/ShotReadme.vue'
 
 const route = useRoute()
 
@@ -195,6 +197,16 @@ const APP_META = {
       { title: '毫秒级 OCR 视频翻译', detail: '利用 Apple Vision 框架，精准锁定大屏字幕区域。独创的翻译缓存调度机制，将翻译延迟降至毫秒级。', iconPath: ICON_UI },
       { title: '超低延迟局域网通讯', detail: '通过 UDP 广播、多播 DNS 协议，实现多设备极速连接。120Hz 丝滑触控映射，告别迟滞感。', iconPath: ICON_WIFI },
       { title: '全生态矩阵万能遥控', detail: '智能识别当前大屏端运行的应用类型，并动态提供专属的控制与 AI 服务面板。', iconPath: ICON_PLAY }
+    ]
+  },
+  'thl-shot': {
+    name: '糖葫芦截屏',
+    desc: '专为 macOS 打造的原生极速截图标注与长图拼接利器。微信式极简操作、像素级放大镜、置顶贴图、平滑长拼图与端侧离线 OCR。',
+    features: [
+      { title: '智能截屏与放大镜', detail: '智能吸附应用窗口，4x 像素放大镜精准拾色，RGB/HEX 一键复制，8 方向手柄与微像素键盘调整。', iconPath: ICON_UI },
+      { title: '桌面贴图与二次切图', detail: '一键置顶悬浮于桌面，支持双指自由缩放与透明度调节，图钉锁定后支持带贴图再次截图标注。', iconPath: ICON_MODE },
+      { title: '平滑滚动长拼图', detail: '滚轮平滑驱动，智能去除重复重叠区域，为长网页、代码与长文档毫秒级生成无缝高清长图。', iconPath: ICON_PLAY },
+      { title: '端侧离线 OCR 与翻译', detail: '基于 Apple Vision 深度学习框架原生推理，离线提取多国语言并一键直译，数据 100% 留在本机。', iconPath: ICON_DB }
     ]
   }
 }

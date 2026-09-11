@@ -45,7 +45,7 @@ for (const phrase of [
 }
 
 const compiledJavaScript = await collectJavaScript(path.join(root, 'dist'))
-for (const phrase of ['THLDance', '武汉铭研信息技术有限公司', '购买与收据验证', 'support@thltv.com']) {
+for (const phrase of ['糖葫芦Dance', '武汉铭研信息技术有限公司', '购买与收据验证', 'support@thltv.com']) {
   assert.ok(compiledJavaScript.includes(phrase), `production bundle is missing: ${phrase}`)
 }
 
