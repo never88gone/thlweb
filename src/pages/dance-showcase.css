@@ -132,6 +132,32 @@
 .dance-button svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .dance-button-primary { background: linear-gradient(115deg, #7737df, #df327d 72%, #f66d54); box-shadow: 0 14px 45px rgba(223, 50, 125, 0.25); }
 .dance-button-primary:hover { color: white; box-shadow: 0 16px 55px rgba(223, 50, 125, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.2); }
+.dance-button-tf {
+  background: linear-gradient(115deg, #0284c7, #2563eb 50%, #7c3aed);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 14px 40px rgba(37, 99, 235, 0.35);
+}
+.dance-button-tf:hover {
+  color: white;
+  border-color: rgba(56, 189, 248, 0.9);
+  box-shadow: 0 18px 50px rgba(37, 99, 235, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+.tf-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+.hero-tf-hint {
+  margin: 14px 0 0;
+  color: #a497b3;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hero-tf-hint span {
+  color: #7dd3fc;
+}
 .dance-button-ghost { border-color: var(--dance-line); color: #ded7e7; background: rgba(255, 255, 255, 0.035); }
 .dance-button-ghost:hover { border-color: rgba(53, 241, 210, 0.38); color: white; background: rgba(53, 241, 210, 0.06); }
 .dance-button-text { min-height: 46px; padding-inline: 12px; color: var(--dance-muted); background: transparent; }

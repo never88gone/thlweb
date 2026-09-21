@@ -18,6 +18,16 @@
           支持免费舞曲跟跳，不需要专业舞室，玩得开心就是满分。
         </p>
         <div class="hero-actions">
+          <a
+            href="https://testflight.apple.com/join/FdWkpcAy"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="dance-button dance-button-tf"
+          >
+            <span class="tf-icon" aria-hidden="true">🚀</span>
+            加入 TestFlight 公测
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>
+          </a>
           <a href="#dance-video" class="dance-button dance-button-primary" @click.prevent="scrollToSection('dance-video')">
             <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor"/></svg>
             观看实机演示
@@ -25,11 +35,11 @@
           <a href="#dance-experience" class="dance-button dance-button-ghost" @click.prevent="scrollToSection('dance-experience')">
             看真实产品界面
           </a>
-          <a href="#dance-how" class="dance-button dance-button-ghost" @click.prevent="scrollToSection('dance-how')">
-            了解玩法
-          </a>
           <router-link to="/privacy/thl-dance" class="dance-button dance-button-text">隐私与数据</router-link>
         </div>
+        <p class="hero-tf-hint">
+          <span>* 当前为公测阶段，可通过 Apple TestFlight 抢先安装体验（App Store 暂未上线）</span>
+        </p>
         <div class="hero-meta" aria-label="糖葫芦Dance 产品构成">
           <span><b>01</b> 个手腕传感器 (Apple Watch)</span>
           <span><b>03</b> 台 Apple 设备协同</span>
@@ -324,12 +334,22 @@
       <p class="dance-eyebrow dance-reveal"><span>YOUR ROOM. YOUR RHYTHM.</span></p>
       <h2 class="dance-reveal">舞台已经就位。<br><em>就等你开跳。</em></h2>
       <div class="final-actions dance-reveal">
-        <a href="#dance-top" class="dance-button dance-button-primary" @click.prevent="scrollToSection('dance-top')">
+        <a
+          href="https://testflight.apple.com/join/FdWkpcAy"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="dance-button dance-button-tf"
+        >
+          <span class="tf-icon" aria-hidden="true">🚀</span>
+          立即加入 TestFlight 公测
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>
+        </a>
+        <a href="#dance-video" class="dance-button dance-button-primary" @click.prevent="scrollToSection('dance-video')">
+          重温宣传视频
+        </a>
+        <a href="#dance-top" class="dance-button dance-button-ghost" @click.prevent="scrollToSection('dance-top')">
           回到舞台顶部
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6" /></svg>
-        </a>
-        <a href="#dance-video" class="dance-button dance-button-ghost" @click.prevent="scrollToSection('dance-video')">
-          重温宣传视频
         </a>
       </div>
       <router-link to="/privacy/thl-dance" class="final-privacy-link dance-reveal">查看 糖葫芦Dance 隐私政策</router-link>

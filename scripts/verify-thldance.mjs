@@ -36,6 +36,7 @@ assert.ok(showcase.includes('隐私与数据'), 'THLDance showcase is missing it
 assert.ok(showcase.includes('thldance-promo.mp4'), 'THLDance showcase is missing the promo video reference')
 assert.ok(showcase.includes('CoreMotion 本地判定'), 'THLDance showcase is missing local judgment feature text')
 assert.ok(showcase.includes('tvStageList'), 'THLDance showcase is missing interactive stage list')
+assert.ok(showcase.includes('https://testflight.apple.com/join/FdWkpcAy'), 'THLDance showcase is missing TestFlight public join link')
 
 // 验证宣传视频文件存在且完整
 const videoStat = await stat(path.join(root, 'public/videos/thldance-promo.mp4'))
