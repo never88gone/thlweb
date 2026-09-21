@@ -187,43 +187,81 @@
           <!-- 联动手机与手表预览面板 -->
           <div class="companion-preview">
             <div class="companion-header">
-              <span class="phone-device-label">iPhone & Apple Watch 协同</span>
-              <div class="phone-tabs">
+              <div class="companion-title-row">
+                <span class="phone-device-label">iPhone & Apple Watch 协同</span>
+                <span class="live-dot-badge"><i aria-hidden="true"></i> 实时联动</span>
+              </div>
+              <div class="phone-tabs" role="tablist" aria-label="iPhone 页面切换">
                 <button
-                  v-for="tab in companionTabs"
+                  v-for="tab in companionPhoneTabs"
                   :key="tab.id"
                   class="companion-mini-btn"
                   :class="{ active: currentCompanionTab === tab.id }"
                   @click="currentCompanionTab = tab.id"
+                  role="tab"
+                  :aria-selected="currentCompanionTab === tab.id"
                 >
                   {{ tab.label }}
                 </button>
               </div>
             </div>
 
-            <div class="companion-display">
-              <template v-if="currentCompanionTab === 'watch'">
-                <div class="watch-frame">
-                  <div class="watch-screen">
-                    <img :src="watchReady" alt="Apple Watch 腕上待命界面" width="422" height="514" loading="lazy" />
+            <div class="companion-body">
+              <!-- 双设备同屏组合：左边 iPhone，右边 Watch，绝不变形 -->
+              <div class="dual-devices-stage">
+                <!-- iPhone 拟物模型 -->
+                <div class="phone-mockup-wrap">
+                  <div class="phone-frame">
+                    <div class="phone-notch" aria-hidden="true"></div>
+                    <div class="phone-screen">
+                      <transition name="fade-screen" mode="out-in">
+                        <img
+                          :key="activeCompanionData.image"
+                          :src="activeCompanionData.image"
+                          :alt="activeCompanionData.alt"
+                          class="phone-screen-img"
+                          loading="lazy"
+                        />
+                      </transition>
+                    </div>
                   </div>
-                  <div class="companion-note">
-                    <strong>Apple Watch 腕上待命</strong>
-                    <p>本地 CoreMotion 引擎待命，不依赖复杂外设，抬腕即可感知。</p>
-                  </div>
+                  <span class="mockup-label">iPhone · {{ activeCompanionData.tabTitle }}</span>
                 </div>
-              </template>
-              <template v-else>
-                <div class="phone-frame">
-                  <div class="phone-screen">
-                    <img :src="activeCompanionData.image" :alt="activeCompanionData.alt" width="368" height="800" loading="lazy" />
+
+                <!-- Apple Watch 拟物模型 -->
+                <div class="watch-mockup-wrap">
+                  <div class="watch-frame">
+                    <div class="watch-crown" aria-hidden="true"></div>
+                    <div class="watch-screen">
+                      <img
+                        :src="watchReady"
+                        alt="Apple Watch 腕上待命界面"
+                        class="watch-screen-img"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
-                  <div class="companion-note">
-                    <strong>{{ activeCompanionData.title }}</strong>
-                    <p>{{ activeCompanionData.desc }}</p>
-                  </div>
+                  <span class="mockup-label">Watch · 待命感知</span>
                 </div>
-              </template>
+              </div>
+
+              <!-- 协同说明文案（独立容器，绝不挤入设备框内） -->
+              <div class="companion-info-card">
+                <div class="info-section-item">
+                  <strong class="info-title">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    {{ activeCompanionData.title }}
+                  </strong>
+                  <p>{{ activeCompanionData.desc }}</p>
+                </div>
+                <div class="info-section-item">
+                  <strong class="info-title">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 9v3l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Apple Watch 腕上待命
+                  </strong>
+                  <p>本地 CoreMotion 引擎实时就绪，毫秒级感知手腕角速度与加速度，跳动不漏判定。</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -292,17 +330,23 @@
         </article>
       </div>
 
-      <!-- 选曲与设置大屏展示 -->
+      <!-- 选曲与设置大屏展示（修复左右高度比例失调问题） -->
       <div class="library-gallery dance-reveal">
-        <div class="gallery-card">
-          <img :src="tvosCatalog" alt="糖葫芦Dance Apple TV 舞曲选曲界面" width="1600" height="900" loading="lazy" />
+        <div class="gallery-card tv-gallery-card">
+          <div class="tv-mockup-frame">
+            <img :src="tvosCatalog" alt="糖葫芦Dance Apple TV 舞曲选曲界面" width="1600" height="900" loading="lazy" />
+          </div>
           <div class="gallery-card-caption">
             <span>Apple TV 大屏选曲</span>
             <strong>曲目封面、时长与动作点数清晰展现，随时等待手机点播。</strong>
           </div>
         </div>
-        <div class="gallery-card">
-          <img :src="iphoneSettings" alt="糖葫芦Dance iPhone 偏好设置界面" width="1284" height="2778" loading="lazy" />
+        <div class="gallery-card phone-gallery-card">
+          <div class="gallery-phone-showcase">
+            <div class="gallery-phone-mockup">
+              <img :src="iphoneSettings" alt="糖葫芦Dance iPhone 偏好设置界面" width="1284" height="2778" loading="lazy" />
+            </div>
+          </div>
           <div class="gallery-card-caption">
             <span>iPhone 偏好设置</span>
             <strong>支持左手/右手佩戴、表冠朝向与动作判定宽容度个性化调节。</strong>
@@ -449,22 +493,20 @@ const activeTvData = computed(() => {
   return tvStageList.find(item => item.id === currentTvStage.value) || tvStageList[0]
 })
 
-// 伴侣设备（iPhone / Watch）切换
+// 伴侣设备（iPhone 页面切换）
 const currentCompanionTab = ref('store')
-const companionTabs = [
+const companionPhoneTabs = [
   { id: 'store', label: '舞曲商城' },
   { id: 'detail', label: '单曲详情' },
   { id: 'settings', label: '偏好设置' },
-  { id: 'home', label: '连接中枢' },
-  { id: 'watch', label: 'Apple Watch' }
+  { id: 'home', label: '连接中枢' }
 ]
 
 const companionMap = {
-  store: { image: iphoneStore, alt: 'iPhone 舞曲商城曲库', title: 'iPhone 舞曲商城', desc: '随时浏览最新舞曲，按风格与难度筛选喜爱曲目。' },
-  detail: { image: iphoneDetail, alt: 'iPhone 舞曲详情', title: '单曲详情与投屏', desc: '查看舞曲难度、动作点数与佩戴手偏好，一键向 Apple TV 点歌。' },
-  settings: { image: iphoneSettings, alt: 'iPhone 偏好设置', title: '左手/右手佩戴与判定设置', desc: '自由选择惯用手、数码表冠朝向与判定宽容度，按自己的习惯畅快练习。' },
-  home: { image: iphoneHome, alt: 'iPhone 连接中枢', title: '三设备连接引导', desc: '同一 Wi-Fi 下自动发现客厅 Apple TV，极简开跳。' },
-  watch: { image: watchReady, alt: 'Apple Watch 腕上待命', title: 'Apple Watch 腕上待命', desc: '佩戴手表后轻抬手腕即可进入待命，CoreMotion 引擎本地低延迟捕捉手腕体感。' }
+  store: { image: iphoneStore, alt: 'iPhone 舞曲商城曲库', tabTitle: '舞曲商城', title: 'iPhone 掌上选曲商城', desc: '随时在手机上浏览精选舞曲库，按节奏风格与挑战难度筛选心仪曲目。' },
+  detail: { image: iphoneDetail, alt: 'iPhone 舞曲详情', tabTitle: '单曲详情', title: '单曲详情与一键点播', desc: '查看舞曲难度、总动作点数并自动继承佩戴手偏好，轻点即可投送至 Apple TV。' },
+  settings: { image: iphoneSettings, alt: 'iPhone 偏好设置', tabTitle: '偏好设置', title: '左手/右手与判定偏好设置', desc: '按个人使用习惯自由选择惯用手、数码表冠朝向与判定宽容度，个性化十足。' },
+  home: { image: iphoneHome, alt: 'iPhone 连接中枢', tabTitle: '连接中枢', title: '极简局域网连接与播控中枢', desc: '自动搜索并秒级连入附近 Apple TV 房间，控制舞曲开跳、暂停与重试。' }
 }
 
 const activeCompanionData = computed(() => {

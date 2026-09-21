@@ -180,15 +180,15 @@
 .orbit-inner { width: 74%; border-left-color: rgba(255, 63, 127, 0.6); animation: dance-orbit-reverse 16s linear infinite; }
 .pulse-ring { position: absolute; z-index: 1; width: 62%; aspect-ratio: 1; border: 1px solid rgba(255, 111, 176, 0.25); border-radius: 50%; animation: dance-pulse 3.2s ease-out infinite; }
 
-.floating-card { position: absolute; z-index: 5; display: flex; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(13, 8, 23, 0.78); box-shadow: 0 25px 70px rgba(0, 0, 0, 0.32); backdrop-filter: blur(18px); }
-.score-card { top: 14%; right: -1%; flex-direction: column; padding: 17px 21px; border-radius: 16px; }
+.floating-card { position: absolute; z-index: 5; display: flex; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(13, 8, 23, 0.84); box-shadow: 0 25px 70px rgba(0, 0, 0, 0.32); backdrop-filter: blur(18px); }
+.score-card { top: 12%; right: 1%; flex-direction: column; padding: 16px 20px; border-radius: 16px; max-width: 220px; }
 .score-card > span { color: #a094ad; font-size: 9px; font-weight: 800; letter-spacing: 0.15em; }
-.score-card strong { margin-top: 4px; color: var(--dance-pink); font-family: 'Space Grotesk', sans-serif; font-size: 29px; font-style: italic; line-height: 1; text-shadow: 0 0 20px rgba(255, 63, 127, 0.42); }
+.score-card strong { margin-top: 4px; color: var(--dance-pink); font-family: 'Space Grotesk', sans-serif; font-size: 27px; font-style: italic; line-height: 1; text-shadow: 0 0 20px rgba(255, 63, 127, 0.42); }
 .score-card small { margin-top: 5px; color: var(--dance-cyan); font-size: 10px; font-weight: 800; }
 
-.motion-card { bottom: 18%; left: -3%; align-items: center; gap: 11px; padding: 13px 18px; border-radius: 14px; color: #cfc7da; font-size: 12px; }
-.motion-card svg { width: 28px; height: 28px; fill: none; stroke: var(--dance-cyan); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.motion-card b { display: block; color: white; font-size: 14px; margin-bottom: 2px; }
+.motion-card { bottom: 16%; left: 1%; align-items: center; gap: 11px; padding: 12px 16px; border-radius: 14px; color: #cfc7da; font-size: 12px; max-width: 240px; }
+.motion-card svg { width: 26px; height: 26px; fill: none; stroke: var(--dance-cyan); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.motion-card b { display: block; color: white; font-size: 13px; margin-bottom: 2px; }
 .motion-card span { color: #a59bb0; font-size: 11px; }
 
 .beat-bars { position: absolute; z-index: 4; right: 4%; bottom: 7%; height: 34px; display: flex; align-items: end; gap: 5px; }
@@ -480,14 +480,38 @@
   margin-bottom: 16px;
 }
 
+.companion-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
 .phone-device-label {
   display: block;
-  margin-bottom: 10px;
   color: var(--dance-cyan);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.live-dot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #a78bfa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.live-dot-badge i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a78bfa;
+  box-shadow: 0 0 8px #a78bfa;
 }
 
 .phone-tabs {
@@ -497,7 +521,7 @@
 }
 
 .companion-mini-btn {
-  padding: 5px 12px;
+  padding: 6px 14px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.04);
@@ -505,84 +529,176 @@
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.2s ease;
 }
 
 .companion-mini-btn:hover {
   color: white;
-  border-color: rgba(53, 241, 210, 0.3);
+  border-color: rgba(53, 241, 210, 0.35);
+  background: rgba(53, 241, 210, 0.05);
 }
 
 .companion-mini-btn.active {
   color: white;
   border-color: var(--dance-cyan);
-  background: rgba(53, 241, 210, 0.12);
+  background: rgba(53, 241, 210, 0.14);
+  box-shadow: 0 2px 10px rgba(53, 241, 210, 0.18);
 }
 
-.companion-display {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 20px;
+/* 伴侣主体：双设备并立 + 说明卡片，严格锁定比例防变形 */
+.companion-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   margin-top: 14px;
 }
 
+.dual-devices-stage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 12px 12px;
+  border-radius: 18px;
+  background: radial-gradient(circle at 50% 100%, rgba(139, 92, 246, 0.14), transparent 70%), rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.phone-mockup-wrap,
+.watch-mockup-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* iPhone 拟物模型：固定宽度 + aspect-ratio 比例锁定 */
 .phone-frame {
   position: relative;
-  width: 130px;
+  width: 136px;
+  aspect-ratio: 1284 / 2778;
   padding: 6px;
-  border: 2px solid #8e8996;
+  border: 2px solid #5a5464;
   border-radius: 28px;
-  background: linear-gradient(145deg, #39363e, #111015 52%, #28252d);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(145deg, #2b2732, #0d0b12 55%, #1d1a24);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 30px rgba(139, 92, 246, 0.15);
+  box-sizing: border-box;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 8px;
+  border-radius: 99px;
+  background: #000;
+  z-index: 5;
 }
 
 .phone-screen {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   border-radius: 22px;
-  background: #191420;
+  background: #08060c;
 }
 
-.phone-screen img {
+.phone-screen-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+  object-position: top center;
 }
 
+/* Apple Watch 拟物模型：固定宽度 + aspect-ratio 比例锁定 */
 .watch-frame {
-  display: contents;
-}
-
-.watch-screen {
   position: relative;
-  width: 110px;
-  padding: 6px;
-  border: 2px solid #777280;
-  border-radius: 30px;
-  background: #1d1b22;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-}
-
-.watch-screen img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 24px;
-}
-
-.companion-note strong {
-  display: block;
-  color: white;
-  font-size: 14px;
+  width: 94px;
+  aspect-ratio: 422 / 514;
+  padding: 5px;
+  border: 2px solid #554f60;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #25222c, #0a090e 55%, #191720);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(223, 50, 125, 0.12);
+  box-sizing: border-box;
   margin-bottom: 6px;
 }
 
-.companion-note p {
+.watch-crown {
+  position: absolute;
+  right: -5px;
+  top: 24%;
+  width: 3px;
+  height: 14px;
+  border-radius: 2px;
+  background: #7a7485;
+}
+
+.watch-screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #000;
+}
+
+.watch-screen-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mockup-label {
+  color: #9f94ad;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 协同文字说明卡片：独立容器，文字舒适换行排版 */
+.companion-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-section-item {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.info-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.info-title svg {
+  width: 15px;
+  height: 15px;
+  color: var(--dance-cyan);
+  flex-shrink: 0;
+}
+
+.info-section-item p {
   margin: 0;
   color: var(--dance-muted);
   font-size: 12px;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 /* 4. 三端协同 */
@@ -790,31 +906,71 @@
 /* 选曲与设置大屏展示 */
 .library-gallery {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
+  align-items: stretch;
   gap: 24px;
 }
 
 .gallery-card {
   position: relative;
   overflow: hidden;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--dance-line);
-  border-radius: 26px;
+  border-radius: 28px;
   background: rgba(255, 255, 255, 0.035);
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.35);
 }
 
-.gallery-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 18px;
-  object-fit: cover;
+.tv-gallery-card .tv-mockup-frame {
+  padding: 10px;
   background: #080612;
 }
 
+.tv-gallery-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 18px;
+  object-fit: contain;
+  background: #080612;
+}
+
+.phone-gallery-card .gallery-phone-showcase {
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 70%), #0c0816;
+  flex: 1;
+}
+
+.gallery-phone-mockup {
+  width: 140px;
+  aspect-ratio: 1284 / 2778;
+  padding: 6px;
+  border: 2px solid #5a5464;
+  border-radius: 28px;
+  background: #18151f;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gallery-phone-mockup img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
 .gallery-card-caption {
-  padding: 18px 16px 12px;
+  margin-top: auto;
+  padding: 18px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(9, 6, 19, 0.6);
 }
 
 .gallery-card-caption span {
@@ -943,20 +1099,25 @@
   .dance-shell { width: min(calc(100% - 28px), 1240px); }
   .dance-hero { gap: 12px; padding: 120px 0 50px; }
   .back-link { margin-bottom: 24px; }
-  .hero-copy h1 { font-size: clamp(42px, 13vw, 56px); }
+  .hero-copy h1 { font-size: clamp(40px, 12vw, 54px); }
   .hero-lead { margin-top: 20px; font-size: 15px; line-height: 1.7; }
   .hero-actions { flex-direction: column; }
   .dance-button { width: 100%; }
   .hero-meta { display: grid; grid-template-columns: 1fr; gap: 10px; }
   .hero-stage { min-height: 380px; }
   .app-orb { width: 68%; }
-  .score-card { top: 6%; right: -2%; padding: 10px 14px; }
+  .score-card { top: 6%; right: 1%; padding: 10px 14px; max-width: 170px; }
   .score-card strong { font-size: 22px; }
-  .motion-card { bottom: 8%; left: -2%; padding: 10px 12px; }
+  .motion-card { bottom: 8%; left: 1%; padding: 10px 12px; max-width: 190px; }
   .dance-section { padding-block: 76px; }
   .section-heading h2,
-  .dance-final h2 { font-size: clamp(36px, 11vw, 48px); }
-  .companion-display { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .dance-final h2 { font-size: clamp(34px, 10.5vw, 46px); }
+  
+  .dual-devices-stage { gap: 12px; padding: 14px 8px 10px; }
+  .phone-frame { width: 120px; border-radius: 24px; padding: 5px; }
+  .watch-frame { width: 84px; border-radius: 22px; padding: 4px; }
+  .gallery-phone-mockup { width: 128px; }
+
   .safety-box { flex-direction: column; padding: 22px; }
   .final-actions { flex-direction: column; width: 100%; }
 }
