@@ -29,8 +29,31 @@ const app = await source('src/App.vue')
 assert.ok(app.includes('to="/privacy/thl-dance"'), 'footer is missing the THLDance privacy link')
 assert.ok(app.includes('href="https://www.thltv.com/"'), 'Cloudflare footer homepage link is incorrect')
 
+import { stat } from 'node:fs/promises'
+
 const showcase = await source('src/pages/DanceShowcase.vue')
 assert.ok(showcase.includes('隐私与数据'), 'THLDance showcase is missing its privacy entry')
+assert.ok(showcase.includes('thldance-promo.mp4'), 'THLDance showcase is missing the promo video reference')
+assert.ok(showcase.includes('CoreMotion 本地判定'), 'THLDance showcase is missing local judgment feature text')
+assert.ok(showcase.includes('tvStageList'), 'THLDance showcase is missing interactive stage list')
+
+// 验证宣传视频文件存在且完整
+const videoStat = await stat(path.join(root, 'public/videos/thldance-promo.mp4'))
+assert.ok(videoStat.size > 5 * 1024 * 1024, `promo video file too small or missing: ${videoStat.size}`)
+
+// 验证最新原生截图存在
+for (const imgName of [
+  'tvos-catalog.png',
+  'tvos-dancing.png',
+  'tvos-motion.png',
+  'tvos-settlement.png',
+  'iphone-home.png',
+  'iphone-settings.png',
+  'watch-ready.jpg'
+]) {
+  const imgStat = await stat(path.join(root, 'src/assets/dance', imgName))
+  assert.ok(imgStat.size > 10 * 1024, `dance screenshot missing or empty: ${imgName}`)
+}
 
 const privacy = await source('src/pages/PrivacyDetail.vue')
 for (const phrase of [
@@ -49,4 +72,5 @@ for (const phrase of ['糖葫芦Dance', '武汉铭研信息技术有限公司', 
   assert.ok(compiledJavaScript.includes(phrase), `production bundle is missing: ${phrase}`)
 }
 
-console.log('THLDance website routes and public privacy policy verified.')
+console.log('THLDance website routes, promo video, screenshots and public privacy policy verified.')
+
