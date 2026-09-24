@@ -132,6 +132,27 @@
 .dance-button svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .dance-button-primary { background: linear-gradient(115deg, #7737df, #df327d 72%, #f66d54); box-shadow: 0 14px 45px rgba(223, 50, 125, 0.25); }
 .dance-button-primary:hover { color: white; box-shadow: 0 16px 55px rgba(223, 50, 125, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.2); }
+.dance-button-appstore {
+  background: linear-gradient(115deg, #090d16, #161e2e 55%, #1f2937);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+.dance-button-appstore:hover {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+.store-apple-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.store-apple-icon svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
 .dance-button-tf {
   background: linear-gradient(115deg, #0284c7, #2563eb 50%, #7c3aed);
   border-color: rgba(56, 189, 248, 0.45);

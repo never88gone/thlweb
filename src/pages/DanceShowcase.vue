@@ -19,14 +19,26 @@
         </p>
         <div class="hero-actions">
           <a
-            href="https://testflight.apple.com/join/FdWkpcAy"
+            href="https://apps.apple.com/us/app/%E7%B3%96%E8%91%AB%E8%8A%A6dance/id6803109028"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="dance-button dance-button-appstore"
+          >
+            <span class="store-apple-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.1 16.67C20.08 16.74 19.67 18.11 18.71 19.5ZM15.97 4.17C16.63 3.37 17.07 2.28 16.95 1C15.85 1.04 14.51 1.73 13.73 2.64C13.07 3.41 12.49 4.52 12.64 5.78C13.87 5.87 15.12 5.17 15.97 4.17Z"/>
+              </svg>
+            </span>
+            App Store 下载
+          </a>
+          <a
+            href="https://testflight.apple.com/join/EvqUqfgC"
             target="_blank"
             rel="noopener noreferrer"
             class="dance-button dance-button-tf"
           >
             <span class="tf-icon" aria-hidden="true">🚀</span>
-            加入 TestFlight 公测
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>
+            TestFlight 公测
           </a>
           <a href="#dance-video" class="dance-button dance-button-primary" @click.prevent="scrollToSection('dance-video')">
             <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor"/></svg>
@@ -38,7 +50,7 @@
           <router-link to="/privacy/thl-dance" class="dance-button dance-button-text">隐私与数据</router-link>
         </div>
         <p class="hero-tf-hint">
-          <span>* 当前为公测阶段，可通过 Apple TestFlight 抢先安装体验（App Store 暂未上线）</span>
+          <span>* 已正式上线 Apple App Store，并同步支持 TestFlight 公开测试体验！</span>
         </p>
         <div class="hero-meta" aria-label="糖葫芦Dance 产品构成">
           <span><b>01</b> 个手腕传感器 (Apple Watch)</span>
@@ -379,14 +391,26 @@
       <h2 class="dance-reveal">舞台已经就位。<br><em>就等你开跳。</em></h2>
       <div class="final-actions dance-reveal">
         <a
-          href="https://testflight.apple.com/join/FdWkpcAy"
+          href="https://apps.apple.com/us/app/%E7%B3%96%E8%91%AB%E8%8A%A6dance/id6803109028"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="dance-button dance-button-appstore"
+        >
+          <span class="store-apple-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.1 16.67C20.08 16.74 19.67 18.11 18.71 19.5ZM15.97 4.17C16.63 3.37 17.07 2.28 16.95 1C15.85 1.04 14.51 1.73 13.73 2.64C13.07 3.41 12.49 4.52 12.64 5.78C13.87 5.87 15.12 5.17 15.97 4.17Z"/>
+            </svg>
+          </span>
+          App Store 下载
+        </a>
+        <a
+          href="https://testflight.apple.com/join/EvqUqfgC"
           target="_blank"
           rel="noopener noreferrer"
           class="dance-button dance-button-tf"
         >
           <span class="tf-icon" aria-hidden="true">🚀</span>
-          立即加入 TestFlight 公测
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>
+          加入 TestFlight 公测
         </a>
         <a href="#dance-video" class="dance-button dance-button-primary" @click.prevent="scrollToSection('dance-video')">
           重温宣传视频
