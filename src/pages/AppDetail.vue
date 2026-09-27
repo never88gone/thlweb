@@ -15,20 +15,33 @@
     <div v-else class="detail-container">
       <!-- App Header Section -->
       <section class="app-hero">
-        <router-link to="/" class="back-link reveal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          返回系列应用
-        </router-link>
+        <!-- Breadcrumb & Back Link -->
+        <div class="nav-breadcrumbs reveal">
+          <router-link to="/" class="breadcrumb-item">首页</router-link>
+          <span class="breadcrumb-sep">/</span>
+          <router-link to="/#products" class="breadcrumb-item">产品矩阵</router-link>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">{{ currentApp.app_name }}</span>
+        </div>
         
         <div class="hero-content">
-          <h1 class="display-text reveal" style="transition-delay: 0.1s">
-            <span class="gradient-text">{{ currentApp.app_name }}</span>
-          </h1>
+          <div class="app-title-row reveal" style="transition-delay: 0.1s">
+            <h1 class="display-text">
+              <span class="gradient-text">{{ currentApp.app_name }}</span>
+            </h1>
+            <span v-if="appPlatformTag" class="detail-platform-tag">{{ appPlatformTag }}</span>
+          </div>
+
           <p class="app-description reveal" style="transition-delay: 0.2s">
             {{ appDescription }}
           </p>
           
           <div class="action-row reveal" style="transition-delay: 0.3s">
+            <router-link :to="{ path: '/testflight', query: { app_id: $route.params.appid } }" class="btn-primary tf-apply-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>申请 TestFlight 内测</span>
+            </router-link>
+
             <router-link :to="`/privacy/${$route.params.appid}`" class="privacy-btn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               <span>隐私政策声明</span>
@@ -219,6 +232,25 @@ const currentFeatures = computed(() => {
   return APP_META[route.params.appid]?.features || []
 })
 
+const PLATFORM_MAP = {
+  'thl-shot': 'macOS 13+ · Apple Silicon 原生',
+  'thl-markdown': 'macOS / iPadOS · 异构渲染',
+  'thl-dance': 'Apple TV · iPhone · Apple Watch',
+  'thl-play': 'Apple TV · macOS · iOS (AirPlay)',
+  'thl-browser': 'Apple TV (tvOS 16+)',
+  'thl-screen': 'Apple TV (tvOS 16+)',
+  'thl-tv': 'Apple TV (tvOS 16+)',
+  'thl-pdf': 'Apple TV · iOS',
+  'thl-watch': 'Apple Watch (watchOS 9+)',
+  'thl-send': 'HarmonyOS NEXT · 鸿蒙原生',
+  'thl-dytv': 'Apple TV (tvOS 16+)',
+  'thl-remote': 'Apple TV · iOS (CoreML/MLX)'
+}
+
+const appPlatformTag = computed(() => {
+  return PLATFORM_MAP[route.params.appid] || ''
+})
+
 const loadApp = (appid) => {
   const meta = APP_META[appid]
   if (meta) {
@@ -318,44 +350,78 @@ onUnmounted(() => {
 }
 
 .app-hero {
-  margin-bottom: 6rem;
+  margin-bottom: 5rem;
 }
 
-.back-link {
-  display: inline-flex;
+.nav-breadcrumbs {
+  display: flex;
   align-items: center;
-  gap: 0.8rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-weight: 500;
-  margin-bottom: 3rem;
-  transition: var(--transition-base);
-  position: relative;
-  z-index: 100;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
-.back-link:hover {
+.breadcrumb-item {
+  color: var(--text-secondary);
+  transition: var(--transition-base);
+}
+
+.breadcrumb-item:hover {
   color: white;
-  transform: translateX(-5px);
+}
+
+.breadcrumb-sep {
+  opacity: 0.4;
+}
+
+.breadcrumb-current {
+  color: var(--accent-cyan);
+  font-weight: 500;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 860px;
+}
+
+.app-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 }
 
 .hero-content h1 {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 2rem;
   letter-spacing: -0.04em;
+  margin-bottom: 0;
+}
+
+.detail-platform-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #ffedd5;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.15);
 }
 
 .app-description {
-  font-size: 1.4rem;
+  font-size: 1.28rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 3rem;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.tf-apply-btn {
+  font-size: 0.92rem;
+  padding: 0.75rem 1.8rem;
 }
 
 /* Info Section */

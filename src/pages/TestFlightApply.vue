@@ -14,7 +14,12 @@
       <div class="tf-container">
         <!-- 成功状态 -->
         <div v-if="submitted" class="success-card glass-card">
-          <div class="success-icon">🎉</div>
+          <div class="success-icon">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
           <h2>申请已提交！</h2>
           <p>感谢您的申请，我们会尽快审核。<br>通过后将以邮件形式发送 TestFlight 邀请链接。</p>
           <p class="success-note">申请编号：<strong>#{{ submittedId }}</strong></p>
@@ -159,17 +164,32 @@
         <!-- 说明卡片 -->
         <div class="info-cards">
           <div class="info-card glass-card">
-            <div class="info-icon">⏱️</div>
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
             <h3>审核时效</h3>
             <p>提交后 24 小时内完成审核，工作日更快</p>
           </div>
           <div class="info-card glass-card">
-            <div class="info-icon">📧</div>
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
             <h3>邮件通知</h3>
             <p>审核通过后，邀请链接将发送至您的邮箱</p>
           </div>
           <div class="info-card glass-card">
-            <div class="info-icon">🔒</div>
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
             <h3>数据安全</h3>
             <p>您的信息仅用于资格验证，不会被泄露</p>
           </div>
@@ -187,21 +207,26 @@ const props = defineProps({
   appId: { type: String, default: '' }
 });
 
-// App 清单（与后端 apply.js 保持一致，方便扩展）
+// App 清单（与全系列应用保持一致）
 const APP_LIST = [
-  { id: 'thl-markdown', name: '糖葫芦墨记', icon: '📝' },
-  { id: 'thl-browser', name: '糖葫芦浏览器', icon: '🌐' },
-  { id: 'thl-screen',  name: '糖葫芦投屏',   icon: '📡' },
-  { id: 'thl-play',   name: '糖葫芦享屏',   icon: '🎬' },
-  { id: 'thl-tv',     name: '糖葫芦TV',     icon: '📺' },
-  { id: 'thl-pdf',    name: '糖葫芦PDF',    icon: '📄' },
-  { id: 'thl-watch',  name: '糖葫芦修仙',   icon: '⌚' },
-  { id: 'thl-send',   name: '糖葫芦投送',   icon: '🚀' },
-  { id: 'thl-dytv',   name: '糖葫芦视界',   icon: '🎭' },
+  { id: 'thl-dance',    name: '糖葫芦Dance',   icon: '💃' },
+  { id: 'thl-shot',     name: '糖葫芦截屏',   icon: '📸' },
+  { id: 'thl-markdown', name: '糖葫芦墨记',   icon: '📝' },
+  { id: 'thl-browser',  name: '糖葫芦浏览器', icon: '🌐' },
+  { id: 'thl-screen',   name: '糖葫芦投屏',   icon: '📡' },
+  { id: 'thl-play',     name: '糖葫芦享屏',   icon: '🎬' },
+  { id: 'thl-tv',       name: '糖葫芦TV',     icon: '📺' },
+  { id: 'thl-pdf',      name: '糖葫芦PDF',    icon: '📄' },
+  { id: 'thl-watch',    name: '糖葫芦修仙',   icon: '⌚' },
+  { id: 'thl-send',     name: '糖葫芦投送',   icon: '🚀' },
+  { id: 'thl-remote',   name: '糖葫芦遥控器', icon: '🎮' },
+  { id: 'thl-dytv',     name: '糖葫芦视界',   icon: '🎭' },
 ];
 
 function getAppImage(id) {
   const map = {
+    'thl-dance': new URL('../assets/dance/app-icon.jpg', import.meta.url).href,
+    'thl-shot': new URL('../assets/shot/logo.png', import.meta.url).href,
     'thl-markdown': new URL('../assets/markdown/logo.png', import.meta.url).href,
     'thl-browser': new URL('../assets/thlbrowser.png', import.meta.url).href,
     'thl-screen': new URL('../assets/thlairplay.png', import.meta.url).href,
@@ -210,6 +235,7 @@ function getAppImage(id) {
     'thl-pdf': new URL('../assets/thlpdf.jpg', import.meta.url).href,
     'thl-send': new URL('../assets/thlsend.png', import.meta.url).href,
     'thl-dytv': new URL('../assets/dytv/logo.png', import.meta.url).href,
+    'thl-remote': new URL('../assets/remote/logo.png', import.meta.url).href,
     'thl-watch': new URL('../assets/watch/xiuxian_logo.jpg', import.meta.url).href,
   };
   return map[id] || '';
@@ -629,7 +655,19 @@ function resetForm() {
   padding: 1.5rem;
   text-align: center;
 }
-.info-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+.info-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.15);
+}
 .info-card h3 {
   font-size: 0.95rem;
   font-weight: 600;
