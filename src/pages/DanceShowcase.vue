@@ -11,11 +11,10 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7" /></svg>
           返回产品矩阵
         </router-link>
-        <p class="dance-eyebrow"><span>THL PRODUCT</span> LIVING ROOM DANCE</p>
-        <h1>把客厅，<br><em>变成你的主舞台。</em></h1>
+        <p class="dance-eyebrow"><span>THL PRODUCT</span> LIVING ROOM DANCE & BOXING</p>
+        <h1>把客厅，<br><em>变成舞池与拳击擂台。</em></h1>
         <p class="hero-lead">
-          Apple TV 呈现大屏舞曲，iPhone 智能连接与点歌，Apple Watch 在本地识别你的每一次手腕挥动与转身。
-          支持免费舞曲跟跳，不需要专业舞室，玩得开心就是满分。
+          客厅体感舞蹈与全新节奏有氧拳击双模开练！Apple TV 呈现大屏视觉与立体柔光，iPhone 智能连接与掌上点播，Apple Watch 在端侧本地毫秒级识别转身与四大拳法（刺拳·直拳·摆拳·勾拳）。无需繁琐配网与专业场地，免费随时开练，暴汗燃脂玩得尽兴。
         </p>
         <div class="hero-actions">
           <a
@@ -53,9 +52,9 @@
           <span>* 已正式上线 Apple App Store，并同步支持 TestFlight 公开测试体验！</span>
         </p>
         <div class="hero-meta" aria-label="糖葫芦Dance 产品构成">
-          <span><b>01</b> 个手腕传感器 (Apple Watch)</span>
-          <span><b>03</b> 台 Apple 设备协同</span>
-          <span><b>00</b> 门槛 · 免费随时开跳</span>
+          <span><b>02</b> 大体感模式 · 舞蹈 & 有氧拳击</span>
+          <span><b>04</b> 种拳法识别 · 刺/直/摆/勾拳</span>
+          <span><b>00</b> 门槛 · 免费随时开练</span>
         </div>
       </div>
 
@@ -81,7 +80,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17c4-8 7-11 16-10M5 10l-1 7 7 1" /></svg>
           <div>
             <b>CoreMotion 本地判定</b>
-            <span>零网络延迟 · 手表端侧识别</span>
+            <span>零网络延迟 · 转身与拳法端侧识别</span>
           </div>
         </div>
         <div class="beat-bars" aria-hidden="true">
@@ -483,14 +482,16 @@ const scrollToSection = (id) => {
 }
 
 const signalItems = [
-  '免费舞曲跟跳体验',
+  '全新节奏有氧拳击模式',
+  '刺拳 · 直拳 · 摆拳 · 勾拳四大拳法识别',
+  '体感舞蹈 & 有氧拳击双模式随心切换',
+  '免视频纯音频极速畅练',
   'APPLE TV 大屏沉浸舞台',
-  'IPHONE 智能连接中枢',
-  'APPLE WATCH 本地动作判定',
+  'IPHONE 智能连接与点播中枢',
+  'APPLE WATCH 端侧毫秒级冲击与拳型判定',
   '支持左手 / 右手自由佩戴',
-  'PERFECT · GOOD · MISS 实时反馈',
-  '毫秒级局域网时钟同步',
-  '整曲运动战报与连击排行'
+  'PERFECT · GOOD · MISS 实时打击反馈',
+  '全维度击中战报与连击激励'
 ]
 
 // 宣传视频 5 大核心节点
@@ -567,12 +568,12 @@ const devices = [
   {
     number: '03',
     name: 'Apple Watch',
-    tags: '本地判定 · 触觉反馈 · 体感健康',
-    description: '内置 CoreMotion 本地识别引擎，直接在手腕端侧判定动作与节拍，彻底规避网络延迟对时机判断的影响。',
+    tags: '端侧判定 · 拳法识别 · 触觉反馈',
+    description: '内置 CoreMotion 本地识别引擎，直接在手腕端侧识别转身动作与四大拳法，彻底规避网络延迟对时机判断的影响。',
     points: [
-      '手表本地 CoreMotion 引擎识别手腕动作',
-      '击中节拍时触发清脆 Taptic 触觉反馈',
-      '健康数据与手腕运动数据保留在设备本地'
+      '手表端侧 CoreMotion 引擎毫秒级识别挥动与出拳冲击',
+      '支持刺拳、直拳、摆拳、勾拳四大拳法端侧分类',
+      '击中节拍触发清脆 Taptic 触觉反馈，数据保留在本地'
     ],
     icon: '<svg viewBox="0 0 32 32"><rect x="8" y="7" width="16" height="18" rx="5"/><path d="M12 2h8l1 5H11l1-5ZM12 30h8l1-5H11l1 5Z"/></svg>'
   }
@@ -582,13 +583,13 @@ const devices = [
 const featureHighlights = [
   {
     icon: '<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
-    title: '免费舞曲跟跳体验',
-    desc: '精选流行与节奏舞曲，打开即跳。告别昂贵卡带与订阅门槛，随时在客厅享受跳舞乐趣。'
+    title: '双模式开练 · 自由舞蹈与节奏有氧拳击',
+    desc: '不仅能在客厅跟随大屏舞者律动跟跳，还能随时开启全新有氧拳击，伴随动感鼓点尽情挥拳暴汗。'
   },
   {
     icon: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="2"/></svg>',
-    title: 'Apple Watch 本地动作判定',
-    desc: '直接在手腕本地识别手腕加速度与角速度，减少网络传输对时机判断的影响，判定更灵敏精准。'
+    title: 'Apple Watch 本地动作与拳法判定',
+    desc: '直接在手腕本地识别手腕加速度与角速度，毫秒级分类刺拳、直拳、摆拳与勾拳，端侧判定零网络延迟。'
   },
   {
     icon: '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/><line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/></svg>',
@@ -598,12 +599,12 @@ const featureHighlights = [
   {
     icon: '<svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
     title: '支持左手 / 右手自由佩戴',
-    desc: '习惯左手或右手？在手机设置中轻松切换，表冠朝向与判定算法自动适配，贴合你的自然习惯。'
+    desc: '习惯左手或右手？在手机设置中轻松切换，表冠朝向与拳法判定算法自动适配，贴合你的自然习惯。'
   },
   {
     icon: '<svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
-    title: '实时反馈与击中连击',
-    desc: '屏幕实时显示 Perfect、Good、Miss 与连续连击 Combo。命中节拍更有手腕震动激励，越跳越带劲。'
+    title: '实时打击反馈与击中连击',
+    desc: '屏幕实时显示 Perfect、Good、Miss 与连续连击 Combo。命中节拍更有手腕震动激励，越练越带劲。'
   },
   {
     icon: '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
@@ -614,14 +615,14 @@ const featureHighlights = [
 
 // 开跳步骤
 const steps = [
-  { number: '01', title: '电视就绪 & 手机选曲', description: '打开 Apple TV 上的糖葫芦Dance；在 iPhone 上浏览曲库并配置左/右手习惯，一键向大屏点歌。' },
-  { number: '02', title: '佩戴手表 & 确认安全', description: '收紧 Apple Watch 表带，清理客厅活动空间，按下确认后 3-2-1 毫秒级时钟同步倒计时。' },
-  { number: '03', title: '跟跳命中 & 结算战报', description: '跟随大屏舞者尽情挥动手腕与转身，享受 Perfect 命中与手腕震动，跳完即得完整运动评分战报。' }
+  { number: '01', title: '电视就绪 & 手机选歌', description: '打开 Apple TV 上的糖葫芦Dance；在 iPhone 上选择心仪舞曲或有氧拳击课程，配置左/右手习惯一键点播。' },
+  { number: '02', title: '佩戴手表 & 确认安全', description: '收紧 Apple Watch 表带，清理活动空间，按下确认后 3-2-1 毫秒级时钟同步倒计时。' },
+  { number: '03', title: '挥拳律动 & 结算战报', description: '跟随舞步律动或四拳音轨节拍挥动手腕，享受 Perfect 命中与震动打击感，练完即得完整运动战报。' }
 ]
 
 onMounted(() => {
   previousTitle = document.title
-  document.title = '糖葫芦Dance · 客厅体感舞蹈 | 糖葫芦'
+  document.title = '糖葫芦Dance · 客厅体感舞蹈与有氧拳击 | 糖葫芦'
   observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {

@@ -233,13 +233,13 @@ const baseProducts = [
   {
     id: 'thl-dance',
     name: '糖葫芦Dance',
-    desc: '把客厅变成主舞台。Apple TV 大屏沉浸跟跳、iPhone 极速连接点播、Apple Watch 本地体感动作判定，支持免费舞曲随时开跳。',
+    desc: '把客厅变成主舞台与燃脂拳击擂台。客厅体感舞蹈与全新节奏有氧拳击双模开练，Apple TV 大屏呈现、iPhone 极速点播、Apple Watch 本地端侧毫秒级识别转身与四大拳法。',
     img: new URL('../assets/dance/app-icon.jpg', import.meta.url).href,
     bg: 'bg-gradient-dance',
     platforms: ['Apple TV', 'iPhone', 'Apple Watch'],
     categories: ['tvos', 'watch'],
-    tags: ['客厅体感跟跳', 'CoreMotion 本地判定', '多端即时联动'],
-    badge: '旗舰新作'
+    tags: ['客厅体感跟跳', '节奏有氧拳击', 'CoreMotion 本地判定', '多端即时联动'],
+    badge: '双模燃脂'
   },
   {
     id: 'thl-shot',
