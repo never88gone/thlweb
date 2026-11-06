@@ -37,7 +37,17 @@
           </p>
           
           <div class="action-row reveal" style="transition-delay: 0.3s">
-            <router-link :to="{ path: '/testflight', query: { app_id: $route.params.appid } }" class="btn-primary tf-apply-btn">
+            <a
+              v-if="currentPublicTfLink"
+              :href="currentPublicTfLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary tf-apply-btn"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>加入 TestFlight 内测</span>
+            </a>
+            <router-link v-else :to="{ path: '/testflight', query: { app_id: $route.params.appid } }" class="btn-primary tf-apply-btn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               <span>申请 TestFlight 内测</span>
             </router-link>
@@ -164,12 +174,12 @@ const APP_META = {
   },
   'thl-watch': {
     name: '糖葫芦修仙',
-    desc: '将您的每一次步伐转化为修为。这不仅是一款 Apple Watch 应用，更是随身携带的数字洞府和心境道场。',
+    desc: '将日常运动化作经脉真气，数字洞府随身运转。内置纯本地离线端侧 AI 戒灵“墨老”，伴你自律修行、渡劫飞升。',
     features: [
-      { title: '现实修仙化', detail: '深度接入 HealthKit 数据，行走坐卧皆是修行，将卡路里直接转化为五行真气。', iconPath: ICON_DB },
-      { title: '腕间炼丹阵', detail: '使用数码表冠把把控火候脉搏，采集天地灵气进行无上限道基突破。', iconPath: ICON_MODE },
-      { title: '玄幻视觉系', detail: '融合赛博迷幻与上古宗门的视觉设计，将枯燥的健康环转换为天劫阵法。', iconPath: ICON_UI },
-      { title: 'AI 墨老伴身', detail: '引入大模型残魂，随时倾听戒中老翁的点悟与毒舌，修炼之途永不孤单。', iconPath: ICON_PLAY }
+      { title: '五行灵气转化', detail: '深度融合 Apple HealthKit，步数、卡路里与睡眠静息实时折算为金木水火土五行灵气。', iconPath: ICON_DB },
+      { title: '随身离线戒灵', detail: '内置端侧大模型“墨老”，性格孤傲毒舌护短。100% 设备本地离线推理，绝不上云，守护绝对隐私。', iconPath: ICON_PLAY },
+      { title: '法器宝阁心法', detail: '按需轻量接引高效量化模型，支持从本地沙盒自由导入与管理 GGUF 专属心法法宝。', iconPath: ICON_MODE },
+      { title: '天降造化机缘', detail: '坚持日常自律锻炼即可触发天降奇遇，开启惊喜机缘盲盒收纳海量额外修为，飞跃境界。', iconPath: ICON_UI }
     ]
   },
   'thl-play': {
@@ -214,12 +224,12 @@ const APP_META = {
   },
   'thl-shot': {
     name: '糖葫芦截屏',
-    desc: '专为 macOS 打造的原生极速截图标注与长图拼接利器。微信式极简操作、像素级放大镜、置顶贴图、平滑长拼图与端侧离线 OCR。',
+    desc: '专为 macOS 打造的截图标注与长图拼接工具。支持像素放大镜、桌面贴图、滚动长图，以及简体中文、繁体中文和英文的本机 OCR。',
     features: [
       { title: '智能截屏与放大镜', detail: '智能吸附应用窗口，4x 像素放大镜精准拾色，RGB/HEX 一键复制，8 方向手柄与微像素键盘调整。', iconPath: ICON_UI },
       { title: '桌面贴图与二次切图', detail: '一键置顶悬浮于桌面，支持双指自由缩放与透明度调节，图钉锁定后支持带贴图再次截图标注。', iconPath: ICON_MODE },
       { title: '平滑滚动长拼图', detail: '滚轮平滑驱动，智能去除重复重叠区域，为长网页、代码与长文档毫秒级生成无缝高清长图。', iconPath: ICON_PLAY },
-      { title: '端侧离线 OCR 与翻译', detail: '基于 Apple Vision 深度学习框架原生推理，离线提取多国语言并一键直译，数据 100% 留在本机。', iconPath: ICON_DB }
+      { title: '中英文 OCR 与系统翻译', detail: '使用 Apple Vision 在本机识别简体中文、繁体中文和英文；翻译调用 macOS Translation，缺少语言模型时由系统提示下载。', iconPath: ICON_DB }
     ]
   }
 }
@@ -233,7 +243,7 @@ const currentFeatures = computed(() => {
 })
 
 const PLATFORM_MAP = {
-  'thl-shot': 'macOS 13+ · Apple Silicon 原生',
+  'thl-shot': 'macOS 15+',
   'thl-markdown': 'macOS / iPadOS · 异构渲染',
   'thl-dance': 'Apple TV · iPhone · Apple Watch',
   'thl-play': 'Apple TV · macOS · iOS (AirPlay)',
@@ -241,11 +251,19 @@ const PLATFORM_MAP = {
   'thl-screen': 'Apple TV (tvOS 16+)',
   'thl-tv': 'Apple TV (tvOS 16+)',
   'thl-pdf': 'Apple TV · iOS',
-  'thl-watch': 'Apple Watch (watchOS 9+)',
+  'thl-watch': 'Apple Watch (watchOS 9+) · iOS 16+ · iPhone Duo',
   'thl-send': 'HarmonyOS NEXT · 鸿蒙原生',
   'thl-dytv': 'Apple TV (tvOS 16+)',
   'thl-remote': 'Apple TV · iOS (CoreML/MLX)'
 }
+
+const PUBLIC_TF_MAP = {
+  'thl-browser': 'https://testflight.apple.com/join/WpRhUUyp'
+}
+
+const currentPublicTfLink = computed(() => {
+  return PUBLIC_TF_MAP[route.params.appid] || ''
+})
 
 const appPlatformTag = computed(() => {
   return PLATFORM_MAP[route.params.appid] || ''

@@ -78,13 +78,13 @@
       <div class="masonry-item long-card glass-panel flex-row">
         <div class="card-text flex-1">
           <div class="tag accent-amber">On-Device Apple Vision OCR</div>
-          <h3>原生离线 OCR 与即时多语言翻译</h3>
+          <h3>本机中英文 OCR 与 macOS 系统翻译</h3>
           <p>
-            基于 Apple Vision 深度学习框架本地推理，瞬间提取中英日韩等多国语言，自动还原段落排版并一键复制纯文本。支持 macOS 原生翻译引擎离线直译，无需配置任何第三方 API Key，完全在本地安全运行。
+            使用 Apple Vision 在本机识别简体中文、繁体中文和英文，并可一键复制识别文本。翻译调用 macOS Translation；缺少语言模型时由系统提示下载。截图、识别文本和翻译文本不会上传到糖葫芦服务器。
           </p>
         </div>
         <div class="media-row flex-1">
-          <img loading="lazy" src="../assets/shot/04-offline-ocr.png" alt="原生离线 OCR 与即时多语言翻译" class="rounded drop-shadow" />
+          <img loading="lazy" src="../assets/shot/04-offline-ocr.png" alt="本机中英文 OCR 与 macOS 系统翻译" class="rounded drop-shadow" />
         </div>
       </div>
 
@@ -138,9 +138,9 @@
           <p>鼠标滚轮在贴图上滑动，支持 50% 至 300% 自由缩放</p>
         </div>
         <div class="shortcut-card">
-          <div class="key-combo"><kbd>双击选区</kbd></div>
-          <h4>快速复制</h4>
-          <p>完成标注后双击选区，直接写入剪贴板并退出</p>
+          <div class="key-combo"><kbd>双击文字</kbd></div>
+          <h4>编辑文字标注</h4>
+          <p>双击已完成的文字标注，可继续修改标注内容</p>
         </div>
       </div>
     </section>
@@ -149,10 +149,9 @@
     <section class="privacy-banner glass-panel">
       <div class="banner-icon">🛡️</div>
       <div class="banner-text">
-        <h3>100% 本地端侧运行 · 零云端依赖</h3>
+        <h3>本机处理 · 隐私优先</h3>
         <p>
-          糖葫芦截屏无用户账号体系、无数据追踪、不含任何广告 SDK。
-          截图画面、离线 OCR 与翻译全部在您的 Mac 本地芯片完成计算，绝不上云，全力保护您的屏幕内容安全。
+          糖葫芦截屏无需账户，不含广告追踪 SDK。截图与 OCR 在您的 Mac 本地处理；系统翻译由 macOS 提供，缺少语言模型时系统会提示下载。截图、识别文本和翻译文本不会上传到糖葫芦服务器。
         </p>
       </div>
     </section>

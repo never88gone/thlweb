@@ -316,12 +316,12 @@ const baseProducts = [
   {
     id: 'thl-watch',
     name: '糖葫芦修仙',
-    desc: '将每日运动转化为真实修炼，掌控腕间的数字道基。深度接入 HealthKit。',
+    desc: '将日常运动转化为真气修行，数字洞府随身运转。内置纯本地离线端侧 AI 戒灵墨老与天降机缘。',
     img: new URL('../assets/watch/xiuxian_logo.jpg', import.meta.url).href,
     bg: 'bg-gradient-cyan',
-    platforms: ['Apple Watch', 'iPhone'],
+    platforms: ['Apple Watch', 'iPhone', 'iPhone Duo'],
     categories: ['watch'],
-    tags: ['HealthKit 运动修炼', '表冠火候炼丹', 'AI 墨老伴身']
+    tags: ['HealthKit 灵气转化', '纯本地离线 AI', '天降机缘盲盒', '洞府大盘']
   },
   {
     id: 'thl-send',

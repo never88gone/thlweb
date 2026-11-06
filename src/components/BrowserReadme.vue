@@ -7,10 +7,10 @@
         <p class="hero-subtitle">
           为大屏幕量身定制。以强大的媒体解析兼容性，全维度支持优酷、短视频、腾讯视频等复杂架构的站点网络。这不只是一款浏览器，这是您通向宽广数字世界的私家门户。
         </p>
-        <router-link :to="{ path: '/testflight', query: { app_id: 'thl-browser' } }" class="cta-button primary-cta">
-          申请加入 TestFlight 内测 
+        <a href="https://testflight.apple.com/join/WpRhUUyp" target="_blank" rel="noopener noreferrer" class="cta-button primary-cta">
+          加入 TestFlight 内测
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </router-link>
+        </a>
       </div>
       <div class="hero-image-wrapper floating-anim">
         <img loading="lazy" src="../assets/browser/Logo.png" alt="糖葫芦浏览器标志" class="hero-app-icon" />

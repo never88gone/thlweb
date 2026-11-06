@@ -33,33 +33,33 @@
       <!-- 洞府模块 -->
       <div class="bento-card fade-in-up card-tall">
         <div class="card-text">
-          <h3>洞府与聚灵阵</h3>
-          <p>告别单调的图表统计，在腕间监控您的真气汇聚效率。境界与资质的每一成提升，都将直接改变您的天地灵气摄取量。</p>
+          <h3>洞府大盘与天道时辰</h3>
+          <p>告别单调的图表统计，在手机与腕间监控五行气旋流转。古代天道时辰与现代生活共振，境界突破随步履水到渠成。</p>
         </div>
         <div class="card-media">
-          <img loading="lazy" src="../assets/watch/media__1776148448843.png" alt="洞府界面" />
+          <img loading="lazy" src="../assets/watch/media__1776148448843.png" alt="洞府大盘" />
         </div>
       </div>
 
-      <!-- 演武模块 -->
+      <!-- 天降机缘盲盒模块 -->
       <div class="bento-card fade-in-up">
         <div class="card-text">
-          <h3>择脉演武</h3>
-          <p>顺应天道进行起阵入定。选择体修或法修，通过现实锻炼触发劫雷挑战。</p>
+          <h3>天降机缘 · 仙道宝箱</h3>
+          <p>日常坚持自律锻炼，即可触发天道奇遇！开启机缘盲盒收获海量额外修为，为每一次流汗带来惊喜回馈。</p>
         </div>
         <div class="card-media">
-          <img loading="lazy" src="../assets/watch/media__1776148448531.png" alt="择脉演武" />
+          <img loading="lazy" src="../assets/watch/media__1776148448531.png" alt="天降机缘" />
         </div>
       </div>
 
       <!-- 灵根资质 -->
       <div class="bento-card fade-in-up">
         <div class="card-text">
-          <h3>先天道基</h3>
-          <p>金木水火土五行资质随心相生。打破传统运动类型，用属相赋予成就独特的灵根组合。</p>
+          <h3>五行法则 · 融汇一身</h3>
+          <p>步数化木、卡路里化金、睡眠凝水。金木水火土五行资质随心相生，健康运动与东方玄幻深度融合。</p>
         </div>
         <div class="card-media">
-          <img loading="lazy" src="../assets/watch/media__1776148448552.png" alt="先天道基" />
+          <img loading="lazy" src="../assets/watch/media__1776148448552.png" alt="五行法则" />
         </div>
       </div>
     </section>
@@ -67,9 +67,9 @@
     <!-- 跨端联动横幅：AI 老爷爷 -->
     <section class="combo-feature fade-in-up">
       <div class="combo-text">
-        <h3 class="gradient-gold">戒指里的老爷爷</h3>
-        <p>修炼之路何其孤寂？我们为你内置了名为“墨老”的残魂老者（大型语言模型加持）。</p>
-        <p>你不仅可以向他请教天材地宝，还会因为你在生活中的偷懒行为而遭到他严厉且真实的毒舌训斥。</p>
+        <h3 class="gradient-gold">戒指里的老爷爷 · 纯本地离线 AI</h3>
+        <p>修炼之路何其孤寂？我们为你内置了名为“墨老”的残魂老者（端侧离线大模型加持）。</p>
+        <p>他性格孤傲毒舌、护短犀利，真实感知你的运动历程。100% 设备本地单机推理，零云端上传，守护绝对隐私。</p>
       </div>
       <div class="combo-media">
         <!-- AI 对话截图 -->

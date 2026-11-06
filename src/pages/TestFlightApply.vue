@@ -48,6 +48,14 @@
                 </select>
                 <p v-if="errors.app_id" class="field-error">{{ errors.app_id }}</p>
               </div>
+
+              <div v-if="publicTfUrl" class="public-tf-hint">
+                <span class="hint-icon">💡</span>
+                <span>该应用当前开放公测，您也可以</span>
+                <a :href="publicTfUrl" target="_blank" rel="noopener noreferrer" class="public-tf-link">
+                  直接加入 TestFlight 公测 →
+                </a>
+              </div>
             </div>
 
             <!-- 邮箱 -->
@@ -251,7 +259,13 @@ const form = reactive({
   screenshot_url: '',
 });
 
+const PUBLIC_TF_URLS = {
+  'thl-browser': 'https://testflight.apple.com/join/WpRhUUyp',
+  'thl-dance': 'https://testflight.apple.com/join/EvqUqfgC'
+};
+
 const selectedApp = computed(() => APP_LIST.find(a => a.id === form.app_id));
+const publicTfUrl = computed(() => PUBLIC_TF_URLS[form.app_id] || '');
 
 const errors = reactive({});
 const loading = ref(false);
@@ -702,6 +716,34 @@ function resetForm() {
 .app-badge-elegant .app-label {
   font-size: 20px;
   font-weight: 600;
+  color: #fff;
+}
+
+/* 公测提示横幅 */
+.public-tf-hint {
+  margin-top: 14px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: #ffedd5;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.1);
+}
+
+.public-tf-link {
+  color: var(--accent-blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: var(--transition-base);
+}
+
+.public-tf-link:hover {
   color: #fff;
 }
 
