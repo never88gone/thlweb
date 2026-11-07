@@ -605,6 +605,17 @@
   background: linear-gradient(145deg, #2b2732, #0d0b12 55%, #1d1a24);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 30px rgba(139, 92, 246, 0.15);
   box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.phone-frame.is-tablet {
+  width: 200px;
+  aspect-ratio: 1488 / 2266;
+  border-radius: 20px;
+}
+
+.phone-frame.is-tablet .phone-notch {
+  display: none;
 }
 
 .phone-notch {

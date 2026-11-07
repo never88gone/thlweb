@@ -220,9 +220,9 @@
             <div class="companion-body">
               <!-- 双设备同屏组合：左边 iPhone，右边 Watch，绝不变形 -->
               <div class="dual-devices-stage">
-                <!-- iPhone 拟物模型 -->
+                <!-- iPhone / iPad 拟物模型 -->
                 <div class="phone-mockup-wrap">
-                  <div class="phone-frame">
+                  <div class="phone-frame" :class="{ 'is-tablet': currentCompanionTab === 'ipad' }">
                     <div class="phone-notch" aria-hidden="true"></div>
                     <div class="phone-screen">
                       <transition name="fade-screen" mode="out-in">
@@ -236,7 +236,7 @@
                       </transition>
                     </div>
                   </div>
-                  <span class="mockup-label">iPhone · {{ activeCompanionData.tabTitle }}</span>
+                  <span class="mockup-label">{{ activeCompanionData.tabTitle }}</span>
                 </div>
 
                 <!-- Apple Watch 拟物模型 -->
@@ -436,12 +436,12 @@ import tvosMotion from '../assets/dance/tvos-motion.png'
 import tvosSettlement from '../assets/dance/tvos-settlement.png'
 import tvosDownloading from '../assets/dance/tvos-downloading.png'
 
-// iOS 截图
+// iOS & iPadOS 截图
+import ipadWorkbench from '../assets/dance/ipad-workbench.png'
+import iphoneStoreLatest from '../assets/dance/iphone-store-latest.png'
+import iphoneDetailLatest from '../assets/dance/iphone-detail-latest.png'
+import iphoneSettingsLatest from '../assets/dance/iphone-settings-latest.png'
 import iphoneHome from '../assets/dance/iphone-home.png'
-import iphoneStore from '../assets/dance/iphone-store.png'
-import iphoneDetail from '../assets/dance/iphone-detail.png'
-import iphoneSettings from '../assets/dance/iphone-settings.png'
-import iphoneHelp from '../assets/dance/iphone-help.png'
 
 // Watch 截图
 import watchReady from '../assets/dance/watch-ready.jpg'
@@ -484,12 +484,14 @@ const scrollToSection = (id) => {
 const signalItems = [
   '全新节奏有氧拳击模式',
   '刺拳 · 直拳 · 摆拳 · 勾拳四大拳法识别',
+  'iPadOS & 折叠屏大屏双栏沉浸工作台',
+  'iPhone 本机独立开练 · 随时随地暴汗',
+  '科技青绿全新高保真品牌视觉',
   '体感舞蹈 & 有氧拳击双模式随心切换',
-  '免视频纯音频极速畅练',
   'APPLE TV 大屏沉浸舞台',
   'IPHONE 智能连接与点播中枢',
   'APPLE WATCH 端侧毫秒级冲击与拳型判定',
-  '支持左手 / 右手自由佩戴',
+  '支持左手 / 右手自由佩戴与表冠朝向',
   'PERFECT · GOOD · MISS 实时打击反馈',
   '全维度击中战报与连击激励'
 ]
@@ -518,20 +520,52 @@ const activeTvData = computed(() => {
   return tvStageList.find(item => item.id === currentTvStage.value) || tvStageList[0]
 })
 
-// 伴侣设备（iPhone 页面切换）
-const currentCompanionTab = ref('store')
+// 伴侣设备（iPhone / iPad 页面切换）
+const currentCompanionTab = ref('ipad')
 const companionPhoneTabs = [
-  { id: 'store', label: '舞曲商城' },
+  { id: 'ipad', label: 'iPad 双栏工作台' },
+  { id: 'store', label: '精选曲库' },
   { id: 'detail', label: '单曲详情' },
   { id: 'settings', label: '偏好设置' },
   { id: 'home', label: '连接中枢' }
 ]
 
 const companionMap = {
-  store: { image: iphoneStore, alt: 'iPhone 舞曲商城曲库', tabTitle: '舞曲商城', title: 'iPhone 掌上选曲商城', desc: '随时在手机上浏览精选舞曲库，按节奏风格与挑战难度筛选心仪曲目。' },
-  detail: { image: iphoneDetail, alt: 'iPhone 舞曲详情', tabTitle: '单曲详情', title: '单曲详情与一键点播', desc: '查看舞曲难度、总动作点数并自动继承佩戴手偏好，轻点即可投送至 Apple TV。' },
-  settings: { image: iphoneSettings, alt: 'iPhone 偏好设置', tabTitle: '偏好设置', title: '左手/右手与判定偏好设置', desc: '按个人使用习惯自由选择惯用手、数码表冠朝向与判定宽容度，个性化十足。' },
-  home: { image: iphoneHome, alt: 'iPhone 连接中枢', tabTitle: '连接中枢', title: '极简局域网连接与播控中枢', desc: '自动搜索并秒级连入附近 Apple TV 房间，控制舞曲开跳、暂停与重试。' }
+  ipad: {
+    image: ipadWorkbench,
+    alt: 'iPadOS 与折叠大屏双栏沉浸工作台',
+    tabTitle: 'iPad 双栏工作台',
+    title: 'iPadOS 展开态大屏双栏工作台',
+    desc: '深度适配 iPad 与折叠大屏展开态：左侧浏览完整曲目列表，右侧大图呈现有氧拳击或舞蹈卡点、卡路里消耗与「在 iPhone 本机开练」操作，科技青绿高保真视觉一览无余。'
+  },
+  store: {
+    image: iphoneStoreLatest,
+    alt: 'iPhone 掌上选曲曲库',
+    tabTitle: 'iPhone 曲库',
+    title: 'iPhone 掌上选曲曲库',
+    desc: '科技青绿与柔光毛玻璃背景，霓虹有氧拳击与木兰舞蹈多模式精美卡片分类呈现，单手轻盈浏览。'
+  },
+  detail: {
+    image: iphoneDetailLatest,
+    alt: 'iPhone 舞曲与拳击详情',
+    tabTitle: '单曲详情',
+    title: '单曲详情与本机开练',
+    desc: '3D 霓虹拳击手套封面、节拍卡点解析与热量消耗预估，一键开启「iPhone 本机独立开练」或「投屏至 Apple TV」。'
+  },
+  settings: {
+    image: iphoneSettingsLatest,
+    alt: 'iPhone 偏好设置',
+    tabTitle: '偏好设置',
+    title: '左手/右手佩戴与个性化体验',
+    desc: '支持左手/右手自由佩戴、数码表冠朝向、体感打分宽容度调校、防误触滑动锁与屏幕常亮，贴合个人运动习惯。'
+  },
+  home: {
+    image: iphoneHome,
+    alt: 'iPhone 连接中枢',
+    tabTitle: '连接中枢',
+    title: '极简局域网连接与播控中枢',
+    desc: '自动搜索并秒级连入附近 Apple TV 房间，控制舞曲开跳、暂停与重试。'
+  }
 }
 
 const activeCompanionData = computed(() => {
@@ -554,16 +588,16 @@ const devices = [
   },
   {
     number: '02',
-    name: 'iPhone',
-    tags: '发现 · 选曲 · 播控中枢 · 个性化',
+    name: 'iPhone / iPad',
+    tags: '双栏工作台 · 本机开练 · 智能播控 · 个性化',
     featured: true,
-    description: '局域网自动发现 Apple TV，掌上随意浏览曲库、点播歌曲，并掌控开始、暂停、继续和退出会话。',
+    description: 'iPhone 单手轻盈选曲与本机开练；iPad / 折叠屏展开态深度呈现双栏沉浸工作台，左侧选曲右侧详情一体掌控，更可随时一键点播投屏至 Apple TV。',
     points: [
-      '局域网快速发现附近 Apple TV 房间',
-      '支持左手或右手佩戴及表冠朝向配置',
-      '从曲库浏览到单曲详情一键点播'
+      '支持 iPadOS & 折叠大屏展开态专属双栏工作台',
+      '支持「iPhone 本机独立开练」，摆脱电视硬件限制',
+      '支持左手或右手佩戴习惯、表冠朝向与防误触锁定'
     ],
-    icon: '<svg viewBox="0 0 32 32"><rect x="8" y="2" width="16" height="28" rx="4"/><path d="M13 6h6M14 26h4"/></svg>'
+    icon: '<svg viewBox="0 0 32 32"><rect x="6" y="2" width="20" height="28" rx="3"/><path d="M12 6h8M14 26h4"/></svg>'
   },
   {
     number: '03',
@@ -593,8 +627,8 @@ const featureHighlights = [
   },
   {
     icon: '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/><line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/></svg>',
-    title: '竖屏视频自适应舞台',
-    desc: '保留完整全身舞者动作，大屏两侧根据画面自动提取动态舞台渐变色柔光晕染，视觉更沉浸。'
+    title: '多形态设备适配 · iPad 双栏工作台与手机单手掌上模式',
+    desc: '大屏采用 iPadOS 双栏深度适配，选曲与详情无缝同屏呈现；小屏单手轻快掌控；无论是电视大屏、平板还是手机，皆享有极具质感的统一科技青绿视觉。'
   },
   {
     icon: '<svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
